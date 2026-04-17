@@ -1,0 +1,64 @@
+name: Update Profile Cards
+
+on:
+  schedule:
+    - cron: '0 15 * * *'
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'profile-cards/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate Profile Summary Cards
+        uses: vn7n24fzkq/github-profile-summary-cards@release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          USERNAME: ${{ github.repository_owner }}
+
+      - name: Move generated cards to profile-cards/
+        run: |
+          mkdir -p profile-cards
+          if [ -d profile-summary-card-output ]; then
+            cp profile-summary-card-output/*.svg profile-cards/ 2>/dev/null || true
+          fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch repository status
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/fetch_repo_status.py > /tmp/repo_status.json
+
+      - name: Analyze commits
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/analyze_commits.py > /tmp/focus.txt
+
+      - name: Update README
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/update_readme.py \
+            --repo-status-file /tmp/repo_status.json \
+            --focus-file /tmp/focus.txt
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "chore: update profile cards and README statistics"
+          git push
