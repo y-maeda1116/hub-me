@@ -20,10 +20,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `hub-me` — fix: correct SVG paths and commit fetching (_2026-04-19_)
+- `hub-me` — chore: add .gitignore for Python artifacts (_2026-04-18_)
+- `hub-me` — feat: add GitHub Actions workflow for daily profile card updates (_2026-04-18_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 1 repos — working with **JavaScript**, **TypeScript**, **HTML**, **CSS**, **Shell**
+Recently active in 2 repos — working with **JavaScript**, **TypeScript**, **HTML**, **CSS**, **Python**
 <!-- /CURRENT_FOCUS -->
