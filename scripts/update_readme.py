@@ -63,14 +63,14 @@ def format_recent_commits(commits: list) -> str:
 
 
 def fetch_recent_commits(owner: str, limit: int = 3) -> list:
-    """Fetch recent push events via gh CLI and return commit dicts."""
+    """Fetch recent commits via GitHub Search API."""
     result = subprocess.run(
         [
             "gh",
             "api",
-            f"users/{owner}/events/public?per_page=100",
+            f"search/commits?q=author:{owner}&sort=committer-date&per_page={limit}",
             "--jq",
-            '[.[] | select(.type == "PushEvent") | {repo: .repo.name, message: .payload.commits[0].message, date: .created_at}][:5]',
+            f'[.items[] | {{repo: .repository.full_name, message: .commit.message, date: .commit.author.date}}]',
         ],
         capture_output=True,
         text=True,
@@ -78,17 +78,9 @@ def fetch_recent_commits(owner: str, limit: int = 3) -> list:
     if result.returncode != 0 or not result.stdout.strip():
         return []
     try:
-        events = json.loads(result.stdout)
+        return json.loads(result.stdout)
     except json.JSONDecodeError:
         return []
-    seen = set()
-    unique = []
-    for e in events:
-        key = (e.get("repo", ""), e.get("message", ""))
-        if key not in seen:
-            seen.add(key)
-            unique.append(e)
-    return unique[:limit]
 
 
 def main():

@@ -7,6 +7,7 @@ on:
     branches: [main]
     paths-ignore:
       - 'profile-cards/**'
+      - 'profile-summary-card-output/**'
   workflow_dispatch:
 
 permissions:
@@ -24,13 +25,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           USERNAME: ${{ github.repository_owner }}
-
-      - name: Move generated cards to profile-cards/
-        run: |
-          mkdir -p profile-cards
-          if [ -d profile-summary-card-output ]; then
-            cp profile-summary-card-output/*.svg profile-cards/ 2>/dev/null || true
-          fi
 
       - name: Set up Python
         uses: actions/setup-python@v5

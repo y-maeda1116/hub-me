@@ -1,9 +1,9 @@
 # y-maeda1116
 
 <!-- PROFILE_CARDS -->
-![Stats](profile-cards/stats.svg)
-![Top Languages](profile-cards/language.svg)
-![Productive Time](profile-cards/productive-time.svg)
+![Stats](profile-summary-card-output/default/3-stats.svg)
+![Top Languages](profile-summary-card-output/default/2-most-commit-language.svg)
+![Productive Time](profile-summary-card-output/default/4-productive-time.svg)
 <!-- /PROFILE_CARDS -->
 
 ## Repository Status
