@@ -27,9 +27,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `hub-me` — feat: set profile card timezone to JST (UTC+9) (_2026-04-20_)
 - `security-base` — fix: improve project configuration and consistency (#26) (_2026-04-20_)
 - `hub-me` — refactor: dynamically fetch all repos instead of hardcoded list (_2026-04-20_)
-- `hub-me` — fix: correct SVG paths and commit fetching (_2026-04-19_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
