@@ -11,6 +11,7 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status |
 |---|---|---|
+| [games](https://github.com/y-maeda1116/games) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [apple-refurb-discord-notify](https://github.com/y-maeda1116/apple-refurb-discord-notify) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
@@ -21,19 +22,18 @@
 | [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [template-go-cross](https://github.com/y-maeda1116/template-go-cross) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [discord-trans-helper](https://github.com/y-maeda1116/discord-trans-helper) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
-| [games](https://github.com/y-maeda1116/games) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 <!-- /REPO_STATUS_TABLE -->
 
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `games` — feat: security-baseテンプレート導入・オセロJS参照修正 (#19) (_2026-04-21_)
 - `hub-me` — feat: set profile card timezone to JST (UTC+9) (_2026-04-20_)
 - `security-base` — fix: improve project configuration and consistency (#26) (_2026-04-20_)
-- `hub-me` — refactor: dynamically fetch all repos instead of hardcoded list (_2026-04-20_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 3 repos — working with **JavaScript**, **TypeScript**, **HTML**, **CSS**, **Go**
+Recently active in 4 repos — working with **JavaScript**, **TypeScript**, **HTML**, **CSS**, **Go**
 <!-- /CURRENT_FOCUS -->
