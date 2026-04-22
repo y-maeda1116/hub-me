@@ -11,9 +11,9 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status |
 |---|---|---|
+| [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [games](https://github.com/y-maeda1116/games) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
-| [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [apple-refurb-discord-notify](https://github.com/y-maeda1116/apple-refurb-discord-notify) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [tenki-fuku-bot](https://github.com/y-maeda1116/tenki-fuku-bot) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [divination-journal](https://github.com/y-maeda1116/divination-journal) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
@@ -27,9 +27,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `games` — feat: security-baseテンプレート導入・オセロJS参照修正 (#19) (_2026-04-21_)
-- `hub-me` — feat: set profile card timezone to JST (UTC+9) (_2026-04-20_)
-- `security-base` — fix: improve project configuration and consistency (#26) (_2026-04-20_)
+- `Weekly-Task-Board` — Merge pull request #51 from y-maeda1116/dev (_2026-04-22_)
+- `Weekly-Task-Board` — feat: build standalone ts7 app with full weekly task board UI (v1.6.5) (_2026-04-22_)
+- `Weekly-Task-Board` — feat: integrate hybrid TS modules into ts7/Vite build (v1.6.4) (_2026-04-22_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
