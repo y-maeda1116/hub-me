@@ -27,9 +27,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `Weekly-Task-Board` — Merge pull request #51 from y-maeda1116/dev (_2026-04-22_)
-- `Weekly-Task-Board` — feat: build standalone ts7 app with full weekly task board UI (v1.6.5) (_2026-04-22_)
-- `Weekly-Task-Board` — feat: integrate hybrid TS modules into ts7/Vite build (v1.6.4) (_2026-04-22_)
+- `Weekly-Task-Board` — Merge pull request #52 from y-maeda1116/dev (_2026-04-23_)
+- `Weekly-Task-Board` — fix: implement complete migration modal UI with task list and action buttons (v1.7.5) (_2026-04-23_)
+- `Weekly-Task-Board` — fix: wrap all init calls in try-catch, self-initialize hybrid UI modules (v1.7.4) (_2026-04-23_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
