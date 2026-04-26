@@ -27,13 +27,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `til` — Create switch-glm-gpt-oss (_2026-04-26_)
 - `Weekly-Task-Board` — Merge pull request #52 from y-maeda1116/dev (_2026-04-23_)
 - `Weekly-Task-Board` — fix: implement complete migration modal UI with task list and action buttons (v1.7.5) (_2026-04-23_)
-- `Weekly-Task-Board` — fix: wrap all init calls in try-catch, self-initialize hybrid UI modules (v1.7.4) (_2026-04-23_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 4 repos — working with **JavaScript**, **TypeScript**, **HTML**, **CSS**, **Go**
+Recently active in 5 repos — working with **JavaScript**, **TypeScript**, **HTML**, **CSS**, **Go**
 <!-- /CURRENT_FOCUS -->
