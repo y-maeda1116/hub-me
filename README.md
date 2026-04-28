@@ -27,7 +27,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-No recent activity
+- `til` — Create switch-glm-gpt-oss (_2026-04-26_)
+- `Weekly-Task-Board` — Merge pull request #52 from y-maeda1116/dev (_2026-04-23_)
+- `Weekly-Task-Board` — fix: implement complete migration modal UI with task list and action buttons (v1.7.5) (_2026-04-23_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
