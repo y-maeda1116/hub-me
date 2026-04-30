@@ -28,9 +28,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `sumida-stream-coffee` — ci: add daily Tabelog scrape workflow (_2026-04-29_)
-- `sumida-stream-coffee` — feat: add Tabelog scraping script for shop data collection (_2026-04-29_)
-- `sumida-stream-coffee` — style: fix prettier formatting (_2026-04-29_)
+- `sumida-stream-coffee` — ci: add convert step to daily scrape workflow (_2026-04-30_)
+- `sumida-stream-coffee` — fix: rewrite Tabelog HTML parsers to match actual page structure (_2026-04-30_)
+- `sumida-stream-coffee` — feat: add raw_shops.json to shops.json conversion script (_2026-04-30_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
