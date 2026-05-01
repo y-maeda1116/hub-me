@@ -28,9 +28,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `sumida-stream-coffee` — ci: add paths filter to deploy workflow (_2026-05-01_)
+- `sumida-stream-coffee` — feat: add ignore list, multi-station support, and walking time extraction (_2026-05-01_)
 - `sumida-stream-coffee` — ci: add convert step to daily scrape workflow (_2026-04-30_)
-- `sumida-stream-coffee` — fix: rewrite Tabelog HTML parsers to match actual page structure (_2026-04-30_)
-- `sumida-stream-coffee` — feat: add raw_shops.json to shops.json conversion script (_2026-04-30_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
