@@ -28,13 +28,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `sumida-stream-coffee` — ci: add paths filter to deploy workflow (_2026-05-01_)
-- `sumida-stream-coffee` — feat: add ignore list, multi-station support, and walking time extraction (_2026-05-01_)
-- `sumida-stream-coffee` — ci: add convert step to daily scrape workflow (_2026-04-30_)
+- `sumida-stream-coffee` — fix: const→let for stations variable and regenerate shops.json (_2026-05-02_)
+- `sumida-stream-coffee` — fix: add CI failure reporting, duplicate removal, and Zod validation (_2026-05-02_)
+- `sumida-stream-coffee` — feat: add coffee cup favicon and update page title (_2026-05-02_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 4 repos — working with **JavaScript**, **TypeScript**, **HTML**, **CSS**, **Shell**
+Recently active in 3 repos — working with **TypeScript**, **CSS**, **JavaScript**, **HTML**
 <!-- /CURRENT_FOCUS -->
