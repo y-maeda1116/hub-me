@@ -12,12 +12,12 @@
 | Repository | Latest Release | Build Status |
 |---|---|---|
 | [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
+| [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
+| [tenki-fuku-bot](https://github.com/y-maeda1116/tenki-fuku-bot) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [games](https://github.com/y-maeda1116/games) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
-| [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![failing](https://img.shields.io/badge/build-failing-red) |
 | [apple-refurb-discord-notify](https://github.com/y-maeda1116/apple-refurb-discord-notify) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
-| [tenki-fuku-bot](https://github.com/y-maeda1116/tenki-fuku-bot) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [divination-journal](https://github.com/y-maeda1116/divination-journal) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [python-template-base](https://github.com/y-maeda1116/python-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [Playful-Learning-Hub](https://github.com/y-maeda1116/Playful-Learning-Hub) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
@@ -28,13 +28,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `sumida-stream-coffee` — feat: add Tawaramachi station and improve walking time extraction (_2026-05-04_)
-- `sumida-stream-coffee` — fix: const→let for stations variable and regenerate shops.json (_2026-05-02_)
-- `sumida-stream-coffee` — fix: add CI failure reporting, duplicate removal, and Zod validation (_2026-05-02_)
+- `hub-me` — fix: pin GitHub Actions to full-length commit SHAs (_2026-05-06_)
+- `security-base` — fix: pin govulncheck version and fix checkout SHA typo (#29) (_2026-05-05_)
+- `tenki-fuku-bot` — fix: log 429 error instead of throwing to prevent script crash (_2026-05-04_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 2 repos — working with **TypeScript**, **CSS**, **JavaScript**, **HTML**
+Recently active in 5 repos — working with **Go**, **TypeScript**, **Python**, **JavaScript**, **Shell**
 <!-- /CURRENT_FOCUS -->
