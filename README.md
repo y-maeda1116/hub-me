@@ -28,9 +28,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `hub-me` — chore: upgrade actions to Node.js 24 compatible versions (_2026-05-06_)
 - `hub-me` — fix: pin GitHub Actions to full-length commit SHAs (_2026-05-06_)
 - `security-base` — fix: pin govulncheck version and fix checkout SHA typo (#29) (_2026-05-05_)
-- `tenki-fuku-bot` — fix: log 429 error instead of throwing to prevent script crash (_2026-05-04_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
