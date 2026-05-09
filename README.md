@@ -28,9 +28,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `hub-me` — chore: upgrade actions to Node.js 24 compatible versions (_2026-05-06_)
-- `hub-me` — fix: pin GitHub Actions to full-length commit SHAs (_2026-05-06_)
-- `security-base` — fix: pin govulncheck version and fix checkout SHA typo (#29) (_2026-05-05_)
+- `sumida-stream-coffee` — fix: update favicon path for custom domain (_2026-05-10_)
+- `sumida-stream-coffee` — feat: add Tabelog link to map popup (_2026-05-10_)
+- `sumida-stream-coffee` — feat: add 濹 kanji with sumi ink style to header (_2026-05-10_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
