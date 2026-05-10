@@ -28,9 +28,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `sumida-stream-coffee` — fix: update favicon path for custom domain (_2026-05-10_)
-- `sumida-stream-coffee` — feat: add Tabelog link to map popup (_2026-05-10_)
-- `sumida-stream-coffee` — feat: add 濹 kanji with sumi ink style to header (_2026-05-10_)
+- `sumida-stream-coffee` — fix: revert ts-security to inline workflow for ESLint flat config compatibility (_2026-05-10_)
+- `sumida-stream-coffee` — refactor: use security-base reusable workflows for TS security and secret scan (_2026-05-10_)
+- `sumida-stream-coffee` — fix: parse comma-separated distances (e.g. 1,101m) in accessText (_2026-05-10_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
