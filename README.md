@@ -37,5 +37,5 @@
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 6 repos — working with **JavaScript**, **TypeScript**, **HTML**, **CSS**, **Go**
+Recently active in 5 repos — working with **JavaScript**, **TypeScript**, **HTML**, **CSS**, **Go**
 <!-- /CURRENT_FOCUS -->
