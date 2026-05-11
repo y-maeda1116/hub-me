@@ -29,9 +29,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `hub-me` — fix: use Search API with pagination for weekday commits card (_2026-05-12_)
 - `hub-me` — feat: add weekday commits bar chart card (_2026-05-11_)
 - `hub-me` — refactor: add type annotations, fix get_all_repos bug, add test step (_2026-05-11_)
-- `sumida-stream-coffee` — feat: UX improvements — clear button, popup walk times, hide empty filters, mobile padding (_2026-05-11_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
