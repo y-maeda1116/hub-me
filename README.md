@@ -29,9 +29,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `hub-me` — feat: add weekday commits bar chart card (_2026-05-11_)
 - `hub-me` — refactor: add type annotations, fix get_all_repos bug, add test step (_2026-05-11_)
 - `sumida-stream-coffee` — feat: UX improvements — clear button, popup walk times, hide empty filters, mobile padding (_2026-05-11_)
-- `sumida-stream-coffee` — style: fix Prettier formatting in ShopCard.module.css (_2026-05-11_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
