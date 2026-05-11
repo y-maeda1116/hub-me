@@ -34,6 +34,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+
       - name: Fetch repository status
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

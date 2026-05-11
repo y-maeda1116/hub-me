@@ -49,7 +49,7 @@ def format_repo_status_table(status_json: str, owner: str) -> str:
     return "\n".join(lines)
 
 
-def format_recent_commits(commits: list) -> str:
+def format_recent_commits(commits: list[dict[str, str]]) -> str:
     """Format a list of commit dicts into markdown list items."""
     if not commits:
         return "No recent activity"
@@ -62,7 +62,7 @@ def format_recent_commits(commits: list) -> str:
     return "\n".join(lines)
 
 
-def fetch_recent_commits(owner: str, limit: int = 3) -> list:
+def fetch_recent_commits(owner: str, limit: int = 3) -> list[dict[str, str]]:
     """Fetch recent commits via GitHub Search API."""
     result = subprocess.run(
         [

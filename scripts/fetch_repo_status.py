@@ -7,11 +7,11 @@ import sys
 OWNER = "y-maeda1116"
 
 
-def get_all_repos(owner: str = OWNER) -> list:
+def get_all_repos(owner: str = OWNER) -> list[dict[str, str]]:
     """Get all public repos for the owner."""
     result = subprocess.run(
         ["gh", "api", f"users/{owner}/repos?per_page=100&type=owner&sort=updated",
-         "--jq", "[.[] | {name: .name, has_actions: .has_wiki}]"],
+         "--jq", "[.[] | {name: .name}]"],
         capture_output=True, text=True,
     )
     if result.returncode != 0 or not result.stdout.strip():
@@ -54,7 +54,7 @@ def has_release_or_actions(repo: str, owner: str = OWNER) -> bool:
     return release != "N/A" or build != "N/A"
 
 
-def fetch_repo_status(owner: str = OWNER) -> list:
+def fetch_repo_status(owner: str = OWNER) -> list[dict[str, str]]:
     """Fetch status for all repos with releases or CI. Returns list of dicts."""
     repos = get_all_repos(owner)
     if not repos:

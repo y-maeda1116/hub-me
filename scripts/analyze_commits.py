@@ -40,7 +40,7 @@ FILENAME_TO_TECH = {
 }
 
 
-def detect_tech_from_files(files: list) -> list:
+def detect_tech_from_files(files: list[str]) -> list[str]:
     """Detect technologies from file paths."""
     techs = []
     for f in files:
@@ -54,7 +54,7 @@ def detect_tech_from_files(files: list) -> list:
     return techs
 
 
-def get_active_repos(owner: str, since: str) -> list:
+def get_active_repos(owner: str, since: str) -> list[str]:
     """Get repos with push events since given date."""
     result = subprocess.run(
         ["gh", "api", f"users/{owner}/events/public?per_page=100",
@@ -69,7 +69,7 @@ def get_active_repos(owner: str, since: str) -> list:
         return []
 
 
-def get_repo_languages(repo: str) -> dict:
+def get_repo_languages(repo: str) -> dict[str, int]:
     """Get language breakdown for a repo."""
     full_name = repo if "/" in repo else f"{OWNER}/{repo}"
     result = subprocess.run(
