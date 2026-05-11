@@ -1,7 +1,8 @@
+import json
 import unittest
-from collections import Counter
+from unittest.mock import MagicMock, patch
 
-from scripts.generate_weekday_card import count_by_weekday, generate_svg
+from scripts.generate_weekday_card import count_by_weekday, fetch_commit_dates, generate_svg
 
 
 class TestCountByWeekday(unittest.TestCase):
@@ -30,6 +31,33 @@ class TestCountByWeekday(unittest.TestCase):
         result = count_by_weekday(dates, utc_offset=0)
         self.assertEqual(result[0], 2)
         self.assertEqual(result[1], 1)
+
+
+class TestFetchCommitDates(unittest.TestCase):
+    @patch("scripts.generate_weekday_card.subprocess.run")
+    def test_single_page(self, mock_run):
+        mock_run.return_value = MagicMock(
+            returncode=0,
+            stdout='["2026-05-04T10:00:00Z", "2026-05-05T12:00:00Z"]',
+        )
+        dates = fetch_commit_dates("testuser")
+        self.assertEqual(len(dates), 2)
+
+    @patch("scripts.generate_weekday_card.subprocess.run")
+    def test_pagination(self, mock_run):
+        mock_run.side_effect = [
+            MagicMock(returncode=0, stdout=json.dumps(["2026-05-04T10:00:00Z"] * 100)),
+            MagicMock(returncode=0, stdout='["2026-05-05T12:00:00Z"]'),
+            MagicMock(returncode=0, stdout="[]"),
+        ]
+        dates = fetch_commit_dates("testuser")
+        self.assertEqual(len(dates), 101)
+
+    @patch("scripts.generate_weekday_card.subprocess.run")
+    def test_api_error(self, mock_run):
+        mock_run.return_value = MagicMock(returncode=1, stdout="")
+        dates = fetch_commit_dates("testuser")
+        self.assertEqual(dates, [])
 
 
 class TestGenerateSvg(unittest.TestCase):

@@ -18,23 +18,33 @@ BAR_COLOR = "#586e75"
 TEXT_COLOR = "#586e75"
 
 
-def fetch_commits(owner: str, utc_offset: int = 0) -> list[dict[str, str]]:
-    """Fetch recent commit events for the owner."""
-    result = subprocess.run(
-        [
-            "gh", "api",
-            f"users/{owner}/events/public?per_page=100",
-            "--jq",
-            '[.[] | select(.type == "PushEvent") | .created_at]',
-        ],
-        capture_output=True, text=True,
-    )
-    if result.returncode != 0 or not result.stdout.strip():
-        return []
-    try:
-        return json.loads(result.stdout)
-    except json.JSONDecodeError:
-        return []
+def fetch_commit_dates(owner: str) -> list[str]:
+    """Fetch commit dates via Search API with pagination."""
+    dates: list[str] = []
+    page = 1
+    while True:
+        result = subprocess.run(
+            [
+                "gh", "api",
+                f"search/commits?q=author:{owner}&sort=committer-date&per_page=100&page={page}",
+                "--jq",
+                '[.items[] | .commit.author.date]',
+            ],
+            capture_output=True, text=True,
+        )
+        if result.returncode != 0 or not result.stdout.strip():
+            break
+        try:
+            page_dates = json.loads(result.stdout)
+        except json.JSONDecodeError:
+            break
+        if not page_dates:
+            break
+        dates.extend(page_dates)
+        if len(page_dates) < 100:
+            break
+        page += 1
+    return dates
 
 
 def count_by_weekday(dates: list[str], utc_offset: int = 0) -> list[int]:
@@ -90,7 +100,7 @@ def main() -> None:
     parser.add_argument("--owner", default=OWNER, help="GitHub username")
     args = parser.parse_args()
 
-    dates = fetch_commits(args.owner, args.utc_offset)
+    dates = fetch_commit_dates(args.owner)
     counts = count_by_weekday(dates, args.utc_offset)
     svg = generate_svg(counts)
 
