@@ -4,6 +4,7 @@
 ![Stats](profile-summary-card-output/default/3-stats.svg)
 ![Top Languages](profile-summary-card-output/default/2-most-commit-language.svg)
 ![Productive Time](profile-summary-card-output/default/4-productive-time.svg)
+![Commits per Day](profile-summary-card-output/default/5-commits-per-weekday.svg)
 <!-- /PROFILE_CARDS -->
 
 ## Repository Status
