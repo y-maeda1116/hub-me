@@ -28,9 +28,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `sumida-stream-coffee` — fix: revert ts-security to inline workflow for ESLint flat config compatibility (_2026-05-10_)
-- `sumida-stream-coffee` — refactor: use security-base reusable workflows for TS security and secret scan (_2026-05-10_)
-- `sumida-stream-coffee` — fix: parse comma-separated distances (e.g. 1,101m) in accessText (_2026-05-10_)
+- `sumida-stream-coffee` — feat: UX improvements — clear button, popup walk times, hide empty filters, mobile padding (_2026-05-11_)
+- `sumida-stream-coffee` — style: fix Prettier formatting in ShopCard.module.css (_2026-05-11_)
+- `sumida-stream-coffee` — fix: resolve 3 bugs — map memory leak, onShopSelect, and 0-min walk times (_2026-05-11_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
