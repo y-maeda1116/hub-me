@@ -12,9 +12,9 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status |
 |---|---|---|
-| [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
-| [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [tenki-fuku-bot](https://github.com/y-maeda1116/tenki-fuku-bot) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
+| [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
+| [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![failing](https://img.shields.io/badge/build-failing-red) |
 | [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [games](https://github.com/y-maeda1116/games) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
@@ -29,13 +29,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `tenki-fuku-bot` — fix: correct JMA API parsing with separate weather/temp area names (_2026-05-12_)
+- `tenki-fuku-bot` — refactor: switch from OpenWeatherMap to JMA (気象庁) API (_2026-05-12_)
 - `hub-me` — fix: use Search API with pagination for weekday commits card (_2026-05-12_)
-- `hub-me` — feat: add weekday commits bar chart card (_2026-05-11_)
-- `hub-me` — refactor: add type annotations, fix get_all_repos bug, add test step (_2026-05-11_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 5 repos — working with **JavaScript**, **TypeScript**, **HTML**, **CSS**, **Go**
+Recently active in 4 repos — working with **JavaScript**, **TypeScript**, **HTML**, **CSS**, **Python**
 <!-- /CURRENT_FOCUS -->
