@@ -30,9 +30,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `go-shichi-go` — fix: add QueryClientProvider for SSR to fix TanStack Query error (_2026-05-15_)
 - `go-shichi-go` — feat: configure Cloudflare Pages deployment (_2026-05-14_)
 - `go-shichi-go` — fix: ESLint flat config with TypeScript parser, fix lint errors (_2026-05-14_)
-- `go-shichi-go` — fix: update setup-node SHA to match latest v6.4.0 (_2026-05-14_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
