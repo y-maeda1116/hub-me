@@ -12,8 +12,8 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status |
 |---|---|---|
-| [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
+| [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [tenki-fuku-bot](https://github.com/y-maeda1116/tenki-fuku-bot) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
@@ -38,5 +38,5 @@
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 6 repos — working with **TypeScript**, **JavaScript**, **HTML**, **CSS**, **Go**
+Recently active in 5 repos — working with **TypeScript**, **Go**, **Python**, **CSS**, **JavaScript**
 <!-- /CURRENT_FOCUS -->
