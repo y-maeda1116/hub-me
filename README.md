@@ -13,9 +13,9 @@
 | Repository | Latest Release | Build Status |
 |---|---|---|
 | [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
+| [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
-| [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [tenki-fuku-bot](https://github.com/y-maeda1116/tenki-fuku-bot) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [games](https://github.com/y-maeda1116/games) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
@@ -30,13 +30,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `go-shichi-go` — fix: remove ts-security workflow - covered by CI with flat config ESLint + security plugin (_2026-05-20_)
-- `go-shichi-go` — feat: add security-base reusable workflows for TS security and secret scanning (_2026-05-20_)
-- `go-shichi-go` — fix: update validator tests to match relaxed validation (_2026-05-20_)
+- `go-shichi-go` — Merge pull request #4 from y-maeda1116/dependabot/npm_and_yarn/wrangler-4.93.0 (_2026-05-21_)
+- `go-shichi-go` — Merge pull request #5 from y-maeda1116/dependabot/npm_and_yarn/vitejs/plugin-react-6.0.2 (_2026-05-21_)
+- `go-shichi-go` — Merge pull request #6 from y-maeda1116/dependabot/npm_and_yarn/vitest-4.1.7 (_2026-05-21_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 2 repos — working with **JavaScript**, **TypeScript**, **HTML**, **CSS**, **Shell**
+Recently active in 3 repos — working with **TypeScript**, **JavaScript**, **HTML**, **CSS**, **Go**
 <!-- /CURRENT_FOCUS -->
