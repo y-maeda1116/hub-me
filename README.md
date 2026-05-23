@@ -30,9 +30,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `go-shichi-go` — chore: add migration meta files (_2026-05-22_)
-- `go-shichi-go` — feat: add share image modal with washi/modern style selector (_2026-05-22_)
-- `go-shichi-go` — feat: add share-image SVG endpoint with washi/modern styles (_2026-05-22_)
+- `go-shichi-go` — fix: prevent CDN from caching error responses (_2026-05-23_)
+- `go-shichi-go` — checkpoint: pre-compact auto-commit (_2026-05-23_)
+- `go-shichi-go` — fix: use inArray instead of raw SQL IN for Drizzle compatibility (_2026-05-23_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
