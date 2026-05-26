@@ -12,10 +12,10 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status |
 |---|---|---|
-| [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
-| [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
+| [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
+| [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [tenki-fuku-bot](https://github.com/y-maeda1116/tenki-fuku-bot) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
@@ -31,13 +31,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `jre-green-trip` — fix: restore station toggle to header for visibility (_2026-05-24_)
-- `jre-green-trip` — feat: add route map page and rules page with tab navigation (_2026-05-24_)
-- `jre-green-trip` — feat: add 3 travel plans (沼津・高崎・逗子) with region tags (_2026-05-24_)
+- `jre-green-trip` — build(deps): pin actions/configure-pages to SHA (v5 → v6) (_2026-05-26_)
+- `jre-green-trip` — Merge pull request #4 from y-maeda1116/dependabot/github_actions/actions/upload-pages-artifact-5 (_2026-05-26_)
+- `jre-green-trip` — Merge pull request #3 from y-maeda1116/dependabot/github_actions/actions/checkout-6 (_2026-05-26_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 4 repos — working with **TypeScript**, **JavaScript**, **HTML**, **CSS**, **Go**
+Recently active in 3 repos — working with **TypeScript**, **Go**, **CSS**, **Shell**, **JavaScript**
 <!-- /CURRENT_FOCUS -->
