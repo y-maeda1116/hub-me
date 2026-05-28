@@ -31,9 +31,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `Weekly-Task-Board` — fix: reload tasks from storage after create/update in TaskModal (_2026-05-27_)
-- `Weekly-Task-Board` — fix: add CSS show class to task modal and guard renderWeek with try-finally (_2026-05-27_)
-- `Weekly-Task-Board` — fix: call module initialization functions for E2E tests (_2026-05-27_)
+- `Weekly-Task-Board` — chore: bump version to 1.9.3 (_2026-05-28_)
+- `Weekly-Task-Board` — fix: add day column click listeners and repair corrupted settings in SettingsStorage (_2026-05-28_)
+- `Weekly-Task-Board` — fix: pass ContextManagerDeps object to ContextManager functions (_2026-05-28_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
