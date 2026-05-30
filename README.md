@@ -31,13 +31,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `til` — refactor: コピペ可能なスクリプト形式に整理し直し (_2026-05-30_)
 - `til` — Update mac-mini-ssh-claude-code.md (_2026-05-29_)
 - `til` — Create mac-mini-ssh-claude-code.md (_2026-05-29_)
-- `Weekly-Task-Board` — chore: bump version to 1.9.3 (_2026-05-28_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 5 repos — working with **TypeScript**, **JavaScript**, **HTML**, **CSS**, **Go**
+Recently active in 4 repos — working with **TypeScript**, **JavaScript**, **HTML**, **CSS**, **Go**
 <!-- /CURRENT_FOCUS -->
