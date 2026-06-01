@@ -12,8 +12,8 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status |
 |---|---|---|
-| [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
+| [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
@@ -31,9 +31,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `til` — refactor: コピペ可能なスクリプト形式に整理し直し (_2026-05-30_)
-- `til` — Update mac-mini-ssh-claude-code.md (_2026-05-29_)
-- `til` — Create mac-mini-ssh-claude-code.md (_2026-05-29_)
+- `Weekly-Task-Board` — fix: convert config files to ESM and update CI workflow for TS migration (_2026-06-01_)
+- `Weekly-Task-Board` — fix: forward date parameter in openCreateModal wrapper (_2026-06-01_)
+- `Weekly-Task-Board` — refactor: complete TypeScript migration - remove legacy JS files (v1.9.0) (_2026-06-01_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
