@@ -31,13 +31,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `Weekly-Task-Board` — fix: repair corrupted settings loading and fix favicon 404 on dev (_2026-06-02_)
+- `Weekly-Task-Board` — fix: add jsdom dependency and convert E2E tests to ESM (_2026-06-01_)
 - `Weekly-Task-Board` — fix: convert config files to ESM and update CI workflow for TS migration (_2026-06-01_)
-- `Weekly-Task-Board` — fix: forward date parameter in openCreateModal wrapper (_2026-06-01_)
-- `Weekly-Task-Board` — refactor: complete TypeScript migration - remove legacy JS files (v1.9.0) (_2026-06-01_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 4 repos — working with **TypeScript**, **JavaScript**, **HTML**, **CSS**, **Go**
+Recently active in 2 repos — working with **TypeScript**, **JavaScript**, **HTML**, **CSS**, **Shell**
 <!-- /CURRENT_FOCUS -->
