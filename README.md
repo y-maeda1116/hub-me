@@ -31,9 +31,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `y-maeda1116` — Update README.md (_2026-06-04_)
-- `y-maeda1116` — Initial commit (_2026-06-04_)
-- `Weekly-Task-Board` — fix: repair corrupted settings loading and fix favicon 404 on dev (_2026-06-02_)
+- `y-maeda1116` — docs: add back github-readme-streak-stats section (_2026-06-05_)
+- `y-maeda1116` — docs: remove broken Activity section (github-readme-stats rate limited) (_2026-06-05_)
+- `y-maeda1116` — docs: remove typing SVG animation (_2026-06-05_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
