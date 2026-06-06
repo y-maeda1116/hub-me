@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>y-maeda1116 — Portfolio</title>
+  <meta name="description" content="IT Infrastructure & SRE / Automation Developer — GitHub Projects" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            surface: {
+              0: '#0a0a0f',
+              1: '#12121a',
+              2: '#1a1a26',
+              3: '#22222f',
+            },
+            accent: {
+              DEFAULT: '#34d399',
+              dim: '#10b981',
+              bright: '#6ee7b7',
+              glow: 'rgba(52, 211, 153, 0.15)',
+            },
+            muted: '#6b7280',
+          },
+          fontFamily: {
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+            sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0a0a0f;
+      color: #e5e7eb;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Scan-line texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 255, 255, 0.008) 2px,
+        rgba(255, 255, 255, 0.008) 4px
+      );
+    }
+
+    /* Skeleton shimmer */
+    @keyframes shimmer {
+      0% { background-position: -400px 0; }
+      100% { background-position: 400px 0; }
+    }
+
+    .skeleton {
+      background: linear-gradient(90deg, #1a1a26 25%, #22222f 37%, #1a1a26 63%);
+      background-size: 800px 100%;
+      animation: shimmer 1.8s ease-in-out infinite;
+      border-radius: 6px;
+    }
+
+    /* Fade-in on load */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-up { opacity: 0; animation: fadeUp 0.6s ease-out forwards; }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+    .delay-600 { animation-delay: 0.6s; }
+
+    /* Card glow on hover */
+    .project-card {
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, transparent 40%, rgba(52, 211, 153, 0.25));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(52, 211, 153, 0.08);
+    }
+
+    .project-card:hover::before { opacity: 1; }
+
+    /* Tech badge hover */
+    .tech-badge {
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
+
+    .tech-badge:hover {
+      background-color: rgba(52, 211, 153, 0.15);
+      color: #34d399;
+      transform: translateY(-1px);
+    }
+
+    /* Cursor blink */
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .cursor-blink::after {
+      content: '\2588';
+      animation: blink 1s step-end infinite;
+      color: #34d399;
+      margin-left: 2px;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0a0a0f; }
+    ::-webkit-scrollbar-thumb { background: #22222f; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #2a2a3a; }
+
+    /* Star pulse */
+    @keyframes starPulse {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+
+    .star-icon { animation: starPulse 2s ease-in-out infinite; }
+
+    /* Line-clamp fallback */
+    .line-clamp-3 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+  <!-- ===== Header ===== -->
+  <header class="border-b border-surface-3 animate-fade-up">
+    <div class="max-w-5xl mx-auto px-6 py-14 md:py-20">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-accent shadow-[0_0_10px_rgba(52,211,153,0.5)]"></span>
+        <span class="font-mono text-xs text-muted tracking-widest uppercase">Portfolio</span>
+      </div>
+      <h1 class="font-mono text-4xl md:text-5xl font-bold tracking-tight text-white cursor-blink">
+        y-maeda1116
+      </h1>
+      <p class="mt-4 text-lg md:text-xl text-gray-400 font-sans max-w-2xl leading-relaxed">
+        IT Infrastructure &amp; SRE / Automation Developer
+      </p>
+      <p class="mt-2 text-sm text-muted font-mono">
+        $ whoami &rarr; Infrastructure as Code, CI/CD, Developer Experience
+      </p>
+    </div>
+  </header>
+
+  <!-- ===== Main ===== -->
+  <main class="flex-1">
+
+    <!-- Tech Stack -->
+    <section class="border-b border-surface-3 animate-fade-up delay-200">
+      <div class="max-w-5xl mx-auto px-6 py-14">
+        <h2 class="font-mono text-sm font-semibold tracking-widest uppercase text-accent mb-8 flex items-center gap-2">
+          <span class="inline-block w-6 h-px bg-accent"></span>
+          Tech Stack
+        </h2>
+        <div id="tech-stack" class="flex flex-wrap gap-3"></div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="animate-fade-up delay-400">
+      <div class="max-w-5xl mx-auto px-6 py-14">
+        <h2 class="font-mono text-sm font-semibold tracking-widest uppercase text-accent mb-8 flex items-center gap-2">
+          <span class="inline-block w-6 h-px bg-accent"></span>
+          Projects
+        </h2>
+        <div id="projects-grid" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="border-t border-surface-3 animate-fade-up delay-600">
+    <div class="max-w-5xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <a
+        href="https://github.com/y-maeda1116"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-accent transition-colors font-mono"
+      >
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+        </svg>
+        github.com/y-maeda1116
+      </a>
+      <p class="text-xs text-muted font-mono">&copy; 2026 y-maeda1116. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ===== JavaScript ===== -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ── Configuration ─────────────────────────────────── */
+      var GITHUB_USER = 'y-maeda1116';
+      var REPO_NAMES = [
+        'Weekly-Task-Board',
+        'sumida-stream-coffee',
+        'apple-refurb-discord-notify',
+      ];
+      var API_BASE = 'https://api.github.com/repos/' + GITHUB_USER + '/';
+
+      var TECH_STACK = [
+        { name: 'Go',            color: '#00ADD8' },
+        { name: 'Python',        color: '#3776AB' },
+        { name: 'Linux',         color: '#FCC624' },
+        { name: 'AWS',           color: '#FF9900' },
+        { name: 'GitHub Actions', color: '#2088FF' },
+        { name: 'Docker',        color: '#2496ED' },
+        { name: 'Terraform',     color: '#7B42BC' },
+        { name: 'CI/CD',         color: '#34d399' },
+        { name: 'TypeScript',    color: '#3178C6' },
+        { name: 'SRE',           color: '#f472b6' },
+      ];
+
+      /* ── Language color map ────────────────────────────── */
+      var LANG_COLORS = {
+        'Go': '#00ADD8', 'Python': '#3776AB', 'TypeScript': '#3178C6',
+        'JavaScript': '#F7DF1E', 'HTML': '#E34F26', 'CSS': '#1572B6',
+        'Shell': '#89E051', 'HCL': '#844FBA', 'Dart': '#00B4AB',
+        'Ruby': '#CC342D', 'Rust': '#DEA584', 'Java': '#B07219',
+      };
+
+      /* ── DOM references ────────────────────────────────── */
+      var techContainer = document.getElementById('tech-stack');
+      var grid = document.getElementById('projects-grid');
+
+      /* ── HTML escape (prevents XSS) ────────────────────── */
+      function escapeHtml(str) {
+        var div = document.createElement('div');
+        div.appendChild(document.createTextNode(String(str)));
+        return div.innerHTML;
+      }
+
+      /* ── DOM helper: build element safely ──────────────── */
+      function el(tag, attrs, children) {
+        var node = document.createElement(tag);
+        if (attrs) {
+          Object.keys(attrs).forEach(function (key) {
+            if (key === 'className') {
+              node.className = attrs[key];
+            } else if (key === 'textContent') {
+              node.textContent = attrs[key];
+            } else if (key.indexOf('on') === 0) {
+              node.addEventListener(key.slice(2).toLowerCase(), attrs[key]);
+            } else {
+              node.setAttribute(key, attrs[key]);
+            }
+          });
+        }
+        if (children) {
+          (Array.isArray(children) ? children : [children]).forEach(function (child) {
+            if (typeof child === 'string') {
+              node.appendChild(document.createTextNode(child));
+            } else if (child) {
+              node.appendChild(child);
+            }
+          });
+        }
+        return node;
+      }
+
+      /* ── Render tech stack badges ──────────────────────── */
+      function renderTechStack() {
+        TECH_STACK.forEach(function (tech) {
+          var badge = el('span', {
+            className: 'tech-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-surface-3 bg-surface-2 text-sm font-mono text-gray-300 select-none',
+          }, [
+            el('span', {
+              className: 'w-2 h-2 rounded-full',
+              'style': 'background-color:' + tech.color,
+            }),
+            tech.name,
+          ]);
+          techContainer.appendChild(badge);
+        });
+      }
+
+      /* ── Create skeleton card ──────────────────────────── */
+      function createSkeletonCard() {
+        var card = el('div', {
+          className: 'project-card rounded-xl border border-surface-3 bg-surface-1 p-6 flex flex-col gap-4',
+        });
+        card.appendChild(el('div', { className: 'skeleton h-6 w-3/4' }));
+        card.appendChild(el('div', { className: 'skeleton h-4 w-full' }));
+        card.appendChild(el('div', { className: 'skeleton h-4 w-2/3' }));
+        var footer = el('div', { className: 'mt-auto flex items-center gap-4' });
+        footer.appendChild(el('div', { className: 'skeleton h-4 w-16' }));
+        footer.appendChild(el('div', { className: 'skeleton h-4 w-20' }));
+        card.appendChild(footer);
+        return card;
+      }
+
+      /* ── Create error card ─────────────────────────────── */
+      function createErrorCard(repoName, message) {
+        var iconSvg = '<svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>';
+        var card = el('div', {
+          className: 'project-card rounded-xl border border-red-900/40 bg-surface-1 p-6 flex flex-col gap-3',
+        });
+        var header = el('div', { className: 'flex items-center gap-2 text-red-400 font-mono text-sm' });
+        header.insertAdjacentHTML('afterbegin', iconSvg);
+        header.appendChild(document.createTextNode(repoName));
+        card.appendChild(header);
+        card.appendChild(el('p', { className: 'text-sm text-red-300/70', textContent: message }));
+        return card;
+      }
+
+      /* ── Create project card ───────────────────────────── */
+      function createProjectCard(repo) {
+        var langColor = LANG_COLORS[repo.language] || '#6b7280';
+        var lang = repo.language || '—';
+        var desc = repo.description || 'No description provided';
+        var stars = String(repo.stargazers_count);
+
+        var starSvg = '<svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+
+        var card = el('a', {
+          className: 'project-card rounded-xl border border-surface-3 bg-surface-1 p-6 flex flex-col gap-4 group no-underline focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 focus:ring-offset-surface-0',
+          'href': repo.html_url,
+          'target': '_blank',
+          'rel': 'noopener noreferrer',
+        });
+
+        var title = el('h3', {
+          className: 'font-mono text-base font-semibold text-white group-hover:text-accent transition-colors truncate',
+          textContent: repo.name,
+        });
+        card.appendChild(title);
+
+        var description = el('p', {
+          className: 'text-sm text-gray-400 leading-relaxed flex-1 line-clamp-3',
+          textContent: desc,
+        });
+        card.appendChild(description);
+
+        var metaRow = el('div', {
+          className: 'flex items-center gap-4 mt-auto pt-2 border-t border-surface-3',
+        });
+
+        var langBadge = el('span', {
+          className: 'inline-flex items-center gap-1.5 text-xs text-gray-500 font-mono',
+        }, [
+          el('span', {
+            className: 'w-2.5 h-2.5 rounded-full',
+            'style': 'background-color:' + langColor,
+          }),
+          lang,
+        ]);
+        metaRow.appendChild(langBadge);
+
+        var starBadge = el('span', {
+          className: 'inline-flex items-center gap-1 text-xs text-gray-500 font-mono star-icon',
+        });
+        starBadge.insertAdjacentHTML('afterbegin', starSvg);
+        starBadge.appendChild(document.createTextNode(stars));
+        metaRow.appendChild(starBadge);
+
+        card.appendChild(metaRow);
+        return card;
+      }
+
+      /* ── Fetch single repo ─────────────────────────────── */
+      function fetchRepo(name) {
+        return fetch(API_BASE + name, {
+          headers: { 'Accept': 'application/vnd.github.v3+json' },
+        }).then(function (res) {
+          if (!res.ok) {
+            throw new Error('HTTP ' + res.status + ': ' + res.statusText);
+          }
+          return res.json();
+        });
+      }
+
+      /* ── Load and render projects ──────────────────────── */
+      function loadProjects() {
+        // Show skeleton placeholders
+        REPO_NAMES.forEach(function () {
+          grid.appendChild(createSkeletonCard());
+        });
+
+        // Fetch all repos
+        var promises = REPO_NAMES.map(function (name) {
+          return fetchRepo(name)
+            .then(function (data) { return { ok: true, data: data }; })
+            .catch(function (err) { return { ok: false, name: name, error: err.message }; });
+        });
+
+        Promise.all(promises).then(function (results) {
+          // Clear skeletons
+          grid.textContent = '';
+
+          // Render each result
+          results.forEach(function (result) {
+            if (result.ok) {
+              grid.appendChild(createProjectCard(result.data));
+            } else {
+              grid.appendChild(createErrorCard(result.name, result.error));
+            }
+          });
+        });
+      }
+
+      /* ── Initialize ────────────────────────────────────── */
+      renderTechStack();
+      loadProjects();
+    })();
+  </script>
+
+</body>
+</html>
