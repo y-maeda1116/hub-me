@@ -31,13 +31,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `hub-me` — feat: add portfolio site with dynamic GitHub API project cards (_2026-06-06_)
 - `y-maeda1116` — docs: add back github-readme-streak-stats section (_2026-06-05_)
 - `y-maeda1116` — docs: remove broken Activity section (github-readme-stats rate limited) (_2026-06-05_)
-- `y-maeda1116` — docs: remove typing SVG animation (_2026-06-05_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 3 repos — working with **TypeScript**, **JavaScript**, **HTML**, **CSS**, **Shell**
+Recently active in 3 repos — working with **TypeScript**, **JavaScript**, **HTML**, **CSS**, **Python**
 <!-- /CURRENT_FOCUS -->
