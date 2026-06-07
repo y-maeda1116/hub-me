@@ -12,10 +12,11 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status |
 |---|---|---|
+| [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![failing](https://img.shields.io/badge/build-failing-red) |
+| [kaminarimon-lunch-map](https://github.com/y-maeda1116/kaminarimon-lunch-map) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![failing](https://img.shields.io/badge/build-failing-red) |
-| [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [tenki-fuku-bot](https://github.com/y-maeda1116/tenki-fuku-bot) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
@@ -31,13 +32,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `hub-me` — feat: add portfolio site with dynamic GitHub API project cards (_2026-06-06_)
-- `y-maeda1116` — docs: add back github-readme-streak-stats section (_2026-06-05_)
-- `y-maeda1116` — docs: remove broken Activity section (github-readme-stats rate limited) (_2026-06-05_)
+- `security-base` — fix: correct checkout SHA in reusable-py-security.yml (#35) (_2026-06-07_)
+- `kaminarimon-lunch-map` — feat: fix center to actual Kaminarimon, expand to 700m radius, add 5 more shops (_2026-06-07_)
+- `kaminarimon-lunch-map` — feat: expand lunchSpots to 17 restaurants near Kaminarimon (_2026-06-07_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 3 repos — working with **TypeScript**, **JavaScript**, **HTML**, **CSS**, **Python**
+Recently active in 5 repos — working with **TypeScript**, **JavaScript**, **HTML**, **CSS**, **Go**
 <!-- /CURRENT_FOCUS -->
