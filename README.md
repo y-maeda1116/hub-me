@@ -12,9 +12,9 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status |
 |---|---|---|
-| [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![failing](https://img.shields.io/badge/build-failing-red) |
 | [kaminarimon-lunch-map](https://github.com/y-maeda1116/kaminarimon-lunch-map) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
+| [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![failing](https://img.shields.io/badge/build-failing-red) |
 | [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![failing](https://img.shields.io/badge/build-failing-red) |
 | [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
@@ -32,9 +32,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `security-base` — fix: correct checkout SHA in reusable-py-security.yml (#35) (_2026-06-07_)
-- `kaminarimon-lunch-map` — feat: fix center to actual Kaminarimon, expand to 700m radius, add 5 more shops (_2026-06-07_)
-- `kaminarimon-lunch-map` — feat: expand lunchSpots to 17 restaurants near Kaminarimon (_2026-06-07_)
+- `kaminarimon-lunch-map` — feat: expand to 1km radius, add 20 more shops in Kotobuki/Komagata areas (total 69) (_2026-06-08_)
+- `kaminarimon-lunch-map` — feat: add 19 more restaurants from OSM data (total 49) (_2026-06-08_)
+- `kaminarimon-lunch-map` — fix: simplify center label to 雷門 (_2026-06-08_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
