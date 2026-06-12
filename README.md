@@ -13,8 +13,8 @@
 | Repository | Latest Release | Build Status |
 |---|---|---|
 | [kaminarimon-lunch-map](https://github.com/y-maeda1116/kaminarimon-lunch-map) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
-| [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![failing](https://img.shields.io/badge/build-failing-red) |
 | [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
+| [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![failing](https://img.shields.io/badge/build-failing-red) |
 | [Playful-Learning-Hub](https://github.com/y-maeda1116/Playful-Learning-Hub) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![failing](https://img.shields.io/badge/build-failing-red) |
 | [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
@@ -32,13 +32,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `kaminarimon-lunch-map` — feat: add 87 restaurants in Kaminarimon area (total 491) (_2026-06-12_)
 - `kaminarimon-lunch-map` — feat: add 50 cafes/restaurants in 雷門1-2丁目 area (total 404) (_2026-06-11_)
 - `kaminarimon-lunch-map` — feat: add all remaining OSM restaurants (total 359) (_2026-06-11_)
-- `kaminarimon-lunch-map` — feat: add 68 more restaurants in Kaminarimon area (total 266) (_2026-06-11_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 6 repos — working with **TypeScript**, **JavaScript**, **HTML**, **CSS**, **Go**
+Recently active in 5 repos — working with **TypeScript**, **JavaScript**, **HTML**, **CSS**, **Go**
 <!-- /CURRENT_FOCUS -->
