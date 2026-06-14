@@ -12,9 +12,9 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status |
 |---|---|---|
-| [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [kaminarimon-lunch-map](https://github.com/y-maeda1116/kaminarimon-lunch-map) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
-| [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![failing](https://img.shields.io/badge/build-failing-red) |
+| [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
+| [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [Playful-Learning-Hub](https://github.com/y-maeda1116/Playful-Learning-Hub) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
 | [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![failing](https://img.shields.io/badge/build-failing-red) |
 | [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) |
@@ -32,13 +32,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `kaminarimon-lunch-map` — fix: correct coordinates for 28 entries (was clustered/approximate) (_2026-06-14_)
 - `kaminarimon-lunch-map` — fix: remove 28 entries with unverified/AI-generated coordinates (471→443) (_2026-06-13_)
 - `kaminarimon-lunch-map` — refactor: remove 20 duplicate entries and fix 1 coordinate (total 471) (_2026-06-13_)
-- `kaminarimon-lunch-map` — fix: sync embedded data in index.html with lunchSpots.js (491 entries) (_2026-06-13_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 5 repos — working with **TypeScript**, **JavaScript**, **HTML**, **CSS**, **Go**
+Recently active in 3 repos — working with **TypeScript**, **JavaScript**, **HTML**, **CSS**, **Go**
 <!-- /CURRENT_FOCUS -->
