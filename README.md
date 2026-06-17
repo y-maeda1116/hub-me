@@ -32,9 +32,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `kaminarimon-lunch-map` — fix: クラスターアーティファクトの座標をWeb照合で修正(甲州屋・SALAY Kebab) (_2026-06-17_)
+- `kaminarimon-lunch-map` — fix: 重複する壊れたエントリを削除(鐵板燒 3家、471→470件) (_2026-06-15_)
 - `kaminarimon-lunch-map` — fix: correct coordinates for 28 entries (was clustered/approximate) (_2026-06-14_)
-- `kaminarimon-lunch-map` — fix: remove 28 entries with unverified/AI-generated coordinates (471→443) (_2026-06-13_)
-- `kaminarimon-lunch-map` — refactor: remove 20 duplicate entries and fix 1 coordinate (total 471) (_2026-06-13_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
