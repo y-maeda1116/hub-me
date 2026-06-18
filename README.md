@@ -40,5 +40,5 @@
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 2 repos — working with **HTML**, **JavaScript**, **Go**, **Shell**, **Python**
+Recently active in 1 repos — working with **HTML**, **JavaScript**
 <!-- /CURRENT_FOCUS -->
