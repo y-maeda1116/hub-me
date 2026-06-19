@@ -47,6 +47,36 @@ def fetch_build_status(repo: str, owner: str = OWNER) -> str:
     return status if status else "N/A"
 
 
+def fetch_open_issues(repo: str, owner: str = OWNER) -> int:
+    """Get count of open issues (excluding PRs) via Search API, or 0 on error."""
+    result = subprocess.run(
+        ["gh", "api", f"search/issues?q=repo:{owner}/{repo}+is:issue+state:open&per_page=1",
+         "--jq", ".total_count"],
+        capture_output=True, text=True,
+    )
+    if result.returncode != 0:
+        return 0
+    try:
+        return int(result.stdout.strip())
+    except ValueError:
+        return 0
+
+
+def fetch_open_prs(repo: str, owner: str = OWNER) -> int:
+    """Get count of open pull requests via Search API, or 0 on error."""
+    result = subprocess.run(
+        ["gh", "api", f"search/issues?q=repo:{owner}/{repo}+is:pr+state:open&per_page=1",
+         "--jq", ".total_count"],
+        capture_output=True, text=True,
+    )
+    if result.returncode != 0:
+        return 0
+    try:
+        return int(result.stdout.strip())
+    except ValueError:
+        return 0
+
+
 def has_release_or_actions(repo: str, owner: str = OWNER) -> bool:
     """Check if repo has a release or workflow runs."""
     release = fetch_latest_release(repo, owner)
@@ -69,6 +99,8 @@ def fetch_repo_status(owner: str = OWNER) -> list[dict[str, str]]:
                 "name": name,
                 "latest_release": release,
                 "build_status": build,
+                "open_issues": fetch_open_issues(name, owner),
+                "open_prs": fetch_open_prs(name, owner),
             })
     return results
 

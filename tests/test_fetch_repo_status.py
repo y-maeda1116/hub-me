@@ -7,7 +7,14 @@ from unittest.mock import patch, MagicMock
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
 
-from fetch_repo_status import fetch_latest_release, fetch_build_status, fetch_repo_status, get_all_repos
+from fetch_repo_status import (
+    fetch_latest_release,
+    fetch_build_status,
+    fetch_repo_status,
+    get_all_repos,
+    fetch_open_issues,
+    fetch_open_prs,
+)
 
 
 class TestFetchLatestRelease(unittest.TestCase):
@@ -56,28 +63,70 @@ class TestFetchBuildStatus(unittest.TestCase):
         self.assertEqual(result, "N/A")
 
 
+class TestFetchOpenIssues(unittest.TestCase):
+    @patch("fetch_repo_status.subprocess.run")
+    def test_returns_count_on_success(self, mock_run):
+        mock_run.return_value = MagicMock(returncode=0, stdout="3\n")
+        result = fetch_open_issues("some-repo", owner="test-user")
+        self.assertEqual(result, 3)
+
+    @patch("fetch_repo_status.subprocess.run")
+    def test_returns_zero_on_error(self, mock_run):
+        mock_run.return_value = MagicMock(returncode=1, stdout="")
+        result = fetch_open_issues("some-repo", owner="test-user")
+        self.assertEqual(result, 0)
+
+    @patch("fetch_repo_status.subprocess.run")
+    def test_returns_zero_on_non_numeric(self, mock_run):
+        mock_run.return_value = MagicMock(returncode=0, stdout="\n")
+        result = fetch_open_issues("some-repo", owner="test-user")
+        self.assertEqual(result, 0)
+
+
+class TestFetchOpenPrs(unittest.TestCase):
+    @patch("fetch_repo_status.subprocess.run")
+    def test_returns_count_on_success(self, mock_run):
+        mock_run.return_value = MagicMock(returncode=0, stdout="2\n")
+        result = fetch_open_prs("some-repo", owner="test-user")
+        self.assertEqual(result, 2)
+
+    @patch("fetch_repo_status.subprocess.run")
+    def test_returns_zero_on_error(self, mock_run):
+        mock_run.return_value = MagicMock(returncode=1, stdout="")
+        result = fetch_open_prs("some-repo", owner="test-user")
+        self.assertEqual(result, 0)
+
+
 class TestFetchRepoStatus(unittest.TestCase):
+    @patch("fetch_repo_status.fetch_open_prs", return_value=1)
+    @patch("fetch_repo_status.fetch_open_issues", return_value=2)
     @patch("fetch_repo_status.fetch_build_status", return_value="success")
     @patch("fetch_repo_status.fetch_latest_release", return_value="v2.0")
     @patch("fetch_repo_status.get_all_repos")
-    def test_filters_repos_with_data(self, mock_get_repos, mock_release, mock_build):
+    def test_filters_repos_with_data(self, mock_get_repos, mock_release, mock_build, mock_issues, mock_prs):
         mock_get_repos.return_value = [{"name": "repo-a"}, {"name": "repo-b"}]
         result = fetch_repo_status(owner="test-user")
         self.assertEqual(len(result), 2)
         self.assertEqual(result[0]["name"], "repo-a")
+        self.assertEqual(result[0]["open_issues"], 2)
+        self.assertEqual(result[0]["open_prs"], 1)
 
+    @patch("fetch_repo_status.fetch_open_prs", return_value=0)
+    @patch("fetch_repo_status.fetch_open_issues", return_value=0)
     @patch("fetch_repo_status.fetch_build_status", return_value="N/A")
     @patch("fetch_repo_status.fetch_latest_release", return_value="N/A")
     @patch("fetch_repo_status.get_all_repos")
-    def test_excludes_repos_without_data(self, mock_get_repos, mock_release, mock_build):
+    def test_excludes_repos_without_data(self, mock_get_repos, mock_release, mock_build, mock_issues, mock_prs):
         mock_get_repos.return_value = [{"name": "empty-repo"}]
         result = fetch_repo_status(owner="test-user")
         self.assertEqual(result, [])
 
+    @patch("fetch_repo_status.fetch_open_prs", return_value=0)
+    @patch("fetch_repo_status.fetch_open_issues", return_value=0)
     @patch("fetch_repo_status.fetch_build_status", return_value="N/A")
     @patch("fetch_repo_status.fetch_latest_release", return_value="v1.0")
     @patch("fetch_repo_status.get_all_repos")
-    def test_includes_repo_with_release_only(self, mock_get_repos, mock_release, mock_build):
+    def test_includes_repo_with_release_only(self, mock_get_repos, mock_release, mock_build, mock_issues, mock_prs):
         mock_get_repos.return_value = [{"name": "released-repo"}]
         result = fetch_repo_status(owner="test-user")
         self.assertEqual(len(result), 1)

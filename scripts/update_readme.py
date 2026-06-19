@@ -27,14 +27,17 @@ def format_repo_status_table(status_json: str, owner: str) -> str:
     try:
         repos = json.loads(status_json)
     except (json.JSONDecodeError, TypeError):
-        return "| Repository | Latest Release | Build Status |\n|---|---|---|\n| Error loading data | - | - |"
+        return "| Repository | Latest Release | Build Status | Open Issues | Open PRs |\n|---|---|---|---|---|\n| Error loading data | - | - | - | - |"
 
     status_icons = {
         "success": "![passing](https://img.shields.io/badge/build-passing-brightgreen)",
         "failure": "![failing](https://img.shields.io/badge/build-failing-red)",
     }
 
-    lines = ["| Repository | Latest Release | Build Status |", "|---|---|---|"]
+    lines = [
+        "| Repository | Latest Release | Build Status | Open Issues | Open PRs |",
+        "|---|---|---|---|---|",
+    ]
     for repo in repos:
         name = repo.get("name", "unknown")
         release = repo.get("latest_release", "N/A")
@@ -43,8 +46,10 @@ def format_repo_status_table(status_json: str, owner: str) -> str:
             build,
             f"![{build}](https://img.shields.io/badge/build/{build}-lightgrey)",
         )
+        issues = repo.get("open_issues", 0)
+        prs = repo.get("open_prs", 0)
         lines.append(
-            f"| [{name}](https://github.com/{owner}/{name}) | `{release}` | {icon} |"
+            f"| [{name}](https://github.com/{owner}/{name}) | `{release}` | {icon} | {issues} | {prs} |"
         )
     return "\n".join(lines)
 

@@ -45,8 +45,8 @@ class TestReplaceSection(unittest.TestCase):
 class TestFormatRepoStatusTable(unittest.TestCase):
     def test_formats_json_to_markdown_table(self):
         data = [
-            {"name": "repo-a", "latest_release": "v1.0", "build_status": "success"},
-            {"name": "repo-b", "latest_release": "N/A", "build_status": "N/A"},
+            {"name": "repo-a", "latest_release": "v1.0", "build_status": "success", "open_issues": 3, "open_prs": 1},
+            {"name": "repo-b", "latest_release": "N/A", "build_status": "N/A", "open_issues": 0, "open_prs": 0},
         ]
         table = format_repo_status_table(json.dumps(data), "y-maeda1116")
         self.assertIn("| Repository |", table)
@@ -55,13 +55,30 @@ class TestFormatRepoStatusTable(unittest.TestCase):
         self.assertIn("repo-b", table)
         self.assertIn("N/A", table)
 
-    def test_success_icon(self):
+    def test_includes_issues_and_prs_columns(self):
+        data = [{"name": "repo", "latest_release": "v1", "build_status": "success", "open_issues": 5, "open_prs": 2}]
+        table = format_repo_status_table(json.dumps(data), "y-maeda1116")
+        self.assertIn("Open Issues", table)
+        self.assertIn("Open PRs", table)
+
+    def test_renders_issues_and_prs_counts(self):
+        data = [{"name": "repo", "latest_release": "v1", "build_status": "success", "open_issues": 7, "open_prs": 4}]
+        table = format_repo_status_table(json.dumps(data), "y-maeda1116")
+        self.assertIn("7", table)
+        self.assertIn("4", table)
+
+    def test_defaults_missing_counts_to_zero(self):
         data = [{"name": "repo", "latest_release": "v1", "build_status": "success"}]
+        table = format_repo_status_table(json.dumps(data), "y-maeda1116")
+        self.assertIn("0", table)
+
+    def test_success_icon(self):
+        data = [{"name": "repo", "latest_release": "v1", "build_status": "success", "open_issues": 0, "open_prs": 0}]
         table = format_repo_status_table(json.dumps(data), "y-medaed1116")
         self.assertIn("passing", table)
 
     def test_failure_icon(self):
-        data = [{"name": "repo", "latest_release": "v1", "build_status": "failure"}]
+        data = [{"name": "repo", "latest_release": "v1", "build_status": "failure", "open_issues": 0, "open_prs": 0}]
         table = format_repo_status_table(json.dumps(data), "y-maeda1116")
         self.assertIn("failing", table)
 
