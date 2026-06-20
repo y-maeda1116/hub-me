@@ -12,7 +12,7 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status | Open Issues | Open PRs |
 |---|---|---|---|---|
-| [habit-tracker-pwa](https://github.com/y-maeda1116/habit-tracker-pwa) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 1 | 0 |
+| [habit-tracker-pwa](https://github.com/y-maeda1116/habit-tracker-pwa) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
 | [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
 | [kaminarimon-lunch-map](https://github.com/y-maeda1116/kaminarimon-lunch-map) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
 | [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![failing](https://img.shields.io/badge/build-failing-red) | 0 | 3 |
@@ -33,13 +33,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `hub-me` — feat: add open issues and PRs counts to repo status table (#1) (_2026-06-19_)
-- `habit-tracker-pwa` — Initial commit (_2026-06-19_)
-- `kaminarimon-lunch-map` — fix: クラスターアーティファクトの座標をWeb照合で修正(甲州屋・SALAY Kebab) (_2026-06-17_)
+- `habit-tracker-pwa` — Merge pull request #4 from y-maeda1116/feat/install-button-node24 (_2026-06-20_)
+- `habit-tracker-pwa` — feat: PWAインストールボタンを設定画面に追加 (_2026-06-20_)
+- `habit-tracker-pwa` — chore: migrate Node.js 20 to 24 (_2026-06-20_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 2 repos — working with **HTML**, **JavaScript**, **Python**
+Recently active in 3 repos — working with **HTML**, **JavaScript**, **Python**, **TypeScript**, **CSS**
 <!-- /CURRENT_FOCUS -->
