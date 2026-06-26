@@ -12,16 +12,16 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status | Open Issues | Open PRs |
 |---|---|---|---|---|
+| [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
+| [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
+| [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
 | [bean-watcher](https://github.com/y-maeda1116/bean-watcher) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
 | [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
 | [pack-and-go](https://github.com/y-maeda1116/pack-and-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
 | [habit-tracker-pwa](https://github.com/y-maeda1116/habit-tracker-pwa) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
 | [kaminarimon-lunch-map](https://github.com/y-maeda1116/kaminarimon-lunch-map) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
-| [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![failing](https://img.shields.io/badge/build-failing-red) | 0 | 3 |
 | [Playful-Learning-Hub](https://github.com/y-maeda1116/Playful-Learning-Hub) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 16 | 0 |
-| [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![failing](https://img.shields.io/badge/build-failing-red) | 0 | 3 |
 | [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
-| [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![failing](https://img.shields.io/badge/build-failing-red) | 0 | 6 |
 | [tenki-fuku-bot](https://github.com/y-maeda1116/tenki-fuku-bot) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
 | [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
 | [games](https://github.com/y-maeda1116/games) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 1 |
@@ -35,13 +35,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `bean-watcher` — fix: notify で webhook未設定時に警告ログのみで続行する (_2026-06-23_)
-- `bean-watcher` — feat: 買った袋数をlocalStorageに記録する入力欄を追加 (_2026-06-23_)
-- `bean-watcher` — docs: README に袋管理とウェブダッシュボード・Pages設定を追加 (_2026-06-22_)
+- `go-shichi-go` — Merge pull request #13 from y-maeda1116/dependabot/github_actions/actions/checkout-7.0.0 (_2026-06-26_)
+- `go-shichi-go` — Merge pull request #14 from y-maeda1116/fix/dependency-vulnerabilities (_2026-06-26_)
+- `go-shichi-go` — fix(deps): bump vite, hono, wrangler to fix security vulnerabilities (_2026-06-26_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 3 repos — working with **Go**, **Python**, **TypeScript**, **HTML**, **JavaScript**
+Recently active in 5 repos — working with **TypeScript**, **Go**, **CSS**, **JavaScript**, **Shell**
 <!-- /CURRENT_FOCUS -->
