@@ -12,16 +12,16 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status | Open Issues | Open PRs |
 |---|---|---|---|---|
-| [python-template-base](https://github.com/y-maeda1116/python-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
-| [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
+| [Playful-Learning-Hub](https://github.com/y-maeda1116/Playful-Learning-Hub) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 15 | 0 |
 | [bean-watcher](https://github.com/y-maeda1116/bean-watcher) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
+| [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
 | [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
+| [python-template-base](https://github.com/y-maeda1116/python-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
+| [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 1 |
 | [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
-| [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 1 |
 | [pack-and-go](https://github.com/y-maeda1116/pack-and-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
 | [habit-tracker-pwa](https://github.com/y-maeda1116/habit-tracker-pwa) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
 | [kaminarimon-lunch-map](https://github.com/y-maeda1116/kaminarimon-lunch-map) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
-| [Playful-Learning-Hub](https://github.com/y-maeda1116/Playful-Learning-Hub) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 16 | 0 |
 | [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
 | [tenki-fuku-bot](https://github.com/y-maeda1116/tenki-fuku-bot) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
 | [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
@@ -35,13 +35,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `python-template-base` — chore(security): scan python_template_base with bandit (#6) (_2026-06-28_)
-- `security-base` — feat: parameterize bandit scan target via bandit-target input (#41) (_2026-06-28_)
-- `python-template-base` — fix(ci): pin actions to SHAs and resolve vulnerable dependencies (#5) (_2026-06-28_)
+- `Playful-Learning-Hub` — Merge pull request #19 from y-maeda1116/feat/18-dotted-line-tracing (_2026-06-29_)
+- `Playful-Learning-Hub` — fix(tracing): ガイド点群生成のゼロ除算リスクを修正 (#18) (_2026-06-29_)
+- `Playful-Learning-Hub` — feat(tracing): なぞりゲームのスタイルを追加 (#18) (_2026-06-29_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 5 repos — working with **TypeScript**, **Go**, **CSS**, **JavaScript**, **Shell**
+Recently active in 6 repos — working with **TypeScript**, **JavaScript**, **CSS**, **HTML**, **Go**
 <!-- /CURRENT_FOCUS -->
