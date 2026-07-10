@@ -12,11 +12,11 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status | Open Issues | Open PRs |
 |---|---|---|---|---|
+| [Playful-Learning-Hub](https://github.com/y-maeda1116/Playful-Learning-Hub) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 9 | 5 |
 | [bean-watcher](https://github.com/y-maeda1116/bean-watcher) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
-| [Playful-Learning-Hub](https://github.com/y-maeda1116/Playful-Learning-Hub) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 15 | 0 |
+| [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
 | [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
 | [python-template-base](https://github.com/y-maeda1116/python-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
-| [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
 | [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
 | [kuku19-master](https://github.com/y-maeda1116/kuku19-master) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
 | [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
@@ -36,9 +36,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `Playful-Learning-Hub` — Merge pull request #21 from y-maeda1116/feat/14-emotion-game (_2026-07-10_)
+- `Playful-Learning-Hub` — feat(emotion): 全年齢向けに感情認識ゲーム「きもちあて」を追加 (#14) (_2026-07-10_)
 - `Playful-Learning-Hub` — Merge pull request #20 from y-maeda1116/docs/update-readme (_2026-07-09_)
-- `security-base` — fix(ci): Go audit (tools/sync) を定期監査に追加・golangci-lint v2 で緑化 (#50) (_2026-07-09_)
-- `jre-green-trip` — Merge pull request #18 from y-maeda1116/feat/tokyo-time-table (_2026-07-08_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
