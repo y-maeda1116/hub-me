@@ -12,12 +12,12 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status | Open Issues | Open PRs |
 |---|---|---|---|---|
-| [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
-| [Playful-Learning-Hub](https://github.com/y-maeda1116/Playful-Learning-Hub) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 3 | 0 |
+| [Playful-Learning-Hub](https://github.com/y-maeda1116/Playful-Learning-Hub) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 1 | 1 |
 | [bean-watcher](https://github.com/y-maeda1116/bean-watcher) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
+| [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 1 | 0 |
 | [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
-| [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![failing](https://img.shields.io/badge/build-failing-red) | 1 | 1 |
-| [python-template-base](https://github.com/y-maeda1116/python-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
+| [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
+| [python-template-base](https://github.com/y-maeda1116/python-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 1 |
 | [kuku19-master](https://github.com/y-maeda1116/kuku19-master) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
 | [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 0 |
 | [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | 0 | 5 |
@@ -36,9 +36,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `jre-green-trip` — Merge pull request #19 from y-maeda1116/dependabot/github_actions/astral-sh/setup-uv-8.3.2 (_2026-07-13_)
-- `Playful-Learning-Hub` — Merge pull request #28 from y-maeda1116/feat/8-instrument-sim (_2026-07-13_)
-- `Playful-Learning-Hub` — Merge branch 'main-1' into feat/8-instrument-sim (_2026-07-13_)
+- `Playful-Learning-Hub` — Merge pull request #32 from y-maeda1116/feat/9-coding-game (_2026-07-14_)
+- `Playful-Learning-Hub` — feat(coding): 7-8歳にプログラミング基礎ゲームを追加 (#9) (_2026-07-14_)
+- `Playful-Learning-Hub` — Merge pull request #31 from y-maeda1116/feat/16-user-content (_2026-07-14_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
