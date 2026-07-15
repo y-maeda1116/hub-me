@@ -48,8 +48,10 @@ def format_repo_status_table(status_json: str, owner: str) -> str:
         )
         issues = repo.get("open_issues", 0)
         prs = repo.get("open_prs", 0)
+        issues_link = f'<a href="https://github.com/{owner}/{name}/issues" target="_blank">{issues}</a>'
+        prs_link = f'<a href="https://github.com/{owner}/{name}/pulls" target="_blank">{prs}</a>'
         lines.append(
-            f"| [{name}](https://github.com/{owner}/{name}) | `{release}` | {icon} | {issues} | {prs} |"
+            f"| [{name}](https://github.com/{owner}/{name}) | `{release}` | {icon} | {issues_link} | {prs_link} |"
         )
     return "\n".join(lines)
 
