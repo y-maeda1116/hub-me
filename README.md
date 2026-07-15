@@ -12,8 +12,9 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status | Open Issues | Open PRs |
 |---|---|---|---|---|
+| [tokyo-hidden-transfers](https://github.com/y-maeda1116/tokyo-hidden-transfers) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/tokyo-hidden-transfers/issues" target="_blank">1</a> | <a href="https://github.com/y-maeda1116/tokyo-hidden-transfers/pulls" target="_blank">2</a> |
+| [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/go-shichi-go/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/go-shichi-go/pulls" target="_blank">1</a> |
 | [bean-watcher](https://github.com/y-maeda1116/bean-watcher) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/bean-watcher/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/bean-watcher/pulls" target="_blank">0</a> |
-| [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/go-shichi-go/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/go-shichi-go/pulls" target="_blank">4</a> |
 | [python-template-base](https://github.com/y-maeda1116/python-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/python-template-base/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/python-template-base/pulls" target="_blank">0</a> |
 | [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/security-base/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/security-base/pulls" target="_blank">0</a> |
 | [Playful-Learning-Hub](https://github.com/y-maeda1116/Playful-Learning-Hub) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/Playful-Learning-Hub/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/Playful-Learning-Hub/pulls" target="_blank">0</a> |
@@ -26,7 +27,7 @@
 | [kaminarimon-lunch-map](https://github.com/y-maeda1116/kaminarimon-lunch-map) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/kaminarimon-lunch-map/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/kaminarimon-lunch-map/pulls" target="_blank">0</a> |
 | [tenki-fuku-bot](https://github.com/y-maeda1116/tenki-fuku-bot) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/tenki-fuku-bot/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/tenki-fuku-bot/pulls" target="_blank">0</a> |
 | [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/ts-template-base/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/ts-template-base/pulls" target="_blank">0</a> |
-| [games](https://github.com/y-maeda1116/games) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/games/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/games/pulls" target="_blank">1</a> |
+| [games](https://github.com/y-maeda1116/games) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/games/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/games/pulls" target="_blank">0</a> |
 | [apple-refurb-discord-notify](https://github.com/y-maeda1116/apple-refurb-discord-notify) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/apple-refurb-discord-notify/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/apple-refurb-discord-notify/pulls" target="_blank">0</a> |
 | [divination-journal](https://github.com/y-maeda1116/divination-journal) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/divination-journal/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/divination-journal/pulls" target="_blank">0</a> |
 | [template-go-cross](https://github.com/y-maeda1116/template-go-cross) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/template-go-cross/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/template-go-cross/pulls" target="_blank">0</a> |
@@ -36,9 +37,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `go-shichi-go` — Merge pull request #21 from y-maeda1116/dependabot/npm_and_yarn/wrangler-4.107.1 (_2026-07-15_)
-- `security-base` — fix(ci): bump govulncheck to v1.6.0 and Go to 1.26.5 for go-audit (#53) (_2026-07-15_)
-- `Playful-Learning-Hub` — Merge pull request #33 from y-maeda1116/feat/10-astronomy-sim (_2026-07-15_)
+- `tokyo-hidden-transfers` — feat: 東京非公式乗換マップの初期実装 (closes #1) (_2026-07-15_)
+- `go-shichi-go` — Merge pull request #25 from y-maeda1116/dependabot/npm_and_yarn/typescript-eslint-8.63.0 (_2026-07-15_)
+- `go-shichi-go` — Merge pull request #24 from y-maeda1116/dependabot/npm_and_yarn/tanstack/react-query-5.101.2 (_2026-07-15_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
