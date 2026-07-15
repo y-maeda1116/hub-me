@@ -67,19 +67,19 @@ class TestFormatRepoStatusTable(unittest.TestCase):
         self.assertIn("7", table)
         self.assertIn("4", table)
 
-    def test_issues_count_links_to_issues_page_in_new_tab(self):
+    def test_issues_count_links_to_issues_page(self):
         data = [{"name": "repo", "latest_release": "v1", "build_status": "success", "open_issues": 7, "open_prs": 0}]
         table = format_repo_status_table(json.dumps(data), "y-maeda1116")
         self.assertIn(
-            '<a href="https://github.com/y-maeda1116/repo/issues" target="_blank">7</a>',
+            '[7](https://github.com/y-maeda1116/repo/issues)',
             table,
         )
 
-    def test_prs_count_links_to_pulls_page_in_new_tab(self):
+    def test_prs_count_links_to_pulls_page(self):
         data = [{"name": "repo", "latest_release": "v1", "build_status": "success", "open_issues": 0, "open_prs": 4}]
         table = format_repo_status_table(json.dumps(data), "y-maeda1116")
         self.assertIn(
-            '<a href="https://github.com/y-maeda1116/repo/pulls" target="_blank">4</a>',
+            '[4](https://github.com/y-maeda1116/repo/pulls)',
             table,
         )
 
