@@ -12,13 +12,13 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status | Open Issues | Open PRs |
 |---|---|---|---|---|
-| [tokyo-hidden-transfers](https://github.com/y-maeda1116/tokyo-hidden-transfers) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/tokyo-hidden-transfers/issues" target="_blank">1</a> | <a href="https://github.com/y-maeda1116/tokyo-hidden-transfers/pulls" target="_blank">2</a> |
-| [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/go-shichi-go/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/go-shichi-go/pulls" target="_blank">1</a> |
 | [bean-watcher](https://github.com/y-maeda1116/bean-watcher) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/bean-watcher/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/bean-watcher/pulls" target="_blank">0</a> |
+| [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/sumida-stream-coffee/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/sumida-stream-coffee/pulls" target="_blank">0</a> |
+| [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/go-shichi-go/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/go-shichi-go/pulls" target="_blank">1</a> |
+| [tokyo-hidden-transfers](https://github.com/y-maeda1116/tokyo-hidden-transfers) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/tokyo-hidden-transfers/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/tokyo-hidden-transfers/pulls" target="_blank">1</a> |
 | [python-template-base](https://github.com/y-maeda1116/python-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/python-template-base/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/python-template-base/pulls" target="_blank">0</a> |
 | [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/security-base/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/security-base/pulls" target="_blank">0</a> |
 | [Playful-Learning-Hub](https://github.com/y-maeda1116/Playful-Learning-Hub) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/Playful-Learning-Hub/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/Playful-Learning-Hub/pulls" target="_blank">0</a> |
-| [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/sumida-stream-coffee/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/sumida-stream-coffee/pulls" target="_blank">0</a> |
 | [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/jre-green-trip/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/jre-green-trip/pulls" target="_blank">0</a> |
 | [kuku19-master](https://github.com/y-maeda1116/kuku19-master) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/kuku19-master/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/kuku19-master/pulls" target="_blank">0</a> |
 | [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | <a href="https://github.com/y-maeda1116/Weekly-Task-Board/issues" target="_blank">0</a> | <a href="https://github.com/y-maeda1116/Weekly-Task-Board/pulls" target="_blank">0</a> |
@@ -37,13 +37,11 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `tokyo-hidden-transfers` — feat: 東京非公式乗換マップの初期実装 (closes #1) (_2026-07-15_)
-- `go-shichi-go` — Merge pull request #25 from y-maeda1116/dependabot/npm_and_yarn/typescript-eslint-8.63.0 (_2026-07-15_)
-- `go-shichi-go` — Merge pull request #24 from y-maeda1116/dependabot/npm_and_yarn/tanstack/react-query-5.101.2 (_2026-07-15_)
+No recent activity
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 7 repos — working with **TypeScript**, **JavaScript**, **HTML**, **CSS**, **Go**
+Recently active in 8 repos — working with **TypeScript**, **JavaScript**, **HTML**, **CSS**, **Go**
 <!-- /CURRENT_FOCUS -->
