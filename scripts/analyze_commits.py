@@ -93,12 +93,10 @@ def analyze_tech_trend(owner: str = OWNER) -> str:
         return "No activity this week"
 
     lang_counter = Counter()
-    total_commits = 0
 
     for repo in active_repos:
         languages = get_repo_languages(repo)
         lang_counter.update(languages)
-        total_commits += 1
 
     if not lang_counter:
         return "No activity this week"

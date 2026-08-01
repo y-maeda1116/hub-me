@@ -132,6 +132,23 @@ class TestFetchRepoStatus(unittest.TestCase):
         self.assertEqual(len(result), 1)
         self.assertEqual(result[0]["latest_release"], "v1.0")
 
+    @patch("fetch_repo_status.fetch_open_prs", return_value=0)
+    @patch("fetch_repo_status.fetch_open_issues", return_value=0)
+    @patch("fetch_repo_status.fetch_build_status", return_value="success")
+    @patch("fetch_repo_status.fetch_latest_release", return_value="v1.0")
+    @patch("fetch_repo_status.get_all_repos")
+    def test_excludes_owner_self_and_hub_me(self, mock_get_repos, mock_release, mock_build, mock_issues, mock_prs):
+        mock_get_repos.return_value = [
+            {"name": "test-user"},
+            {"name": "hub-me"},
+            {"name": "real-repo"},
+        ]
+        result = fetch_repo_status(owner="test-user")
+        names = [r["name"] for r in result]
+        self.assertNotIn("test-user", names)
+        self.assertNotIn("hub-me", names)
+        self.assertIn("real-repo", names)
+
 
 class TestGetAllRepos(unittest.TestCase):
     @patch("fetch_repo_status.subprocess.run")

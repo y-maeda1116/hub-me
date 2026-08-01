@@ -89,9 +89,12 @@ def fetch_repo_status(owner: str = OWNER) -> list[dict[str, str]]:
     repos = get_all_repos(owner)
     if not repos:
         return []
+    skip = {owner, "hub-me"}
     results = []
     for repo_info in repos:
         name = repo_info["name"]
+        if name in skip:
+            continue
         release = fetch_latest_release(name, owner)
         build = fetch_build_status(name, owner)
         if release != "N/A" or build != "N/A":
