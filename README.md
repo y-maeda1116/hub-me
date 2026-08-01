@@ -43,5 +43,5 @@ No recent activity
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 5 repos — working with **TypeScript**, **Go**, **CSS**, **JavaScript**, **Shell**
+Recently active in 6 repos — working with **TypeScript**, **Go**, **Python**, **CSS**, **HTML**
 <!-- /CURRENT_FOCUS -->
