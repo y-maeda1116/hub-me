@@ -87,8 +87,9 @@ class TestFetchOpenCounts(unittest.TestCase):
         result = fetch_open_counts(["repo-a", "repo-b"], "is:issue", owner="test-user")
         self.assertEqual(result, {"repo-a": 0, "repo-b": 0})
 
+    @patch("fetch_repo_status.time.sleep")
     @patch("fetch_repo_status.subprocess.run")
-    def test_returns_none_on_error(self, mock_run):
+    def test_returns_none_on_error(self, mock_run, mock_sleep):
         mock_run.return_value = MagicMock(returncode=1, stdout="")
         self.assertIsNone(fetch_open_counts(["repo-a"], "is:pr", owner="test-user"))
 
@@ -119,6 +120,29 @@ class TestFetchOpenCounts(unittest.TestCase):
             result = fetch_open_counts([], "is:pr", owner="test-user")
         self.assertEqual(result, {})
         mock_run.assert_not_called()
+
+    @patch("fetch_repo_status.time.sleep")
+    @patch("fetch_repo_status.subprocess.run")
+    def test_retries_transient_failure_then_succeeds(self, mock_run, mock_sleep):
+        mock_run.side_effect = [
+            MagicMock(returncode=1, stdout="", stderr="secondary rate limit"),
+            MagicMock(
+                returncode=0,
+                stdout='[1, ["https://api.github.com/repos/test-user/repo-a"]]',
+            ),
+        ]
+        result = fetch_open_counts(["repo-a"], "is:pr", owner="test-user")
+        self.assertEqual(result, {"repo-a": 1})
+        self.assertEqual(mock_run.call_count, 2)
+        mock_sleep.assert_called_once_with(60)
+
+    @patch("fetch_repo_status.time.sleep")
+    @patch("fetch_repo_status.subprocess.run")
+    def test_returns_none_after_exhausting_retries(self, mock_run, mock_sleep):
+        mock_run.return_value = MagicMock(returncode=1, stdout="")
+        self.assertIsNone(fetch_open_counts(["repo-a"], "is:pr", owner="test-user"))
+        self.assertEqual(mock_run.call_count, 3)
+        self.assertEqual(mock_sleep.call_count, 2)
 
 
 class TestFetchRepoStatus(unittest.TestCase):

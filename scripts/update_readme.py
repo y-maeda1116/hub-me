@@ -5,8 +5,35 @@ import json
 import re
 import subprocess
 import sys
+import time
 
 OWNER = "y-maeda1116"
+
+RETRY_MAX_ATTEMPTS = 3
+RETRY_DELAY_SECONDS = 60
+
+
+def run_gh_api(args: list[str]):
+    """Run `gh api`, retrying transient failures with linear backoff.
+
+    GitHub's secondary rate limit answers HTTP 403 with "wait a few
+    minutes" even when the primary quota is fine, so a burst of API
+    calls from another step can fail these requests. Retrying keeps a
+    transient 403 from failing the whole daily run.
+    """
+    result = None
+    for attempt in range(1, RETRY_MAX_ATTEMPTS + 1):
+        result = subprocess.run(["gh", "api", *args], capture_output=True, text=True)
+        if result.returncode == 0 or attempt == RETRY_MAX_ATTEMPTS:
+            return result
+        delay = RETRY_DELAY_SECONDS * attempt
+        print(
+            f"warning: gh api {args[0][:80]} failed (rc={result.returncode}); "
+            f"retrying in {delay}s: {(result.stderr or '').strip()[:200]}",
+            file=sys.stderr,
+        )
+        time.sleep(delay)
+    return result
 
 
 def replace_section(content: str, tag: str, new_content: str) -> str:
@@ -75,16 +102,10 @@ def fetch_recent_commits(owner: str, limit: int = 3) -> list[dict[str, str]] | N
     Returns None on API failure so the caller can keep the previous
     section instead of writing "No recent activity".
     """
-    result = subprocess.run(
-        [
-            "gh",
-            "api",
-            f"search/commits?q=author:{owner}&sort=committer-date&per_page={limit}",
-            "--jq",
-            f'[.items[] | {{repo: .repository.full_name, message: .commit.message, date: .commit.author.date}}]',
-        ],
-        capture_output=True,
-        text=True,
+    result = run_gh_api(
+        [f"search/commits?q=author:{owner}&sort=committer-date&per_page={limit}",
+         "--jq",
+         f'[.items[] | {{repo: .repository.full_name, message: .commit.message, date: .commit.author.date}}]'],
     )
     if result.returncode != 0 or not result.stdout.strip():
         print(f"error: gh api search/commits failed (rc={result.returncode}): {(result.stderr or '').strip()}",

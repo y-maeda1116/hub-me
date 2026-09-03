@@ -5,10 +5,40 @@ import html
 import json
 import subprocess
 import sys
+import time
 from collections import Counter
 from datetime import datetime, timezone
 
 OWNER = "y-maeda1116"
+
+RETRY_MAX_ATTEMPTS = 3
+RETRY_DELAY_SECONDS = 60
+
+MAX_PAGES = 10  # Search API serves at most 1000 results (100 per page)
+PAGE_DELAY_SECONDS = 2.0  # back-to-back search requests trip secondary limits
+
+
+def run_gh_api(args: list[str]):
+    """Run `gh api`, retrying transient failures with linear backoff.
+
+    GitHub's secondary rate limit answers HTTP 403 with "wait a few
+    minutes" even when the primary quota is fine, so a burst of API
+    calls from another step can fail these requests. Retrying keeps a
+    transient 403 from failing the whole daily run.
+    """
+    result = None
+    for attempt in range(1, RETRY_MAX_ATTEMPTS + 1):
+        result = subprocess.run(["gh", "api", *args], capture_output=True, text=True)
+        if result.returncode == 0 or attempt == RETRY_MAX_ATTEMPTS:
+            return result
+        delay = RETRY_DELAY_SECONDS * attempt
+        print(
+            f"warning: gh api {args[0][:80]} failed (rc={result.returncode}); "
+            f"retrying in {delay}s: {(result.stderr or '').strip()[:200]}",
+            file=sys.stderr,
+        )
+        time.sleep(delay)
+    return result
 
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
@@ -21,20 +51,15 @@ TEXT_COLOR = "#586e75"
 def fetch_commit_dates(owner: str) -> list[str] | None:
     """Fetch commit dates via Search API with pagination.
 
-    Returns None on API failure so the caller can abort instead of
-    silently generating an all-zero card.
+    Stops at the Search API's 1000-result cap (MAX_PAGES) instead of
+    requesting pages it refuses to serve. Returns None on API failure so
+    the caller can abort instead of silently generating an all-zero card.
     """
     dates: list[str] = []
-    page = 1
-    while True:
-        result = subprocess.run(
-            [
-                "gh", "api",
-                f"search/commits?q=author:{owner}&sort=committer-date&per_page=100&page={page}",
-                "--jq",
-                '[.items[] | .commit.author.date]',
-            ],
-            capture_output=True, text=True,
+    for page in range(1, MAX_PAGES + 1):
+        result = run_gh_api(
+            [f"search/commits?q=author:{owner}&sort=committer-date&per_page=100&page={page}",
+             "--jq", '[.items[] | .commit.author.date]'],
         )
         if result.returncode != 0 or not result.stdout.strip():
             print(f"error: gh api search/commits failed (rc={result.returncode}): {(result.stderr or '').strip()}",
@@ -51,7 +76,8 @@ def fetch_commit_dates(owner: str) -> list[str] | None:
         dates.extend(page_dates)
         if len(page_dates) < 100:
             break
-        page += 1
+        if page < MAX_PAGES:
+            time.sleep(PAGE_DELAY_SECONDS)
     return dates
 
 
