@@ -21,21 +21,6 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: Generate Profile Summary Cards
-        uses: vn7n24fzkq/github-profile-summary-cards@974577f1823715ca047e9976548634816a3a0264 # release
-        env:
-          GITHUB_TOKEN: ${{ secrets.PROFILE_TOKEN }}
-        with:
-          USERNAME: ${{ github.repository_owner }}
-          UTC_OFFSET: 9
-
-      - name: Generate weekday commits card
-        env:
-          GH_TOKEN: ${{ secrets.PROFILE_TOKEN }}
-        run: |
-          python scripts/generate_weekday_card.py \
-            --output profile-summary-card-output/default/5-commits-per-weekday.svg
-
       - name: Set up Python
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
@@ -43,6 +28,18 @@ jobs:
 
       - name: Run tests
         run: python -m unittest discover -s tests -v
+
+      # Data-fetching steps run BEFORE the Profile Summary Cards action:
+      # that action bursts GitHub API calls with the same token and trips
+      # the secondary rate limit (HTTP 403 on every search call made
+      # right after it), so fetching data first on a clean rate window.
+      - name: Generate weekday commits card
+        env:
+          GH_TOKEN: ${{ secrets.PROFILE_TOKEN }}
+        run: |
+          mkdir -p profile-cards
+          python scripts/generate_weekday_card.py \
+            --output profile-cards/5-commits-per-weekday.svg
 
       - name: Fetch repository status
         env:
@@ -61,6 +58,14 @@ jobs:
           python scripts/update_readme.py \
             --repo-status-file /tmp/repo_status.json \
             --focus-file /tmp/focus.txt
+
+      - name: Generate Profile Summary Cards
+        uses: vn7n24fzkq/github-profile-summary-cards@974577f1823715ca047e9976548634816a3a0264 # release
+        env:
+          GITHUB_TOKEN: ${{ secrets.PROFILE_TOKEN }}
+        with:
+          USERNAME: ${{ github.repository_owner }}
+          UTC_OFFSET: 9
 
       - name: Commit and push changes
         run: |

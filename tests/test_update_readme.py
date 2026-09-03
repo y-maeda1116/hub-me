@@ -139,8 +139,9 @@ class TestFetchRecentCommits(unittest.TestCase):
         result = fetch_recent_commits("y-maeda1116")
         self.assertEqual(len(result), 1)
 
+    @patch("update_readme.time.sleep")
     @patch("update_readme.subprocess.run")
-    def test_returns_none_on_error(self, mock_run):
+    def test_returns_none_on_error(self, mock_run, mock_sleep):
         mock_run.return_value = MagicMock(returncode=1, stdout="")
         self.assertIsNone(fetch_recent_commits("y-maeda1116"))
 
@@ -148,6 +149,29 @@ class TestFetchRecentCommits(unittest.TestCase):
     def test_returns_none_on_invalid_json(self, mock_run):
         mock_run.return_value = MagicMock(returncode=0, stdout="not json")
         self.assertIsNone(fetch_recent_commits("y-maeda1116"))
+
+    @patch("update_readme.time.sleep")
+    @patch("update_readme.subprocess.run")
+    def test_retries_transient_failure_then_succeeds(self, mock_run, mock_sleep):
+        commits_json = json.dumps([
+            {"repo": "y-maeda1116/repo-a", "message": "feat: x", "date": "2026-08-20T00:00:00Z"},
+        ])
+        mock_run.side_effect = [
+            MagicMock(returncode=1, stdout="", stderr="secondary rate limit"),
+            MagicMock(returncode=0, stdout=commits_json),
+        ]
+        result = fetch_recent_commits("y-maeda1116")
+        self.assertEqual(len(result), 1)
+        self.assertEqual(mock_run.call_count, 2)
+        mock_sleep.assert_called_once_with(60)
+
+    @patch("update_readme.time.sleep")
+    @patch("update_readme.subprocess.run")
+    def test_returns_none_after_exhausting_retries(self, mock_run, mock_sleep):
+        mock_run.return_value = MagicMock(returncode=1, stdout="")
+        self.assertIsNone(fetch_recent_commits("y-maeda1116"))
+        self.assertEqual(mock_run.call_count, 3)
+        self.assertEqual(mock_sleep.call_count, 2)
 
 
 class TestMain(unittest.TestCase):

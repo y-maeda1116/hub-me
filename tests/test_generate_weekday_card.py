@@ -43,8 +43,9 @@ class TestFetchCommitDates(unittest.TestCase):
         dates = fetch_commit_dates("testuser")
         self.assertEqual(len(dates), 2)
 
+    @patch("scripts.generate_weekday_card.time.sleep")
     @patch("scripts.generate_weekday_card.subprocess.run")
-    def test_pagination(self, mock_run):
+    def test_pagination(self, mock_run, mock_sleep):
         mock_run.side_effect = [
             MagicMock(returncode=0, stdout=json.dumps(["2026-05-04T10:00:00Z"] * 100)),
             MagicMock(returncode=0, stdout='["2026-05-05T12:00:00Z"]'),
@@ -53,27 +54,71 @@ class TestFetchCommitDates(unittest.TestCase):
         dates = fetch_commit_dates("testuser")
         self.assertEqual(len(dates), 101)
 
+    @patch("scripts.generate_weekday_card.time.sleep")
     @patch("scripts.generate_weekday_card.subprocess.run")
-    def test_api_error(self, mock_run):
+    def test_stops_at_search_api_1000_results_cap(self, mock_run, mock_sleep):
+        full_page = json.dumps(["2026-05-04T10:00:00Z"] * 100)
+        mock_run.return_value = MagicMock(returncode=0, stdout=full_page)
+        dates = fetch_commit_dates("testuser")
+        self.assertEqual(len(dates), 1000)
+        self.assertEqual(mock_run.call_count, 10)
+
+    @patch("scripts.generate_weekday_card.time.sleep")
+    @patch("scripts.generate_weekday_card.subprocess.run")
+    def test_pauses_between_pages(self, mock_run, mock_sleep):
+        mock_run.side_effect = [
+            MagicMock(returncode=0, stdout=json.dumps(["2026-05-04T10:00:00Z"] * 100)),
+            MagicMock(returncode=0, stdout=json.dumps(["2026-05-04T10:00:00Z"] * 100)),
+            MagicMock(returncode=0, stdout='["2026-05-05T12:00:00Z"]'),
+        ]
+        dates = fetch_commit_dates("testuser")
+        self.assertEqual(len(dates), 201)
+        self.assertEqual(mock_sleep.call_count, 2)
+
+    @patch("scripts.generate_weekday_card.time.sleep")
+    @patch("scripts.generate_weekday_card.subprocess.run")
+    def test_api_error(self, mock_run, mock_sleep):
         mock_run.return_value = MagicMock(returncode=1, stdout="")
         dates = fetch_commit_dates("testuser")
         self.assertIsNone(dates)
+
+    @patch("scripts.generate_weekday_card.time.sleep")
+    @patch("scripts.generate_weekday_card.subprocess.run")
+    def test_error_mid_pagination(self, mock_run, mock_sleep):
+        mock_run.side_effect = [
+            MagicMock(returncode=0, stdout=json.dumps(["2026-05-04T10:00:00Z"] * 100)),
+            MagicMock(returncode=1, stdout=""),
+            MagicMock(returncode=1, stdout=""),
+            MagicMock(returncode=1, stdout=""),
+        ]
+        dates = fetch_commit_dates("testuser")
+        self.assertIsNone(dates)
+
+    @patch("scripts.generate_weekday_card.time.sleep")
+    @patch("scripts.generate_weekday_card.subprocess.run")
+    def test_retries_transient_failure_then_succeeds(self, mock_run, mock_sleep):
+        mock_run.side_effect = [
+            MagicMock(returncode=1, stdout="", stderr="secondary rate limit"),
+            MagicMock(returncode=0, stdout='["2026-05-04T10:00:00Z"]'),
+        ]
+        dates = fetch_commit_dates("testuser")
+        self.assertEqual(dates, ["2026-05-04T10:00:00Z"])
+        self.assertEqual(mock_run.call_count, 2)
+        mock_sleep.assert_called_once_with(60)
+
+    @patch("scripts.generate_weekday_card.time.sleep")
+    @patch("scripts.generate_weekday_card.subprocess.run")
+    def test_returns_none_after_exhausting_retries(self, mock_run, mock_sleep):
+        mock_run.return_value = MagicMock(returncode=1, stdout="")
+        self.assertIsNone(fetch_commit_dates("testuser"))
+        self.assertEqual(mock_run.call_count, 3)
+        self.assertEqual(mock_sleep.call_count, 2)
 
     @patch("scripts.generate_weekday_card.subprocess.run")
     def test_invalid_json(self, mock_run):
         mock_run.return_value = MagicMock(returncode=0, stdout="not json")
         dates = fetch_commit_dates("testuser")
         self.assertIsNone(dates)
-
-    @patch("scripts.generate_weekday_card.subprocess.run")
-    def test_error_mid_pagination(self, mock_run):
-        mock_run.side_effect = [
-            MagicMock(returncode=0, stdout=json.dumps(["2026-05-04T10:00:00Z"] * 100)),
-            MagicMock(returncode=1, stdout=""),
-        ]
-        dates = fetch_commit_dates("testuser")
-        self.assertIsNone(dates)
-
 
 class TestMain(unittest.TestCase):
     def test_exits_nonzero_when_fetch_fails(self):
