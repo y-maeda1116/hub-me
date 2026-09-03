@@ -66,6 +66,12 @@ jobs:
         with:
           USERNAME: ${{ github.repository_owner }}
           UTC_OFFSET: 9
+          # Data steps above leave uncommitted changes in the tree, and the
+          # action's own `git commit` fails on a dirty tree when its cards
+          # are unchanged ("no changes added to commit" slips past its
+          # "nothing to commit" guard). Keep it a pure generator and let
+          # the Commit and push step below version all files together.
+          AUTO_PUSH: false
 
       - name: Commit and push changes
         run: |
