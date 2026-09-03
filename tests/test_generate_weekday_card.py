@@ -2,7 +2,7 @@ import json
 import unittest
 from unittest.mock import MagicMock, patch
 
-from scripts.generate_weekday_card import count_by_weekday, fetch_commit_dates, generate_svg
+from scripts.generate_weekday_card import count_by_weekday, fetch_commit_dates, generate_svg, main
 
 
 class TestCountByWeekday(unittest.TestCase):
@@ -57,7 +57,31 @@ class TestFetchCommitDates(unittest.TestCase):
     def test_api_error(self, mock_run):
         mock_run.return_value = MagicMock(returncode=1, stdout="")
         dates = fetch_commit_dates("testuser")
-        self.assertEqual(dates, [])
+        self.assertIsNone(dates)
+
+    @patch("scripts.generate_weekday_card.subprocess.run")
+    def test_invalid_json(self, mock_run):
+        mock_run.return_value = MagicMock(returncode=0, stdout="not json")
+        dates = fetch_commit_dates("testuser")
+        self.assertIsNone(dates)
+
+    @patch("scripts.generate_weekday_card.subprocess.run")
+    def test_error_mid_pagination(self, mock_run):
+        mock_run.side_effect = [
+            MagicMock(returncode=0, stdout=json.dumps(["2026-05-04T10:00:00Z"] * 100)),
+            MagicMock(returncode=1, stdout=""),
+        ]
+        dates = fetch_commit_dates("testuser")
+        self.assertIsNone(dates)
+
+
+class TestMain(unittest.TestCase):
+    def test_exits_nonzero_when_fetch_fails(self):
+        with patch("scripts.generate_weekday_card.fetch_commit_dates", return_value=None), \
+             patch("sys.argv", ["prog", "--output", "/tmp/unused.svg"]):
+            with self.assertRaises(SystemExit) as ctx:
+                main()
+        self.assertEqual(ctx.exception.code, 1)
 
 
 class TestGenerateSvg(unittest.TestCase):

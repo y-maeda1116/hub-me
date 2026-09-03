@@ -18,8 +18,12 @@ BAR_COLOR = "#586e75"
 TEXT_COLOR = "#586e75"
 
 
-def fetch_commit_dates(owner: str) -> list[str]:
-    """Fetch commit dates via Search API with pagination."""
+def fetch_commit_dates(owner: str) -> list[str] | None:
+    """Fetch commit dates via Search API with pagination.
+
+    Returns None on API failure so the caller can abort instead of
+    silently generating an all-zero card.
+    """
     dates: list[str] = []
     page = 1
     while True:
@@ -33,11 +37,11 @@ def fetch_commit_dates(owner: str) -> list[str]:
             capture_output=True, text=True,
         )
         if result.returncode != 0 or not result.stdout.strip():
-            break
+            return None
         try:
             page_dates = json.loads(result.stdout)
         except json.JSONDecodeError:
-            break
+            return None
         if not page_dates:
             break
         dates.extend(page_dates)
@@ -101,6 +105,10 @@ def main() -> None:
     args = parser.parse_args()
 
     dates = fetch_commit_dates(args.owner)
+    if dates is None:
+        print("error: could not fetch commit dates; keeping previous card",
+              file=sys.stderr)
+        sys.exit(1)
     counts = count_by_weekday(dates, args.utc_offset)
     svg = generate_svg(counts)
 
