@@ -31,7 +31,7 @@ jobs:
 
       - name: Generate weekday commits card
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PROFILE_TOKEN }}
         run: |
           python scripts/generate_weekday_card.py \
             --output profile-summary-card-output/default/5-commits-per-weekday.svg
@@ -46,17 +46,17 @@ jobs:
 
       - name: Fetch repository status
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PROFILE_TOKEN }}
         run: python scripts/fetch_repo_status.py > /tmp/repo_status.json
 
       - name: Analyze commits
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PROFILE_TOKEN }}
         run: python scripts/analyze_commits.py > /tmp/focus.txt
 
       - name: Update README
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PROFILE_TOKEN }}
         run: |
           python scripts/update_readme.py \
             --repo-status-file /tmp/repo_status.json \

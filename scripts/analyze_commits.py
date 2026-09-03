@@ -54,19 +54,23 @@ def detect_tech_from_files(files: list[str]) -> list[str]:
     return techs
 
 
-def get_active_repos(owner: str, since: str) -> list[str]:
-    """Get repos with push events since given date."""
+def get_active_repos(owner: str, since: str) -> list[str] | None:
+    """Get repos with push events since given date.
+
+    Returns None on API failure so the caller can abort instead of
+    writing "No activity this week".
+    """
     result = subprocess.run(
         ["gh", "api", f"users/{owner}/events/public?per_page=100",
          "--jq", f'[.[] | select(.type == "PushEvent" and .created_at >= "{since}") | .repo.name] | unique'],
         capture_output=True, text=True,
     )
     if result.returncode != 0 or not result.stdout.strip():
-        return []
+        return None
     try:
         return json.loads(result.stdout)
     except json.JSONDecodeError:
-        return []
+        return None
 
 
 def get_repo_languages(repo: str) -> dict[str, int]:
@@ -84,11 +88,17 @@ def get_repo_languages(repo: str) -> dict[str, int]:
         return {}
 
 
-def analyze_tech_trend(owner: str = OWNER) -> str:
-    """Analyze tech trends from past week's commits."""
+def analyze_tech_trend(owner: str = OWNER) -> str | None:
+    """Analyze tech trends from past week's commits.
+
+    Returns None when the underlying API data is unavailable so the
+    caller can keep previous data instead of writing a misleading summary.
+    """
     since = (datetime.now(timezone.utc) - timedelta(days=7)).strftime("%Y-%m-%dT%H:%M:%SZ")
     active_repos = get_active_repos(owner, since)
 
+    if active_repos is None:
+        return None
     if not active_repos:
         return "No activity this week"
 
@@ -99,7 +109,7 @@ def analyze_tech_trend(owner: str = OWNER) -> str:
         lang_counter.update(languages)
 
     if not lang_counter:
-        return "No activity this week"
+        return None
 
     top = lang_counter.most_common(5)
     parts = []
@@ -110,7 +120,12 @@ def analyze_tech_trend(owner: str = OWNER) -> str:
 
 
 def main():
-    print(analyze_tech_trend())
+    trend = analyze_tech_trend()
+    if trend is None:
+        print("error: commit analysis unavailable; keeping previous README data",
+              file=sys.stderr)
+        sys.exit(1)
+    print(trend)
 
 
 if __name__ == "__main__":

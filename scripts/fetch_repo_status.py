@@ -47,34 +47,45 @@ def fetch_build_status(repo: str, owner: str = OWNER) -> str:
     return status if status else "N/A"
 
 
-def fetch_open_issues(repo: str, owner: str = OWNER) -> int:
-    """Get count of open issues (excluding PRs) via Search API, or 0 on error."""
-    result = subprocess.run(
-        ["gh", "api", f"search/issues?q=repo:{owner}/{repo}+is:issue+state:open&per_page=1",
-         "--jq", ".total_count"],
-        capture_output=True, text=True,
-    )
-    if result.returncode != 0:
-        return 0
-    try:
-        return int(result.stdout.strip())
-    except ValueError:
-        return 0
+def fetch_open_counts(repos: list[str], kind: str, owner: str = OWNER) -> dict[str, int] | None:
+    """Count open items per repo via one batched Search API query.
 
+    Multiple repo: qualifiers are OR-joined, so counting N repos costs one
+    call (plus pagination) instead of N — staying far below the Search API
+    rate limit that caused silent zeros when per-repo queries failed.
 
-def fetch_open_prs(repo: str, owner: str = OWNER) -> int:
-    """Get count of open pull requests via Search API, or 0 on error."""
-    result = subprocess.run(
-        ["gh", "api", f"search/issues?q=repo:{owner}/{repo}+is:pr+state:open&per_page=1",
-         "--jq", ".total_count"],
-        capture_output=True, text=True,
-    )
-    if result.returncode != 0:
-        return 0
-    try:
-        return int(result.stdout.strip())
-    except ValueError:
-        return 0
+    kind is "is:pr" or "is:issue". Returns {repo: count} with 0 for repos
+    without matches, or None on API failure so callers can keep previous
+    data instead of writing zeros. Also returns None when total_count
+    exceeds the Search API's 1000-result cap, where counts are unreliable.
+    """
+    if not repos:
+        return {}
+    qualifiers = [f"repo:{owner}/{name}" for name in repos] + [kind, "state:open"]
+    counts = {name: 0 for name in repos}
+    page = 1
+    while True:
+        result = subprocess.run(
+            ["gh", "api",
+             f"search/issues?q={'+'.join(qualifiers)}&per_page=100&page={page}",
+             "--jq", "[.total_count, [.items[].repository_url]]"],
+            capture_output=True, text=True,
+        )
+        if result.returncode != 0:
+            return None
+        try:
+            total, urls = json.loads(result.stdout)
+        except (json.JSONDecodeError, ValueError, TypeError):
+            return None
+        if total > 1000:
+            return None
+        for url in urls:
+            name = url.rsplit("/", 1)[-1]
+            if name in counts:
+                counts[name] += 1
+        if len(urls) < 100:
+            return counts
+        page += 1
 
 
 def has_release_or_actions(repo: str, owner: str = OWNER) -> bool:
@@ -90,26 +101,42 @@ def fetch_repo_status(owner: str = OWNER) -> list[dict[str, str]]:
     if not repos:
         return []
     skip = {owner, "hub-me"}
-    results = []
-    for repo_info in repos:
-        name = repo_info["name"]
-        if name in skip:
-            continue
+    names = [info["name"] for info in repos if info["name"] not in skip]
+    base_rows = []
+    for name in names:
         release = fetch_latest_release(name, owner)
         build = fetch_build_status(name, owner)
         if release != "N/A" or build != "N/A":
-            results.append({
+            base_rows.append({
                 "name": name,
                 "latest_release": release,
                 "build_status": build,
-                "open_issues": fetch_open_issues(name, owner),
-                "open_prs": fetch_open_prs(name, owner),
             })
-    return results
+    if not base_rows:
+        return []
+    targets = [row["name"] for row in base_rows]
+    pr_counts = fetch_open_counts(targets, "is:pr", owner)
+    issue_counts = fetch_open_counts(targets, "is:issue", owner)
+    if pr_counts is None or issue_counts is None:
+        return []
+    return [
+        {
+            "name": row["name"],
+            "latest_release": row["latest_release"],
+            "build_status": row["build_status"],
+            "open_issues": issue_counts.get(row["name"], 0),
+            "open_prs": pr_counts.get(row["name"], 0),
+        }
+        for row in base_rows
+    ]
 
 
 def main():
     results = fetch_repo_status()
+    if not results:
+        print("error: repo status unavailable; keeping previous README data",
+              file=sys.stderr)
+        sys.exit(1)
     print(json.dumps(results, indent=2))
 
 

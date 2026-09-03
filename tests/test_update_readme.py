@@ -2,11 +2,19 @@
 import os
 import sys
 import json
+import tempfile
 import unittest
+from unittest.mock import MagicMock, patch
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
 
-from update_readme import replace_section, format_repo_status_table, format_recent_commits
+from update_readme import (
+    replace_section,
+    format_repo_status_table,
+    format_recent_commits,
+    fetch_recent_commits,
+    main,
+)
 
 
 class TestReplaceSection(unittest.TestCase):
@@ -119,6 +127,42 @@ class TestFormatRecentCommits(unittest.TestCase):
     def test_empty_commits(self):
         result = format_recent_commits([])
         self.assertIn("No recent activity", result)
+
+
+class TestFetchRecentCommits(unittest.TestCase):
+    @patch("update_readme.subprocess.run")
+    def test_returns_commits_on_success(self, mock_run):
+        commits_json = json.dumps([
+            {"repo": "y-maeda1116/repo-a", "message": "feat: x", "date": "2026-08-20T00:00:00Z"},
+        ])
+        mock_run.return_value = MagicMock(returncode=0, stdout=commits_json)
+        result = fetch_recent_commits("y-maeda1116")
+        self.assertEqual(len(result), 1)
+
+    @patch("update_readme.subprocess.run")
+    def test_returns_none_on_error(self, mock_run):
+        mock_run.return_value = MagicMock(returncode=1, stdout="")
+        self.assertIsNone(fetch_recent_commits("y-maeda1116"))
+
+    @patch("update_readme.subprocess.run")
+    def test_returns_none_on_invalid_json(self, mock_run):
+        mock_run.return_value = MagicMock(returncode=0, stdout="not json")
+        self.assertIsNone(fetch_recent_commits("y-maeda1116"))
+
+
+class TestMain(unittest.TestCase):
+    def test_exits_nonzero_and_keeps_file_when_commits_fetch_fails(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            readme = os.path.join(tmp, "README.md")
+            with open(readme, "w") as f:
+                f.write("<!-- RECENT_COMMITS -->\nold content\n<!-- /RECENT_COMMITS -->\n")
+            with patch("update_readme.fetch_recent_commits", return_value=None), \
+                 patch("sys.argv", ["prog", "--readme", readme]):
+                with self.assertRaises(SystemExit) as ctx:
+                    main()
+            self.assertEqual(ctx.exception.code, 1)
+            with open(readme) as f:
+                self.assertIn("old content", f.read())
 
 
 if __name__ == "__main__":

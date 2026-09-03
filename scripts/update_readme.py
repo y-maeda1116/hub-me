@@ -69,8 +69,12 @@ def format_recent_commits(commits: list[dict[str, str]]) -> str:
     return "\n".join(lines)
 
 
-def fetch_recent_commits(owner: str, limit: int = 3) -> list[dict[str, str]]:
-    """Fetch recent commits via GitHub Search API."""
+def fetch_recent_commits(owner: str, limit: int = 3) -> list[dict[str, str]] | None:
+    """Fetch recent commits via GitHub Search API.
+
+    Returns None on API failure so the caller can keep the previous
+    section instead of writing "No recent activity".
+    """
     result = subprocess.run(
         [
             "gh",
@@ -83,11 +87,11 @@ def fetch_recent_commits(owner: str, limit: int = 3) -> list[dict[str, str]]:
         text=True,
     )
     if result.returncode != 0 or not result.stdout.strip():
-        return []
+        return None
     try:
         return json.loads(result.stdout)
     except json.JSONDecodeError:
-        return []
+        return None
 
 
 def main():
@@ -137,14 +141,21 @@ def main():
 
     try:
         commits = fetch_recent_commits(OWNER)
-        commits_text = format_recent_commits(commits)
-        new_content = replace_section(
-            new_content, "RECENT_COMMITS", commits_text
-        )
     except Exception as e:
         print(
-            f"Warning: failed to fetch recent commits: {e}", file=sys.stderr
+            f"error: failed to fetch recent commits: {e}", file=sys.stderr
         )
+        sys.exit(1)
+    if commits is None:
+        print(
+            "error: recent commits unavailable; keeping previous README data",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+    commits_text = format_recent_commits(commits)
+    new_content = replace_section(
+        new_content, "RECENT_COMMITS", commits_text
+    )
 
     if args.focus_file:
         try:

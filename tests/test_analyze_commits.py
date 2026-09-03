@@ -7,7 +7,7 @@ from unittest.mock import patch, MagicMock
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
 
-from analyze_commits import detect_tech_from_files, analyze_tech_trend
+from analyze_commits import detect_tech_from_files, analyze_tech_trend, get_active_repos, main
 
 
 class TestDetectTechFromFiles(unittest.TestCase):
@@ -69,6 +69,55 @@ class TestAnalyzeTechTrend(unittest.TestCase):
         mock_run.return_value = MagicMock(returncode=0, stdout="[]")
         result = analyze_tech_trend(owner="y-maeda1116")
         self.assertEqual(result, "No activity this week")
+
+    @patch("analyze_commits.subprocess.run")
+    def test_returns_none_when_events_fetch_fails(self, mock_run):
+        mock_run.return_value = MagicMock(returncode=1, stdout="")
+        result = analyze_tech_trend(owner="y-maeda1116")
+        self.assertIsNone(result)
+
+    @patch("analyze_commits.subprocess.run")
+    def test_returns_none_when_languages_all_fail(self, mock_run):
+        events_json = json.dumps([
+            {"type": "PushEvent", "repo": {"name": "y-maeda1116/repo-a"}, "created_at": "2026-08-20T00:00:00Z"},
+        ])
+        mock_run.side_effect = [
+            MagicMock(returncode=0, stdout=events_json),
+            MagicMock(returncode=1, stdout=""),
+        ]
+        result = analyze_tech_trend(owner="y-maeda1116")
+        self.assertIsNone(result)
+
+
+class TestGetActiveRepos(unittest.TestCase):
+    @patch("analyze_commits.subprocess.run")
+    def test_returns_repo_list(self, mock_run):
+        mock_run.return_value = MagicMock(
+            returncode=0,
+            stdout='["y-maeda1116/repo-a"]',
+        )
+        result = get_active_repos("y-maeda1116", "2026-08-13T00:00:00Z")
+        self.assertEqual(result, ["y-maeda1116/repo-a"])
+
+    @patch("analyze_commits.subprocess.run")
+    def test_returns_none_on_error(self, mock_run):
+        mock_run.return_value = MagicMock(returncode=1, stdout="")
+        result = get_active_repos("y-maeda1116", "2026-08-13T00:00:00Z")
+        self.assertIsNone(result)
+
+    @patch("analyze_commits.subprocess.run")
+    def test_returns_none_on_invalid_json(self, mock_run):
+        mock_run.return_value = MagicMock(returncode=0, stdout="not json")
+        result = get_active_repos("y-maeda1116", "2026-08-13T00:00:00Z")
+        self.assertIsNone(result)
+
+
+class TestMain(unittest.TestCase):
+    @patch("analyze_commits.analyze_tech_trend", return_value=None)
+    def test_exits_nonzero_when_analysis_fails(self, mock_trend):
+        with self.assertRaises(SystemExit) as ctx:
+            main()
+        self.assertEqual(ctx.exception.code, 1)
 
 
 if __name__ == "__main__":
