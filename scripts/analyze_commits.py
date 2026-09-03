@@ -66,10 +66,14 @@ def get_active_repos(owner: str, since: str) -> list[str] | None:
         capture_output=True, text=True,
     )
     if result.returncode != 0 or not result.stdout.strip():
+        print(f"error: gh api events/public failed (rc={result.returncode}): {(result.stderr or '').strip()}",
+              file=sys.stderr)
         return None
     try:
         return json.loads(result.stdout)
     except json.JSONDecodeError:
+        print(f"error: gh api events/public returned invalid JSON: {result.stdout[:200]}",
+              file=sys.stderr)
         return None
 
 

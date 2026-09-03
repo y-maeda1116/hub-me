@@ -37,10 +37,14 @@ def fetch_commit_dates(owner: str) -> list[str] | None:
             capture_output=True, text=True,
         )
         if result.returncode != 0 or not result.stdout.strip():
+            print(f"error: gh api search/commits failed (rc={result.returncode}): {(result.stderr or '').strip()}",
+                  file=sys.stderr)
             return None
         try:
             page_dates = json.loads(result.stdout)
         except json.JSONDecodeError:
+            print(f"error: gh api search/commits returned invalid JSON: {result.stdout[:200]}",
+                  file=sys.stderr)
             return None
         if not page_dates:
             break

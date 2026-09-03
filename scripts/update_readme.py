@@ -87,10 +87,14 @@ def fetch_recent_commits(owner: str, limit: int = 3) -> list[dict[str, str]] | N
         text=True,
     )
     if result.returncode != 0 or not result.stdout.strip():
+        print(f"error: gh api search/commits failed (rc={result.returncode}): {(result.stderr or '').strip()}",
+              file=sys.stderr)
         return None
     try:
         return json.loads(result.stdout)
     except json.JSONDecodeError:
+        print(f"error: gh api search/commits returned invalid JSON: {result.stdout[:200]}",
+              file=sys.stderr)
         return None
 
 

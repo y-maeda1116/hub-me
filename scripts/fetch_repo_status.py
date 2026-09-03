@@ -72,10 +72,14 @@ def fetch_open_counts(repos: list[str], kind: str, owner: str = OWNER) -> dict[s
             capture_output=True, text=True,
         )
         if result.returncode != 0:
+            print(f"error: gh api search/issues failed (rc={result.returncode}): {(result.stderr or '').strip()}",
+                  file=sys.stderr)
             return None
         try:
             total, urls = json.loads(result.stdout)
         except (json.JSONDecodeError, ValueError, TypeError):
+            print(f"error: gh api search/issues returned invalid JSON: {result.stdout[:200]}",
+                  file=sys.stderr)
             return None
         if total > 1000:
             return None
