@@ -257,6 +257,12 @@ class TestFetchCommitDatesWithinWindow(unittest.TestCase):
         mock_window.return_value = None
         self.assertIsNone(fetch_commit_dates("testuser", since=SINCE))
 
+    @patch("scripts.generate_weekday_card._fetch_window")
+    def test_returns_none_when_since_is_not_before_now(self, mock_window):
+        for bad_since in (FROZEN_NOW, FROZEN_NOW + timedelta(seconds=1)):
+            self.assertIsNone(fetch_commit_dates("testuser", since=bad_since))
+        mock_window.assert_not_called()
+
 
 class TestMain(unittest.TestCase):
     def test_exits_nonzero_when_fetch_fails(self):

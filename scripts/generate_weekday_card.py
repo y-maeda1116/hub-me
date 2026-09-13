@@ -130,6 +130,10 @@ def fetch_commit_dates(owner: str, since: datetime | None = None) -> list[str] |
         return _fetch_window(owner)
 
     now = datetime.now(timezone.utc)
+    if since >= now:
+        print("error: since must be before now; refusing to generate an "
+              "all-zero card from an empty window", file=sys.stderr)
+        return None
     bounds = _window_bounds(since, now)
     dates: list[str] = []
     for start, end in zip(bounds, bounds[1:]):
