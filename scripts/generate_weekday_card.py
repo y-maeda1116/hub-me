@@ -3,18 +3,20 @@
 import argparse
 import html
 import json
+import math
 import subprocess
 import sys
 import time
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 OWNER = "y-maeda1116"
 
 RETRY_MAX_ATTEMPTS = 3
 RETRY_DELAY_SECONDS = 60
 
-MAX_PAGES = 10  # Search API serves at most 1000 results (100 per page)
+MAX_PAGES = 10  # Search API serves at most 1000 results (PER_PAGE per page)
+PER_PAGE = 100
 PAGE_DELAY_SECONDS = 2.0  # back-to-back search requests trip secondary limits
 
 
@@ -48,36 +50,101 @@ BAR_COLOR = "#586e75"
 TEXT_COLOR = "#586e75"
 
 
-def fetch_commit_dates(owner: str) -> list[str] | None:
-    """Fetch commit dates via Search API with pagination.
+def parse_commit_date(date_str: str) -> datetime | None:
+    """Parse an ISO-8601 commit date, returning None when malformed."""
+    try:
+        return datetime.fromisoformat(date_str.replace("Z", "+00:00"))
+    except (AttributeError, ValueError, TypeError):
+        return None
 
-    Stops at the Search API's 1000-result cap (MAX_PAGES) instead of
-    requesting pages it refuses to serve. Returns None on API failure so
-    the caller can abort instead of silently generating an all-zero card.
+
+def _fetch_commit_page(owner: str, qualifier: str, page: int) -> list[str] | None:
+    """Fetch one search/commits page; returns None on API failure."""
+    result = run_gh_api(
+        [f"search/commits?q=author:{owner}{qualifier}&sort=committer-date&per_page={PER_PAGE}&page={page}",
+         "--jq", '[.items[] | .commit.author.date]'],
+    )
+    if result.returncode != 0 or not result.stdout.strip():
+        print(f"error: gh api search/commits failed (rc={result.returncode}): {(result.stderr or '').strip()}",
+              file=sys.stderr)
+        return None
+    try:
+        return json.loads(result.stdout)
+    except json.JSONDecodeError:
+        print(f"error: gh api search/commits returned invalid JSON: {result.stdout[:200]}",
+              file=sys.stderr)
+        return None
+
+
+def _fetch_window(owner: str, start_date=None, end_date=None) -> list[str] | None:
+    """Fetch commit dates for one date range (whole history when unbounded).
+
+    Paginates until a short page. Stops at MAX_PAGES — the Search API's
+    1000-result cap — and warns when it does, so a full-length result
+    means the window is incomplete; callers detect the cap by result
+    length.
     """
+    qualifier = ""
+    if start_date is not None and end_date is not None:
+        # author-date matches the extracted .commit.author.date field, so
+        # the exact [start, end) filter below never crosses date semantics
+        qualifier = f"+author-date:{start_date}..{end_date}"
     dates: list[str] = []
     for page in range(1, MAX_PAGES + 1):
-        result = run_gh_api(
-            [f"search/commits?q=author:{owner}&sort=committer-date&per_page=100&page={page}",
-             "--jq", '[.items[] | .commit.author.date]'],
-        )
-        if result.returncode != 0 or not result.stdout.strip():
-            print(f"error: gh api search/commits failed (rc={result.returncode}): {(result.stderr or '').strip()}",
-                  file=sys.stderr)
-            return None
-        try:
-            page_dates = json.loads(result.stdout)
-        except json.JSONDecodeError:
-            print(f"error: gh api search/commits returned invalid JSON: {result.stdout[:200]}",
-                  file=sys.stderr)
+        page_dates = _fetch_commit_page(owner, qualifier, page)
+        if page_dates is None:
             return None
         if not page_dates:
             break
         dates.extend(page_dates)
-        if len(page_dates) < 100:
+        if len(page_dates) < PER_PAGE:
             break
         if page < MAX_PAGES:
             time.sleep(PAGE_DELAY_SECONDS)
+    if len(dates) >= MAX_PAGES * PER_PAGE:
+        print(f"warning: results truncated at the {MAX_PAGES * PER_PAGE}-result "
+              "search cap", file=sys.stderr)
+    return dates
+
+
+def _window_bounds(since: datetime, now: datetime) -> list[datetime]:
+    """Split [since, now] into boundaries of ~30-day half-open windows."""
+    span = now - since
+    count = max(1, math.ceil(span.total_seconds() / (30 * 86400)))
+    return [since + (span / count) * i for i in range(count + 1)]
+
+
+def fetch_commit_dates(owner: str, since: datetime | None = None) -> list[str] | None:
+    """Fetch commit dates via the Search API.
+
+    With since, the span is queried as ~30-day date-range windows: one
+    query caps at 1000 results and this account exceeds that per year,
+    so windows keep every query complete. Day-granularity ranges are
+    tightened with an exact [start, end) filter so boundary commits are
+    counted exactly once. A window that still hits the cap returns None
+    — incomplete counts would mislabel the card — as does any API
+    failure. Without since, returns the newest-first stream up to the
+    cap (legacy behavior).
+    """
+    if since is None:
+        return _fetch_window(owner)
+
+    now = datetime.now(timezone.utc)
+    bounds = _window_bounds(since, now)
+    dates: list[str] = []
+    for start, end in zip(bounds, bounds[1:]):
+        window_dates = _fetch_window(owner, start_date=start.date(), end_date=end.date())
+        if window_dates is None:
+            return None
+        if len(window_dates) >= MAX_PAGES * PER_PAGE:
+            print(f"error: commits in {start.date()}..{end.date()} hit the "
+                  f"{MAX_PAGES * PER_PAGE}-result search cap; counts would be incomplete",
+                  file=sys.stderr)
+            return None
+        for date_str in window_dates:
+            dt = parse_commit_date(date_str)
+            if dt is not None and dt.tzinfo is not None and start <= dt < end:
+                dates.append(date_str)
     return dates
 
 
@@ -87,7 +154,6 @@ def count_by_weekday(dates: list[str], utc_offset: int = 0) -> list[int]:
     for date_str in dates:
         try:
             dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
-            from datetime import timedelta
             dt = dt + timedelta(hours=utc_offset)
             counter[dt.weekday()] += 1
         except (ValueError, TypeError):
@@ -132,9 +198,14 @@ def main() -> None:
     parser.add_argument("--output", required=True, help="Output SVG file path")
     parser.add_argument("--utc-offset", type=int, default=9, help="UTC offset (default: 9)")
     parser.add_argument("--owner", default=OWNER, help="GitHub username")
+    parser.add_argument("--days", type=int, default=365,
+                        help="Count only commits from the last N days (default: 365)")
     args = parser.parse_args()
+    if args.days < 1:
+        parser.error("--days must be >= 1")
 
-    dates = fetch_commit_dates(args.owner)
+    since = datetime.now(timezone.utc) - timedelta(days=args.days)
+    dates = fetch_commit_dates(args.owner, since=since)
     if dates is None:
         print("error: could not fetch commit dates; keeping previous card",
               file=sys.stderr)
