@@ -18,7 +18,7 @@
 | [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/ts-template-base/issues) | [0](https://github.com/y-maeda1116/ts-template-base/pulls) |
 | [kuku19-master](https://github.com/y-maeda1116/kuku19-master) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/kuku19-master/issues) | [0](https://github.com/y-maeda1116/kuku19-master/pulls) |
 | [tokyo-hidden-transfers](https://github.com/y-maeda1116/tokyo-hidden-transfers) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/tokyo-hidden-transfers/issues) | [0](https://github.com/y-maeda1116/tokyo-hidden-transfers/pulls) |
-| [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/security-base/issues) | [0](https://github.com/y-maeda1116/security-base/pulls) |
+| [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/security-base/issues) | [1](https://github.com/y-maeda1116/security-base/pulls) |
 | [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/jre-green-trip/issues) | [1](https://github.com/y-maeda1116/jre-green-trip/pulls) |
 | [29cm-less-than-30](https://github.com/y-maeda1116/29cm-less-than-30) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/29cm-less-than-30/issues) | [0](https://github.com/y-maeda1116/29cm-less-than-30/pulls) |
 | [pack-and-go](https://github.com/y-maeda1116/pack-and-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/pack-and-go/issues) | [0](https://github.com/y-maeda1116/pack-and-go/pulls) |
@@ -27,7 +27,7 @@
 | [habit-tracker-pwa](https://github.com/y-maeda1116/habit-tracker-pwa) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/habit-tracker-pwa/issues) | [0](https://github.com/y-maeda1116/habit-tracker-pwa/pulls) |
 | [Playful-Learning-Hub](https://github.com/y-maeda1116/Playful-Learning-Hub) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/Playful-Learning-Hub/issues) | [0](https://github.com/y-maeda1116/Playful-Learning-Hub/pulls) |
 | [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/Weekly-Task-Board/issues) | [0](https://github.com/y-maeda1116/Weekly-Task-Board/pulls) |
-| [python-template-base](https://github.com/y-maeda1116/python-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/python-template-base/issues) | [0](https://github.com/y-maeda1116/python-template-base/pulls) |
+| [python-template-base](https://github.com/y-maeda1116/python-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/python-template-base/issues) | [1](https://github.com/y-maeda1116/python-template-base/pulls) |
 | [kaminarimon-lunch-map](https://github.com/y-maeda1116/kaminarimon-lunch-map) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/kaminarimon-lunch-map/issues) | [0](https://github.com/y-maeda1116/kaminarimon-lunch-map/pulls) |
 | [tenki-fuku-bot](https://github.com/y-maeda1116/tenki-fuku-bot) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/tenki-fuku-bot/issues) | [0](https://github.com/y-maeda1116/tenki-fuku-bot/pulls) |
 | [games](https://github.com/y-maeda1116/games) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/games/issues) | [1](https://github.com/y-maeda1116/games/pulls) |
@@ -39,9 +39,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `divination-journal` — chore: update PoE data (_2026-09-14_)
 - `divination-journal` — chore: update PoE data (_2026-09-13_)
 - `divination-journal` — feat: add base class filter and level sort to character list (_2026-09-13_)
-- `hub-me` — feat: limit weekday commits card to the last year (#8) (_2026-09-13_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
