@@ -12,12 +12,12 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status | Open Issues | Open PRs |
 |---|---|---|---|---|
+| [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/go-shichi-go/issues) | [1](https://github.com/y-maeda1116/go-shichi-go/pulls) |
 | [bean-watcher](https://github.com/y-maeda1116/bean-watcher) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/bean-watcher/issues) | [0](https://github.com/y-maeda1116/bean-watcher/pulls) |
 | [divination-journal](https://github.com/y-maeda1116/divination-journal) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/divination-journal/issues) | [0](https://github.com/y-maeda1116/divination-journal/pulls) |
 | [python-template-base](https://github.com/y-maeda1116/python-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/python-template-base/issues) | [0](https://github.com/y-maeda1116/python-template-base/pulls) |
 | [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/jre-green-trip/issues) | [0](https://github.com/y-maeda1116/jre-green-trip/pulls) |
 | [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/security-base/issues) | [1](https://github.com/y-maeda1116/security-base/pulls) |
-| [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/go-shichi-go/issues) | [5](https://github.com/y-maeda1116/go-shichi-go/pulls) |
 | [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/ts-template-base/issues) | [0](https://github.com/y-maeda1116/ts-template-base/pulls) |
 | [kuku19-master](https://github.com/y-maeda1116/kuku19-master) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/kuku19-master/issues) | [0](https://github.com/y-maeda1116/kuku19-master/pulls) |
 | [tokyo-hidden-transfers](https://github.com/y-maeda1116/tokyo-hidden-transfers) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/tokyo-hidden-transfers/issues) | [5](https://github.com/y-maeda1116/tokyo-hidden-transfers/pulls) |
@@ -39,13 +39,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `divination-journal` — chore: update PoE data (_2026-09-16_)
-- `y-maeda1116` — docs: fix portfolio table layout breaking into 3 columns (_2026-09-16_)
-- `divination-journal` — chore: update PoE data (_2026-09-15_)
+- `go-shichi-go` — Merge pull request #54 from y-maeda1116/dependabot/npm_and_yarn/tanstack/react-query-5.102.8 (_2026-09-18_)
+- `go-shichi-go` — Merge pull request #53 from y-maeda1116/dependabot/npm_and_yarn/cloudflare/workers-types-5.20260911.1 (_2026-09-18_)
+- `go-shichi-go` — Merge pull request #51 from y-maeda1116/dependabot/npm_and_yarn/testing-library/jest-dom-7.0.1 (_2026-09-18_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 9 repos — working with **TypeScript**, **Go**, **Python**, **CSS**, **HTML**
+Recently active in 7 repos — working with **TypeScript**, **Go**, **Python**, **CSS**, **HTML**
 <!-- /CURRENT_FOCUS -->
