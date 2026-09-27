@@ -12,12 +12,13 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status | Open Issues | Open PRs |
 |---|---|---|---|---|
+| [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/Weekly-Task-Board/issues) | [0](https://github.com/y-maeda1116/Weekly-Task-Board/pulls) |
+| [bean-watcher](https://github.com/y-maeda1116/bean-watcher) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/bean-watcher/issues) | [0](https://github.com/y-maeda1116/bean-watcher/pulls) |
+| [divination-journal](https://github.com/y-maeda1116/divination-journal) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/divination-journal/issues) | [0](https://github.com/y-maeda1116/divination-journal/pulls) |
 | [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/security-base/issues) | [0](https://github.com/y-maeda1116/security-base/pulls) |
 | [python-template-base](https://github.com/y-maeda1116/python-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/python-template-base/issues) | [0](https://github.com/y-maeda1116/python-template-base/pulls) |
 | [template-go-cross](https://github.com/y-maeda1116/template-go-cross) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/template-go-cross/issues) | [0](https://github.com/y-maeda1116/template-go-cross/pulls) |
-| [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/ts-template-base/issues) | [0](https://github.com/y-maeda1116/ts-template-base/pulls) |
-| [bean-watcher](https://github.com/y-maeda1116/bean-watcher) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/bean-watcher/issues) | [0](https://github.com/y-maeda1116/bean-watcher/pulls) |
-| [divination-journal](https://github.com/y-maeda1116/divination-journal) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/divination-journal/issues) | [0](https://github.com/y-maeda1116/divination-journal/pulls) |
+| [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [1](https://github.com/y-maeda1116/ts-template-base/issues) | [0](https://github.com/y-maeda1116/ts-template-base/pulls) |
 | [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/jre-green-trip/issues) | [0](https://github.com/y-maeda1116/jre-green-trip/pulls) |
 | [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/go-shichi-go/issues) | [0](https://github.com/y-maeda1116/go-shichi-go/pulls) |
 | [games](https://github.com/y-maeda1116/games) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/games/issues) | [1](https://github.com/y-maeda1116/games/pulls) |
@@ -29,8 +30,7 @@
 | [pack-and-go](https://github.com/y-maeda1116/pack-and-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/pack-and-go/issues) | [0](https://github.com/y-maeda1116/pack-and-go/pulls) |
 | [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/sumida-stream-coffee/issues) | [0](https://github.com/y-maeda1116/sumida-stream-coffee/pulls) |
 | [math-training-kids](https://github.com/y-maeda1116/math-training-kids) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/math-training-kids/issues) | [0](https://github.com/y-maeda1116/math-training-kids/pulls) |
-| [habit-tracker-pwa](https://github.com/y-maeda1116/habit-tracker-pwa) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/habit-tracker-pwa/issues) | [0](https://github.com/y-maeda1116/habit-tracker-pwa/pulls) |
-| [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/Weekly-Task-Board/issues) | [0](https://github.com/y-maeda1116/Weekly-Task-Board/pulls) |
+| [habit-tracker-pwa](https://github.com/y-maeda1116/habit-tracker-pwa) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [1](https://github.com/y-maeda1116/habit-tracker-pwa/issues) | [1](https://github.com/y-maeda1116/habit-tracker-pwa/pulls) |
 | [kaminarimon-lunch-map](https://github.com/y-maeda1116/kaminarimon-lunch-map) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/kaminarimon-lunch-map/issues) | [0](https://github.com/y-maeda1116/kaminarimon-lunch-map/pulls) |
 | [apple-refurb-discord-notify](https://github.com/y-maeda1116/apple-refurb-discord-notify) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/apple-refurb-discord-notify/issues) | [0](https://github.com/y-maeda1116/apple-refurb-discord-notify/pulls) |
 | [discord-trans-helper](https://github.com/y-maeda1116/discord-trans-helper) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/discord-trans-helper/issues) | [0](https://github.com/y-maeda1116/discord-trans-helper/pulls) |
@@ -39,13 +39,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `security-base` — docs: recommend local reusable workflow references over @main (#80) (_2026-09-26_)
-- `python-template-base` — ci: reference local reusable workflows instead of security-base@main (_2026-09-26_)
-- `template-go-cross` — test: add config load fuzz test (_2026-09-26_)
+- `Weekly-Task-Board` — Merge pull request #61 from y-maeda1116/fix/remove-dead-config-loader (_2026-09-27_)
+- `Weekly-Task-Board` — chore: bump version to 1.9.8 and cache to v6 (_2026-09-27_)
+- `Weekly-Task-Board` — fix: remove dead config.js loader that logged 404 for every visitor (_2026-09-27_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 4 repos — working with **Go**, **Shell**, **JavaScript**, **Makefile**, **TypeScript**
+Recently active in 6 repos — working with **TypeScript**, **JavaScript**, **HTML**, **CSS**, **Go**
 <!-- /CURRENT_FOCUS -->
