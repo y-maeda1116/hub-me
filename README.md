@@ -39,9 +39,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `divination-journal` — chore: update PoE data (_2026-09-30_)
 - `divination-journal` — chore: update PoE data (_2026-09-29_)
 - `divination-journal` — chore: update PoE data (_2026-09-29_)
-- `habit-tracker-pwa` — Merge pull request #8 from y-maeda1116/fix/pages-deploy-sha-pinning (_2026-09-28_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
