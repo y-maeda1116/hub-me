@@ -39,9 +39,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `cdp-data-collector-scripts` — feat(infra): add Refacomm S3 writer roles for TieUps via Google web identity (#18) (_2026-10-02_)
+- `divination-journal` — chore: update PoE data (_2026-10-01_)
 - `divination-journal` — chore: update PoE data (_2026-09-30_)
-- `divination-journal` — chore: update PoE data (_2026-09-29_)
-- `divination-journal` — chore: update PoE data (_2026-09-29_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
