@@ -156,6 +156,7 @@ class TestFetchWindow(unittest.TestCase):
         self.assertEqual(dates, ["2026-05-04T10:00:00Z"])
         query = mock_run.call_args[0][0][2]
         self.assertIn("author:testuser", query)
+        self.assertIn("user:testuser", query)
         self.assertNotIn("committer-date:", query)
 
     @patch("scripts.generate_weekday_card.subprocess.run")
