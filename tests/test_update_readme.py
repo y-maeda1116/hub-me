@@ -139,6 +139,14 @@ class TestFetchRecentCommits(unittest.TestCase):
         result = fetch_recent_commits("y-maeda1116")
         self.assertEqual(len(result), 1)
 
+    @patch("update_readme.subprocess.run")
+    def test_query_limits_to_owner_repos(self, mock_run):
+        mock_run.return_value = MagicMock(returncode=0, stdout="[]")
+        fetch_recent_commits("testuser")
+        query = mock_run.call_args[0][0][2]
+        self.assertIn("author:testuser", query)
+        self.assertIn("user:testuser", query)
+
     @patch("update_readme.time.sleep")
     @patch("update_readme.subprocess.run")
     def test_returns_none_on_error(self, mock_run, mock_sleep):

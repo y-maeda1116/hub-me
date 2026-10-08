@@ -99,11 +99,14 @@ def format_recent_commits(commits: list[dict[str, str]]) -> str:
 def fetch_recent_commits(owner: str, limit: int = 3) -> list[dict[str, str]] | None:
     """Fetch recent commits via GitHub Search API.
 
+    Only repositories owned by `owner` are searched (`user:` qualifier),
+    so commits to organization repositories are not shown.
+
     Returns None on API failure so the caller can keep the previous
     section instead of writing "No recent activity".
     """
     result = run_gh_api(
-        [f"search/commits?q=author:{owner}&sort=committer-date&per_page={limit}",
+        [f"search/commits?q=author:{owner}+user:{owner}&sort=committer-date&per_page={limit}",
          "--jq",
          f'[.items[] | {{repo: .repository.full_name, message: .commit.message, date: .commit.author.date}}]'],
     )

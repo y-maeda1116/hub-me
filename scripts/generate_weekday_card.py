@@ -61,7 +61,7 @@ def parse_commit_date(date_str: str) -> datetime | None:
 def _fetch_commit_page(owner: str, qualifier: str, page: int) -> list[str] | None:
     """Fetch one search/commits page; returns None on API failure."""
     result = run_gh_api(
-        [f"search/commits?q=author:{owner}{qualifier}&sort=committer-date&per_page={PER_PAGE}&page={page}",
+        [f"search/commits?q=author:{owner}+user:{owner}{qualifier}&sort=committer-date&per_page={PER_PAGE}&page={page}",
          "--jq", '[.items[] | .commit.author.date]'],
     )
     if result.returncode != 0 or not result.stdout.strip():
