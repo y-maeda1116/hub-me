@@ -19,19 +19,20 @@ from fetch_repo_status import (
 
 
 class TestFetchLatestRelease(unittest.TestCase):
-    @patch("fetch_repo_status.subprocess.run")
+    @patch("gh_api.subprocess.run")
     def test_returns_tag_on_success(self, mock_run):
         mock_run.return_value = MagicMock(returncode=0, stdout="v1.2.3\n")
         result = fetch_latest_release("some-repo", owner="test-user")
         self.assertEqual(result, "v1.2.3")
 
-    @patch("fetch_repo_status.subprocess.run")
-    def test_returns_na_on_failure(self, mock_run):
+    @patch("gh_api.time.sleep")
+    @patch("gh_api.subprocess.run")
+    def test_returns_na_on_failure(self, mock_run, mock_sleep):
         mock_run.return_value = MagicMock(returncode=1, stdout="")
         result = fetch_latest_release("some-repo", owner="test-user")
         self.assertEqual(result, "N/A")
 
-    @patch("fetch_repo_status.subprocess.run")
+    @patch("gh_api.subprocess.run")
     def test_returns_na_on_empty(self, mock_run):
         mock_run.return_value = MagicMock(returncode=0, stdout="\n")
         result = fetch_latest_release("some-repo", owner="test-user")
@@ -39,33 +40,34 @@ class TestFetchLatestRelease(unittest.TestCase):
 
 
 class TestFetchBuildStatus(unittest.TestCase):
-    @patch("fetch_repo_status.subprocess.run")
+    @patch("gh_api.subprocess.run")
     def test_returns_success(self, mock_run):
         mock_run.return_value = MagicMock(returncode=0, stdout="success\n")
         result = fetch_build_status("some-repo", owner="test-user")
         self.assertEqual(result, "success")
 
-    @patch("fetch_repo_status.subprocess.run")
+    @patch("gh_api.subprocess.run")
     def test_returns_failure(self, mock_run):
         mock_run.return_value = MagicMock(returncode=0, stdout="failure\n")
         result = fetch_build_status("some-repo", owner="test-user")
         self.assertEqual(result, "failure")
 
-    @patch("fetch_repo_status.subprocess.run")
+    @patch("gh_api.subprocess.run")
     def test_returns_na_on_no_runs(self, mock_run):
         mock_run.return_value = MagicMock(returncode=0, stdout="\n")
         result = fetch_build_status("some-repo", owner="test-user")
         self.assertEqual(result, "N/A")
 
-    @patch("fetch_repo_status.subprocess.run")
-    def test_returns_na_on_error(self, mock_run):
+    @patch("gh_api.time.sleep")
+    @patch("gh_api.subprocess.run")
+    def test_returns_na_on_error(self, mock_run, mock_sleep):
         mock_run.return_value = MagicMock(returncode=1, stdout="")
         result = fetch_build_status("some-repo", owner="test-user")
         self.assertEqual(result, "N/A")
 
 
 class TestFetchOpenCounts(unittest.TestCase):
-    @patch("fetch_repo_status.subprocess.run")
+    @patch("gh_api.subprocess.run")
     def test_groups_counts_per_repo_in_single_call(self, mock_run):
         mock_run.return_value = MagicMock(
             returncode=0,
@@ -81,29 +83,29 @@ class TestFetchOpenCounts(unittest.TestCase):
         self.assertIn("is:pr", query)
         self.assertIn("state:open", query)
 
-    @patch("fetch_repo_status.subprocess.run")
+    @patch("gh_api.subprocess.run")
     def test_zero_for_repos_without_matches(self, mock_run):
         mock_run.return_value = MagicMock(returncode=0, stdout="[0, []]")
         result = fetch_open_counts(["repo-a", "repo-b"], "is:issue", owner="test-user")
         self.assertEqual(result, {"repo-a": 0, "repo-b": 0})
 
-    @patch("fetch_repo_status.time.sleep")
-    @patch("fetch_repo_status.subprocess.run")
+    @patch("gh_api.time.sleep")
+    @patch("gh_api.subprocess.run")
     def test_returns_none_on_error(self, mock_run, mock_sleep):
         mock_run.return_value = MagicMock(returncode=1, stdout="")
         self.assertIsNone(fetch_open_counts(["repo-a"], "is:pr", owner="test-user"))
 
-    @patch("fetch_repo_status.subprocess.run")
+    @patch("gh_api.subprocess.run")
     def test_returns_none_on_invalid_json(self, mock_run):
         mock_run.return_value = MagicMock(returncode=0, stdout="not json")
         self.assertIsNone(fetch_open_counts(["repo-a"], "is:pr", owner="test-user"))
 
-    @patch("fetch_repo_status.subprocess.run")
+    @patch("gh_api.subprocess.run")
     def test_returns_none_when_over_search_cap(self, mock_run):
         mock_run.return_value = MagicMock(returncode=0, stdout="[1500, []]")
         self.assertIsNone(fetch_open_counts(["repo-a"], "is:pr", owner="test-user"))
 
-    @patch("fetch_repo_status.subprocess.run")
+    @patch("gh_api.subprocess.run")
     def test_paginates_beyond_100_results(self, mock_run):
         page1 = [150, ["https://api.github.com/repos/test-user/repo-a"] * 100]
         page2 = [150, ["https://api.github.com/repos/test-user/repo-a"] * 50]
@@ -116,13 +118,13 @@ class TestFetchOpenCounts(unittest.TestCase):
         self.assertEqual(mock_run.call_count, 2)
 
     def test_returns_empty_dict_without_api_call_for_no_repos(self):
-        with patch("fetch_repo_status.subprocess.run") as mock_run:
+        with patch("gh_api.subprocess.run") as mock_run:
             result = fetch_open_counts([], "is:pr", owner="test-user")
         self.assertEqual(result, {})
         mock_run.assert_not_called()
 
-    @patch("fetch_repo_status.time.sleep")
-    @patch("fetch_repo_status.subprocess.run")
+    @patch("gh_api.time.sleep")
+    @patch("gh_api.subprocess.run")
     def test_retries_transient_failure_then_succeeds(self, mock_run, mock_sleep):
         mock_run.side_effect = [
             MagicMock(returncode=1, stdout="", stderr="secondary rate limit"),
@@ -136,8 +138,8 @@ class TestFetchOpenCounts(unittest.TestCase):
         self.assertEqual(mock_run.call_count, 2)
         mock_sleep.assert_called_once_with(60)
 
-    @patch("fetch_repo_status.time.sleep")
-    @patch("fetch_repo_status.subprocess.run")
+    @patch("gh_api.time.sleep")
+    @patch("gh_api.subprocess.run")
     def test_returns_none_after_exhausting_retries(self, mock_run, mock_sleep):
         mock_run.return_value = MagicMock(returncode=1, stdout="")
         self.assertIsNone(fetch_open_counts(["repo-a"], "is:pr", owner="test-user"))
@@ -212,7 +214,7 @@ class TestFetchRepoStatus(unittest.TestCase):
 
 
 class TestGetAllRepos(unittest.TestCase):
-    @patch("fetch_repo_status.subprocess.run")
+    @patch("gh_api.subprocess.run")
     def test_returns_repo_list(self, mock_run):
         mock_run.return_value = MagicMock(
             returncode=0,
@@ -222,8 +224,9 @@ class TestGetAllRepos(unittest.TestCase):
         self.assertEqual(len(result), 2)
         self.assertEqual(result[0]["name"], "repo-a")
 
-    @patch("fetch_repo_status.subprocess.run")
-    def test_returns_empty_on_error(self, mock_run):
+    @patch("gh_api.time.sleep")
+    @patch("gh_api.subprocess.run")
+    def test_returns_empty_on_error(self, mock_run, mock_sleep):
         mock_run.return_value = MagicMock(returncode=1, stdout="")
         result = get_all_repos("test-user")
         self.assertEqual(result, [])

@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 """Analyze past week's commits to detect technology trends."""
 import json
-import subprocess
 import sys
 from collections import Counter
 from datetime import datetime, timedelta, timezone
 
-OWNER = "y-maeda1116"
+from gh_api import OWNER, run_gh_api
 
 EXT_TO_TECH = {
     ".go": "Go",
@@ -55,35 +54,33 @@ def detect_tech_from_files(files: list[str]) -> list[str]:
 
 
 def get_active_repos(owner: str, since: str) -> list[str] | None:
-    """Get repos with push events since given date.
+    """Get repos owned by `owner` with push events since given date.
 
-    Returns None on API failure so the caller can abort instead of
-    writing "No activity this week".
+    Pushes to organization repositories are excluded. Returns None on
+    API failure so the caller can abort instead of writing "No activity
+    this week".
     """
-    result = subprocess.run(
-        ["gh", "api", f"users/{owner}/events/public?per_page=100",
+    result = run_gh_api(
+        [f"users/{owner}/events/public?per_page=100",
          "--jq", f'[.[] | select(.type == "PushEvent" and .created_at >= "{since}") | .repo.name] | unique'],
-        capture_output=True, text=True,
     )
     if result.returncode != 0 or not result.stdout.strip():
         print(f"error: gh api events/public failed (rc={result.returncode}): {(result.stderr or '').strip()}",
               file=sys.stderr)
         return None
     try:
-        return json.loads(result.stdout)
+        repos = json.loads(result.stdout)
     except json.JSONDecodeError:
         print(f"error: gh api events/public returned invalid JSON: {result.stdout[:200]}",
               file=sys.stderr)
         return None
+    return [name for name in repos if name.startswith(f"{owner}/")]
 
 
 def get_repo_languages(repo: str) -> dict[str, int]:
     """Get language breakdown for a repo."""
     full_name = repo if "/" in repo else f"{OWNER}/{repo}"
-    result = subprocess.run(
-        ["gh", "api", f"repos/{full_name}/languages"],
-        capture_output=True, text=True,
-    )
+    result = run_gh_api([f"repos/{full_name}/languages"])
     if result.returncode != 0:
         return {}
     try:

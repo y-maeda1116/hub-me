@@ -2,11 +2,15 @@ import contextlib
 import io
 import json
 import math
+import os
+import sys
 import unittest
 from datetime import date, datetime, timedelta, timezone
 from unittest.mock import MagicMock, patch
 
-from scripts.generate_weekday_card import (
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
+
+from generate_weekday_card import (
     _fetch_window,
     count_by_weekday,
     fetch_commit_dates,
@@ -60,7 +64,7 @@ class TestCountByWeekday(unittest.TestCase):
 
 
 class TestFetchCommitDates(unittest.TestCase):
-    @patch("scripts.generate_weekday_card.subprocess.run")
+    @patch("gh_api.subprocess.run")
     def test_single_page(self, mock_run):
         mock_run.return_value = MagicMock(
             returncode=0,
@@ -69,8 +73,8 @@ class TestFetchCommitDates(unittest.TestCase):
         dates = fetch_commit_dates("testuser")
         self.assertEqual(len(dates), 2)
 
-    @patch("scripts.generate_weekday_card.time.sleep")
-    @patch("scripts.generate_weekday_card.subprocess.run")
+    @patch("generate_weekday_card.time.sleep")
+    @patch("gh_api.subprocess.run")
     def test_pagination(self, mock_run, mock_sleep):
         mock_run.side_effect = [
             MagicMock(returncode=0, stdout=json.dumps(["2026-05-04T10:00:00Z"] * 100)),
@@ -80,8 +84,8 @@ class TestFetchCommitDates(unittest.TestCase):
         dates = fetch_commit_dates("testuser")
         self.assertEqual(len(dates), 101)
 
-    @patch("scripts.generate_weekday_card.time.sleep")
-    @patch("scripts.generate_weekday_card.subprocess.run")
+    @patch("generate_weekday_card.time.sleep")
+    @patch("gh_api.subprocess.run")
     def test_stops_at_search_api_1000_results_cap(self, mock_run, mock_sleep):
         full_page = json.dumps(["2026-05-04T10:00:00Z"] * 100)
         mock_run.return_value = MagicMock(returncode=0, stdout=full_page)
@@ -91,8 +95,8 @@ class TestFetchCommitDates(unittest.TestCase):
         self.assertEqual(mock_run.call_count, 10)
         self.assertIn("truncated", err.getvalue())
 
-    @patch("scripts.generate_weekday_card.time.sleep")
-    @patch("scripts.generate_weekday_card.subprocess.run")
+    @patch("generate_weekday_card.time.sleep")
+    @patch("gh_api.subprocess.run")
     def test_pauses_between_pages(self, mock_run, mock_sleep):
         mock_run.side_effect = [
             MagicMock(returncode=0, stdout=json.dumps(["2026-05-04T10:00:00Z"] * 100)),
@@ -103,15 +107,15 @@ class TestFetchCommitDates(unittest.TestCase):
         self.assertEqual(len(dates), 201)
         self.assertEqual(mock_sleep.call_count, 2)
 
-    @patch("scripts.generate_weekday_card.time.sleep")
-    @patch("scripts.generate_weekday_card.subprocess.run")
+    @patch("generate_weekday_card.time.sleep")
+    @patch("gh_api.subprocess.run")
     def test_api_error(self, mock_run, mock_sleep):
         mock_run.return_value = MagicMock(returncode=1, stdout="")
         dates = fetch_commit_dates("testuser")
         self.assertIsNone(dates)
 
-    @patch("scripts.generate_weekday_card.time.sleep")
-    @patch("scripts.generate_weekday_card.subprocess.run")
+    @patch("generate_weekday_card.time.sleep")
+    @patch("gh_api.subprocess.run")
     def test_error_mid_pagination(self, mock_run, mock_sleep):
         mock_run.side_effect = [
             MagicMock(returncode=0, stdout=json.dumps(["2026-05-04T10:00:00Z"] * 100)),
@@ -122,8 +126,8 @@ class TestFetchCommitDates(unittest.TestCase):
         dates = fetch_commit_dates("testuser")
         self.assertIsNone(dates)
 
-    @patch("scripts.generate_weekday_card.time.sleep")
-    @patch("scripts.generate_weekday_card.subprocess.run")
+    @patch("generate_weekday_card.time.sleep")
+    @patch("gh_api.subprocess.run")
     def test_retries_transient_failure_then_succeeds(self, mock_run, mock_sleep):
         mock_run.side_effect = [
             MagicMock(returncode=1, stdout="", stderr="secondary rate limit"),
@@ -134,22 +138,22 @@ class TestFetchCommitDates(unittest.TestCase):
         self.assertEqual(mock_run.call_count, 2)
         mock_sleep.assert_called_once_with(60)
 
-    @patch("scripts.generate_weekday_card.time.sleep")
-    @patch("scripts.generate_weekday_card.subprocess.run")
+    @patch("generate_weekday_card.time.sleep")
+    @patch("gh_api.subprocess.run")
     def test_returns_none_after_exhausting_retries(self, mock_run, mock_sleep):
         mock_run.return_value = MagicMock(returncode=1, stdout="")
         self.assertIsNone(fetch_commit_dates("testuser"))
         self.assertEqual(mock_run.call_count, 3)
         self.assertEqual(mock_sleep.call_count, 2)
 
-    @patch("scripts.generate_weekday_card.subprocess.run")
+    @patch("gh_api.subprocess.run")
     def test_invalid_json(self, mock_run):
         mock_run.return_value = MagicMock(returncode=0, stdout="not json")
         dates = fetch_commit_dates("testuser")
         self.assertIsNone(dates)
 
 class TestFetchWindow(unittest.TestCase):
-    @patch("scripts.generate_weekday_card.subprocess.run")
+    @patch("gh_api.subprocess.run")
     def test_without_dates_omits_range_qualifier(self, mock_run):
         mock_run.return_value = MagicMock(returncode=0, stdout='["2026-05-04T10:00:00Z"]')
         dates = _fetch_window("testuser")
@@ -159,21 +163,21 @@ class TestFetchWindow(unittest.TestCase):
         self.assertIn("user:testuser", query)
         self.assertNotIn("committer-date:", query)
 
-    @patch("scripts.generate_weekday_card.subprocess.run")
+    @patch("gh_api.subprocess.run")
     def test_with_dates_includes_range_qualifier(self, mock_run):
         mock_run.return_value = MagicMock(returncode=0, stdout='["2026-05-04T10:00:00Z"]')
         _fetch_window("testuser", start_date=date(2026, 1, 1), end_date=date(2026, 1, 31))
         query = mock_run.call_args[0][0][2]
         self.assertIn("author-date:2026-01-01..2026-01-31", query)
 
-    @patch("scripts.generate_weekday_card.time.sleep")
-    @patch("scripts.generate_weekday_card.subprocess.run")
+    @patch("generate_weekday_card.time.sleep")
+    @patch("gh_api.subprocess.run")
     def test_returns_none_on_api_error(self, mock_run, mock_sleep):
         mock_run.return_value = MagicMock(returncode=1, stdout="")
         self.assertIsNone(_fetch_window("testuser"))
 
-    @patch("scripts.generate_weekday_card.time.sleep")
-    @patch("scripts.generate_weekday_card.subprocess.run")
+    @patch("generate_weekday_card.time.sleep")
+    @patch("gh_api.subprocess.run")
     def test_paginates_until_short_page(self, mock_run, mock_sleep):
         mock_run.side_effect = [
             MagicMock(returncode=0, stdout=json.dumps(["2026-05-04T10:00:00Z"] * 100)),
@@ -187,11 +191,11 @@ class TestFetchWindow(unittest.TestCase):
 
 class TestFetchCommitDatesWithinWindow(unittest.TestCase):
     def setUp(self):
-        patcher = patch("scripts.generate_weekday_card.datetime", _FrozenDateTime)
+        patcher = patch("generate_weekday_card.datetime", _FrozenDateTime)
         patcher.start()
         self.addCleanup(patcher.stop)
 
-    @patch("scripts.generate_weekday_card._fetch_window")
+    @patch("generate_weekday_card._fetch_window")
     def test_tiles_span_with_date_range_windows(self, mock_window):
         mock_window.return_value = []
         self.assertIsNotNone(fetch_commit_dates("testuser", since=SINCE))
@@ -207,12 +211,12 @@ class TestFetchCommitDatesWithinWindow(unittest.TestCase):
                     calls[i].kwargs["end_date"], calls[i + 1].kwargs["start_date"]
                 )
 
-    @patch("scripts.generate_weekday_card._fetch_window")
+    @patch("generate_weekday_card._fetch_window")
     def test_accepts_window_just_under_search_cap(self, mock_window):
         mock_window.return_value = ["2026-05-04T10:00:00Z"] * 999
         self.assertIsNotNone(fetch_commit_dates("testuser", since=SINCE))
 
-    @patch("scripts.generate_weekday_card._fetch_window")
+    @patch("generate_weekday_card._fetch_window")
     def test_skips_offset_naive_dates_without_crashing(self, mock_window):
         def fake_window(owner, start_date=None, end_date=None):
             if start_date == SINCE.date():
@@ -223,7 +227,7 @@ class TestFetchCommitDatesWithinWindow(unittest.TestCase):
         dates = fetch_commit_dates("testuser", since=SINCE)
         self.assertEqual(dates, [])
 
-    @patch("scripts.generate_weekday_card._fetch_window")
+    @patch("generate_weekday_card._fetch_window")
     def test_keeps_only_dates_inside_half_open_window(self, mock_window):
         bounds = _expected_bounds()
         window0_raw = [
@@ -248,17 +252,17 @@ class TestFetchCommitDatesWithinWindow(unittest.TestCase):
         dates = fetch_commit_dates("testuser", since=SINCE)
         self.assertEqual(dates, [SINCE.isoformat(), bounds[1].isoformat()])
 
-    @patch("scripts.generate_weekday_card._fetch_window")
+    @patch("generate_weekday_card._fetch_window")
     def test_returns_none_when_window_hits_search_cap(self, mock_window):
         mock_window.return_value = ["2026-05-04T10:00:00Z"] * 1000
         self.assertIsNone(fetch_commit_dates("testuser", since=SINCE))
 
-    @patch("scripts.generate_weekday_card._fetch_window")
+    @patch("generate_weekday_card._fetch_window")
     def test_returns_none_on_window_api_failure(self, mock_window):
         mock_window.return_value = None
         self.assertIsNone(fetch_commit_dates("testuser", since=SINCE))
 
-    @patch("scripts.generate_weekday_card._fetch_window")
+    @patch("generate_weekday_card._fetch_window")
     def test_returns_none_when_since_is_not_before_now(self, mock_window):
         for bad_since in (FROZEN_NOW, FROZEN_NOW + timedelta(seconds=1)):
             self.assertIsNone(fetch_commit_dates("testuser", since=bad_since))
@@ -267,14 +271,14 @@ class TestFetchCommitDatesWithinWindow(unittest.TestCase):
 
 class TestMain(unittest.TestCase):
     def test_exits_nonzero_when_fetch_fails(self):
-        with patch("scripts.generate_weekday_card.fetch_commit_dates", return_value=None), \
+        with patch("generate_weekday_card.fetch_commit_dates", return_value=None), \
              patch("sys.argv", ["prog", "--output", "/tmp/unused.svg"]):
             with self.assertRaises(SystemExit) as ctx:
                 main()
         self.assertEqual(ctx.exception.code, 1)
 
     def test_defaults_to_one_year_window(self):
-        with patch("scripts.generate_weekday_card.fetch_commit_dates", return_value=[]) as mock_fetch, \
+        with patch("generate_weekday_card.fetch_commit_dates", return_value=[]) as mock_fetch, \
              patch("sys.argv", ["prog", "--output", "/dev/null"]):
             main()
         since = mock_fetch.call_args.kwargs["since"]
@@ -282,7 +286,7 @@ class TestMain(unittest.TestCase):
         self.assertAlmostEqual(since.timestamp(), expected.timestamp(), delta=60)
 
     def test_days_option_sets_window(self):
-        with patch("scripts.generate_weekday_card.fetch_commit_dates", return_value=[]) as mock_fetch, \
+        with patch("generate_weekday_card.fetch_commit_dates", return_value=[]) as mock_fetch, \
              patch("sys.argv", ["prog", "--output", "/dev/null", "--days", "30"]):
             main()
         since = mock_fetch.call_args.kwargs["since"]
@@ -292,7 +296,7 @@ class TestMain(unittest.TestCase):
     def test_days_option_rejects_nonpositive_values(self):
         for invalid in ("0", "-30"):
             with patch("sys.argv", ["prog", "--output", "/dev/null", "--days", invalid]), \
-                 patch("scripts.generate_weekday_card.fetch_commit_dates") as mock_fetch:
+                 patch("generate_weekday_card.fetch_commit_dates") as mock_fetch:
                 with self.assertRaises(SystemExit) as ctx:
                     main()
             self.assertEqual(ctx.exception.code, 2)
