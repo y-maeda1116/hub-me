@@ -50,11 +50,9 @@ class TestDetectTechFromFiles(unittest.TestCase):
 
 
 class TestAnalyzeTechTrend(unittest.TestCase):
-    @patch("analyze_commits.subprocess.run")
+    @patch("gh_api.subprocess.run")
     def test_returns_trend_text(self, mock_run):
-        events_json = json.dumps([
-            {"type": "PushEvent", "repo": {"name": "y-maeda1116/repo-a"}, "created_at": "2026-04-15T00:00:00Z", "payload": {"commits": [{"message": "feat: add feature"}]}},
-        ])
+        events_json = json.dumps(["y-maeda1116/repo-a"])
         languages_json = json.dumps({"Go": 5000, "Python": 3000})
         mock_run.side_effect = [
             MagicMock(returncode=0, stdout=events_json),
@@ -64,33 +62,33 @@ class TestAnalyzeTechTrend(unittest.TestCase):
         self.assertIn("Go", result)
         self.assertIn("Python", result)
 
-    @patch("analyze_commits.subprocess.run")
+    @patch("gh_api.subprocess.run")
     def test_returns_no_activity_when_empty(self, mock_run):
         mock_run.return_value = MagicMock(returncode=0, stdout="[]")
         result = analyze_tech_trend(owner="y-maeda1116")
         self.assertEqual(result, "No activity this week")
 
-    @patch("analyze_commits.subprocess.run")
-    def test_returns_none_when_events_fetch_fails(self, mock_run):
+    @patch("gh_api.time.sleep")
+    @patch("gh_api.subprocess.run")
+    def test_returns_none_when_events_fetch_fails(self, mock_run, mock_sleep):
         mock_run.return_value = MagicMock(returncode=1, stdout="")
         result = analyze_tech_trend(owner="y-maeda1116")
         self.assertIsNone(result)
 
-    @patch("analyze_commits.subprocess.run")
-    def test_returns_none_when_languages_all_fail(self, mock_run):
-        events_json = json.dumps([
-            {"type": "PushEvent", "repo": {"name": "y-maeda1116/repo-a"}, "created_at": "2026-08-20T00:00:00Z"},
-        ])
+    @patch("gh_api.time.sleep")
+    @patch("gh_api.subprocess.run")
+    def test_returns_none_when_languages_all_fail(self, mock_run, mock_sleep):
+        events_json = json.dumps(["y-maeda1116/repo-a"])
         mock_run.side_effect = [
             MagicMock(returncode=0, stdout=events_json),
-            MagicMock(returncode=1, stdout=""),
+            *[MagicMock(returncode=1, stdout="")] * 3,
         ]
         result = analyze_tech_trend(owner="y-maeda1116")
         self.assertIsNone(result)
 
 
 class TestGetActiveRepos(unittest.TestCase):
-    @patch("analyze_commits.subprocess.run")
+    @patch("gh_api.subprocess.run")
     def test_returns_repo_list(self, mock_run):
         mock_run.return_value = MagicMock(
             returncode=0,
@@ -99,13 +97,23 @@ class TestGetActiveRepos(unittest.TestCase):
         result = get_active_repos("y-maeda1116", "2026-08-13T00:00:00Z")
         self.assertEqual(result, ["y-maeda1116/repo-a"])
 
-    @patch("analyze_commits.subprocess.run")
-    def test_returns_none_on_error(self, mock_run):
+    @patch("gh_api.subprocess.run")
+    def test_excludes_organization_repos(self, mock_run):
+        mock_run.return_value = MagicMock(
+            returncode=0,
+            stdout='["SomeOrg/work-repo", "y-maeda1116/repo-a"]',
+        )
+        result = get_active_repos("y-maeda1116", "2026-08-13T00:00:00Z")
+        self.assertEqual(result, ["y-maeda1116/repo-a"])
+
+    @patch("gh_api.time.sleep")
+    @patch("gh_api.subprocess.run")
+    def test_returns_none_on_error(self, mock_run, mock_sleep):
         mock_run.return_value = MagicMock(returncode=1, stdout="")
         result = get_active_repos("y-maeda1116", "2026-08-13T00:00:00Z")
         self.assertIsNone(result)
 
-    @patch("analyze_commits.subprocess.run")
+    @patch("gh_api.subprocess.run")
     def test_returns_none_on_invalid_json(self, mock_run):
         mock_run.return_value = MagicMock(returncode=0, stdout="not json")
         result = get_active_repos("y-maeda1116", "2026-08-13T00:00:00Z")

@@ -130,7 +130,7 @@ class TestFormatRecentCommits(unittest.TestCase):
 
 
 class TestFetchRecentCommits(unittest.TestCase):
-    @patch("update_readme.subprocess.run")
+    @patch("gh_api.subprocess.run")
     def test_returns_commits_on_success(self, mock_run):
         commits_json = json.dumps([
             {"repo": "y-maeda1116/repo-a", "message": "feat: x", "date": "2026-08-20T00:00:00Z"},
@@ -139,7 +139,7 @@ class TestFetchRecentCommits(unittest.TestCase):
         result = fetch_recent_commits("y-maeda1116")
         self.assertEqual(len(result), 1)
 
-    @patch("update_readme.subprocess.run")
+    @patch("gh_api.subprocess.run")
     def test_query_limits_to_owner_repos(self, mock_run):
         mock_run.return_value = MagicMock(returncode=0, stdout="[]")
         fetch_recent_commits("testuser")
@@ -147,19 +147,19 @@ class TestFetchRecentCommits(unittest.TestCase):
         self.assertIn("author:testuser", query)
         self.assertIn("user:testuser", query)
 
-    @patch("update_readme.time.sleep")
-    @patch("update_readme.subprocess.run")
+    @patch("gh_api.time.sleep")
+    @patch("gh_api.subprocess.run")
     def test_returns_none_on_error(self, mock_run, mock_sleep):
         mock_run.return_value = MagicMock(returncode=1, stdout="")
         self.assertIsNone(fetch_recent_commits("y-maeda1116"))
 
-    @patch("update_readme.subprocess.run")
+    @patch("gh_api.subprocess.run")
     def test_returns_none_on_invalid_json(self, mock_run):
         mock_run.return_value = MagicMock(returncode=0, stdout="not json")
         self.assertIsNone(fetch_recent_commits("y-maeda1116"))
 
-    @patch("update_readme.time.sleep")
-    @patch("update_readme.subprocess.run")
+    @patch("gh_api.time.sleep")
+    @patch("gh_api.subprocess.run")
     def test_retries_transient_failure_then_succeeds(self, mock_run, mock_sleep):
         commits_json = json.dumps([
             {"repo": "y-maeda1116/repo-a", "message": "feat: x", "date": "2026-08-20T00:00:00Z"},
@@ -173,8 +173,8 @@ class TestFetchRecentCommits(unittest.TestCase):
         self.assertEqual(mock_run.call_count, 2)
         mock_sleep.assert_called_once_with(60)
 
-    @patch("update_readme.time.sleep")
-    @patch("update_readme.subprocess.run")
+    @patch("gh_api.time.sleep")
+    @patch("gh_api.subprocess.run")
     def test_returns_none_after_exhausting_retries(self, mock_run, mock_sleep):
         mock_run.return_value = MagicMock(returncode=1, stdout="")
         self.assertIsNone(fetch_recent_commits("y-maeda1116"))
