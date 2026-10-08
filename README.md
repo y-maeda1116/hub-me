@@ -13,7 +13,7 @@
 | Repository | Latest Release | Build Status | Open Issues | Open PRs |
 |---|---|---|---|---|
 | [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/Weekly-Task-Board/issues) | [0](https://github.com/y-maeda1116/Weekly-Task-Board/pulls) |
-| [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/jre-green-trip/issues) | [1](https://github.com/y-maeda1116/jre-green-trip/pulls) |
+| [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/jre-green-trip/issues) | [0](https://github.com/y-maeda1116/jre-green-trip/pulls) |
 | [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/go-shichi-go/issues) | [0](https://github.com/y-maeda1116/go-shichi-go/pulls) |
 | [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/ts-template-base/issues) | [0](https://github.com/y-maeda1116/ts-template-base/pulls) |
 | [tokyo-hidden-transfers](https://github.com/y-maeda1116/tokyo-hidden-transfers) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/tokyo-hidden-transfers/issues) | [0](https://github.com/y-maeda1116/tokyo-hidden-transfers/pulls) |
@@ -39,13 +39,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `hub-me` — fix: limit Recent Activity and weekday card to personal repositories (#9) (_2026-10-08_)
-- `Weekly-Task-Board` — Merge pull request #64 from y-maeda1116/refactor/unify-storage-migration (_2026-10-08_)
-- `Weekly-Task-Board` — fix: keep early return for empty archive in loadArchivedTasks (_2026-10-08_)
+- `hub-me` — refactor: share gh api helper and exclude org repos from Current Focus (#10) (_2026-10-08_)
+- `Weekly-Task-Board` — Merge pull request #66 from y-maeda1116/fix/stale-task-list (_2026-10-08_)
+- `Weekly-Task-Board` — fix: read the live task list in drag-and-drop and migration modal (_2026-10-08_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 8 repos — working with **TypeScript**, **JavaScript**, **HTML**, **CSS**, **Go**
+Recently active in 9 repos — working with **TypeScript**, **JavaScript**, **HTML**, **CSS**, **Go**
 <!-- /CURRENT_FOCUS -->
