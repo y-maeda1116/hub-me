@@ -12,11 +12,11 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status | Open Issues | Open PRs |
 |---|---|---|---|---|
+| [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/ts-template-base/issues) | [0](https://github.com/y-maeda1116/ts-template-base/pulls) |
 | [bean-watcher](https://github.com/y-maeda1116/bean-watcher) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/bean-watcher/issues) | [0](https://github.com/y-maeda1116/bean-watcher/pulls) |
 | [python-template-base](https://github.com/y-maeda1116/python-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/python-template-base/issues) | [0](https://github.com/y-maeda1116/python-template-base/pulls) |
 | [divination-journal](https://github.com/y-maeda1116/divination-journal) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/divination-journal/issues) | [0](https://github.com/y-maeda1116/divination-journal/pulls) |
 | [template-go-cross](https://github.com/y-maeda1116/template-go-cross) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/template-go-cross/issues) | [0](https://github.com/y-maeda1116/template-go-cross/pulls) |
-| [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/ts-template-base/issues) | [2](https://github.com/y-maeda1116/ts-template-base/pulls) |
 | [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/Weekly-Task-Board/issues) | [0](https://github.com/y-maeda1116/Weekly-Task-Board/pulls) |
 | [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/security-base/issues) | [0](https://github.com/y-maeda1116/security-base/pulls) |
 | [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/jre-green-trip/issues) | [0](https://github.com/y-maeda1116/jre-green-trip/pulls) |
