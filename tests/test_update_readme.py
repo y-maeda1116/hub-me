@@ -146,6 +146,7 @@ class TestFetchRecentCommits(unittest.TestCase):
         query = mock_run.call_args[0][0][2]
         self.assertIn("author:testuser", query)
         self.assertIn("user:testuser", query)
+        self.assertIn("is:public", query)
 
     @patch("gh_api.time.sleep")
     @patch("gh_api.subprocess.run")
