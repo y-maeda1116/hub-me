@@ -73,6 +73,19 @@ jobs:
           # the Commit and push step below version all files together.
           AUTO_PUSH: false
 
+      # The action deletes all old cards first and only logs an error when a
+      # card fails to generate (e.g. a transient GraphQL failure), so a
+      # failed card would be committed as deleted and break its README image.
+      # Restore those from the last commit so the previous card stays shown.
+      - name: Restore cards that failed to generate
+        run: |
+          missing=$(git ls-files --deleted -- profile-summary-card-output)
+          if [ -n "$missing" ]; then
+            echo "::warning::Some profile cards failed to generate; keeping previous versions:"
+            echo "$missing"
+            git ls-files -z --deleted -- profile-summary-card-output | xargs -0 git checkout --
+          fi
+
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
