@@ -83,7 +83,7 @@ jobs:
           if [ -n "$missing" ]; then
             echo "::warning::Some profile cards failed to generate; keeping previous versions:"
             echo "$missing"
-            echo "$missing" | xargs git checkout --
+            git ls-files -z --deleted -- profile-summary-card-output | xargs -0 git checkout --
           fi
 
       - name: Commit and push changes
