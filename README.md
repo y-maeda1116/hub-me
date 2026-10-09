@@ -39,9 +39,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `hub-me` — fix: プロフィールカード生成失敗時に前回のカードを残す (#12) (_2026-10-09_)
 - `hub-me` — fix: exclude private repositories from Recent Activity (#11) (_2026-10-09_)
 - `python-template-base` — chore: sync security-base security-base@579f47d (#25) (_2026-10-09_)
-- `python-template-base` — chore(deps): bump urllib3 to 2.8.0 (#26) (_2026-10-09_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
