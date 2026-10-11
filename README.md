@@ -12,9 +12,10 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status | Open Issues | Open PRs |
 |---|---|---|---|---|
-| [ops-ai-agent](https://github.com/y-maeda1116/ops-ai-agent) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/ops-ai-agent/issues) | [0](https://github.com/y-maeda1116/ops-ai-agent/pulls) |
+| [toil-buster-cli](https://github.com/y-maeda1116/toil-buster-cli) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/toil-buster-cli/issues) | [5](https://github.com/y-maeda1116/toil-buster-cli/pulls) |
 | [bean-watcher](https://github.com/y-maeda1116/bean-watcher) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/bean-watcher/issues) | [0](https://github.com/y-maeda1116/bean-watcher/pulls) |
-| [divination-journal](https://github.com/y-maeda1116/divination-journal) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/divination-journal/issues) | [0](https://github.com/y-maeda1116/divination-journal/pulls) |
+| [divination-journal](https://github.com/y-maeda1116/divination-journal) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/divination-journal/issues) | [1](https://github.com/y-maeda1116/divination-journal/pulls) |
+| [ops-ai-agent](https://github.com/y-maeda1116/ops-ai-agent) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/ops-ai-agent/issues) | [0](https://github.com/y-maeda1116/ops-ai-agent/pulls) |
 | [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/ts-template-base/issues) | [0](https://github.com/y-maeda1116/ts-template-base/pulls) |
 | [python-template-base](https://github.com/y-maeda1116/python-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/python-template-base/issues) | [0](https://github.com/y-maeda1116/python-template-base/pulls) |
 | [template-go-cross](https://github.com/y-maeda1116/template-go-cross) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/template-go-cross/issues) | [0](https://github.com/y-maeda1116/template-go-cross/pulls) |
@@ -40,13 +41,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `ops-ai-agent` — Merge pull request #3 from y-maeda1116/feat/initial-implementation (_2026-10-10_)
-- `ops-ai-agent` — Merge pull request #2 from y-maeda1116/dependabot/github_actions/astral-sh/setup-uv-10.2.0 (_2026-10-10_)
-- `ops-ai-agent` — fix: botのtriage失敗時に例外をスタックトレースごとログへ残す (_2026-10-10_)
+- `toil-buster-cli` — Merge pull request #3 from y-maeda1116/dependabot/npm_and_yarn/tsx-4.23.15 (_2026-10-11_)
+- `toil-buster-cli` — Merge pull request #2 from y-maeda1116/dependabot/npm_and_yarn/eslint-plugin-security-4.2.0 (_2026-10-11_)
+- `toil-buster-cli` — Merge pull request #1 from y-maeda1116/worktree-implement-toil-buster-cli (_2026-10-11_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 10 repos — working with **TypeScript**, **JavaScript**, **HTML**, **Python**, **CSS**
+Recently active in 11 repos — working with **TypeScript**, **JavaScript**, **HTML**, **Python**, **CSS**
 <!-- /CURRENT_FOCUS -->
