@@ -12,16 +12,16 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status | Open Issues | Open PRs |
 |---|---|---|---|---|
-| [divination-journal](https://github.com/y-maeda1116/divination-journal) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/divination-journal/issues) | [1](https://github.com/y-maeda1116/divination-journal/pulls) |
+| [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/ts-template-base/issues) | [4](https://github.com/y-maeda1116/ts-template-base/pulls) |
+| [toil-buster-cli](https://github.com/y-maeda1116/toil-buster-cli) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/toil-buster-cli/issues) | [4](https://github.com/y-maeda1116/toil-buster-cli/pulls) |
+| [games](https://github.com/y-maeda1116/games) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/games/issues) | [1](https://github.com/y-maeda1116/games/pulls) |
 | [bean-watcher](https://github.com/y-maeda1116/bean-watcher) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/bean-watcher/issues) | [0](https://github.com/y-maeda1116/bean-watcher/pulls) |
-| [template-go-cross](https://github.com/y-maeda1116/template-go-cross) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/template-go-cross/issues) | [0](https://github.com/y-maeda1116/template-go-cross/pulls) |
-| [python-template-base](https://github.com/y-maeda1116/python-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/python-template-base/issues) | [0](https://github.com/y-maeda1116/python-template-base/pulls) |
-| [games](https://github.com/y-maeda1116/games) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/games/issues) | [2](https://github.com/y-maeda1116/games/pulls) |
+| [divination-journal](https://github.com/y-maeda1116/divination-journal) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/divination-journal/issues) | [1](https://github.com/y-maeda1116/divination-journal/pulls) |
+| [template-go-cross](https://github.com/y-maeda1116/template-go-cross) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/template-go-cross/issues) | [1](https://github.com/y-maeda1116/template-go-cross/pulls) |
+| [python-template-base](https://github.com/y-maeda1116/python-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/python-template-base/issues) | [1](https://github.com/y-maeda1116/python-template-base/pulls) |
 | [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/jre-green-trip/issues) | [0](https://github.com/y-maeda1116/jre-green-trip/pulls) |
-| [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/security-base/issues) | [0](https://github.com/y-maeda1116/security-base/pulls) |
-| [toil-buster-cli](https://github.com/y-maeda1116/toil-buster-cli) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/toil-buster-cli/issues) | [7](https://github.com/y-maeda1116/toil-buster-cli/pulls) |
+| [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/security-base/issues) | [4](https://github.com/y-maeda1116/security-base/pulls) |
 | [ops-ai-agent](https://github.com/y-maeda1116/ops-ai-agent) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/ops-ai-agent/issues) | [0](https://github.com/y-maeda1116/ops-ai-agent/pulls) |
-| [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/ts-template-base/issues) | [5](https://github.com/y-maeda1116/ts-template-base/pulls) |
 | [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/Weekly-Task-Board/issues) | [0](https://github.com/y-maeda1116/Weekly-Task-Board/pulls) |
 | [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/go-shichi-go/issues) | [0](https://github.com/y-maeda1116/go-shichi-go/pulls) |
 | [tokyo-hidden-transfers](https://github.com/y-maeda1116/tokyo-hidden-transfers) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/tokyo-hidden-transfers/issues) | [0](https://github.com/y-maeda1116/tokyo-hidden-transfers/pulls) |
@@ -41,9 +41,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `divination-journal` — chore: update PoE data (_2026-10-13_)
-- `template-go-cross` — fix(deps): bump golang.org/x/net to v0.60.0 (CVE-2026-78669) (#17) (_2026-10-13_)
-- `jre-green-trip` — Merge pull request #44 from y-maeda1116/dependabot/github_actions/actions/setup-node-7.1.0 (_2026-10-13_)
+- `toil-buster-cli` — Merge pull request #13 from y-maeda1116/dependabot/npm_and_yarn/aws-sdk/client-cloudwatch-logs-3.1149.0 (_2026-10-14_)
+- `toil-buster-cli` — Merge pull request #14 from y-maeda1116/dependabot/npm_and_yarn/prettier-3.9.10 (_2026-10-14_)
+- `toil-buster-cli` — Merge pull request #15 from y-maeda1116/dependabot/npm_and_yarn/types/node-26.6.5 (_2026-10-14_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
