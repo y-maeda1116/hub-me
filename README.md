@@ -12,13 +12,13 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status | Open Issues | Open PRs |
 |---|---|---|---|---|
-| [terraform-aws-golden-path](https://github.com/y-maeda1116/terraform-aws-golden-path) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/terraform-aws-golden-path/issues) | [1](https://github.com/y-maeda1116/terraform-aws-golden-path/pulls) |
+| [terraform-aws-golden-path](https://github.com/y-maeda1116/terraform-aws-golden-path) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/terraform-aws-golden-path/issues) | [0](https://github.com/y-maeda1116/terraform-aws-golden-path/pulls) |
 | [bean-watcher](https://github.com/y-maeda1116/bean-watcher) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/bean-watcher/issues) | [0](https://github.com/y-maeda1116/bean-watcher/pulls) |
+| [divination-journal](https://github.com/y-maeda1116/divination-journal) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/divination-journal/issues) | [0](https://github.com/y-maeda1116/divination-journal/pulls) |
 | [toil-buster-cli](https://github.com/y-maeda1116/toil-buster-cli) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/toil-buster-cli/issues) | [0](https://github.com/y-maeda1116/toil-buster-cli/pulls) |
 | [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/ts-template-base/issues) | [0](https://github.com/y-maeda1116/ts-template-base/pulls) |
 | [python-template-base](https://github.com/y-maeda1116/python-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/python-template-base/issues) | [0](https://github.com/y-maeda1116/python-template-base/pulls) |
 | [template-go-cross](https://github.com/y-maeda1116/template-go-cross) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/template-go-cross/issues) | [0](https://github.com/y-maeda1116/template-go-cross/pulls) |
-| [divination-journal](https://github.com/y-maeda1116/divination-journal) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/divination-journal/issues) | [0](https://github.com/y-maeda1116/divination-journal/pulls) |
 | [ops-ai-agent](https://github.com/y-maeda1116/ops-ai-agent) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/ops-ai-agent/issues) | [0](https://github.com/y-maeda1116/ops-ai-agent/pulls) |
 | [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/security-base/issues) | [0](https://github.com/y-maeda1116/security-base/pulls) |
 | [tokyo-hidden-transfers](https://github.com/y-maeda1116/tokyo-hidden-transfers) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/tokyo-hidden-transfers/issues) | [0](https://github.com/y-maeda1116/tokyo-hidden-transfers/pulls) |
@@ -42,13 +42,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `terraform-aws-golden-path` — Merge pull request #2 from y-maeda1116/dependabot/github_actions/actions-cf9e6e84fb (_2026-10-18_)
+- `divination-journal` — chore: update PoE data (_2026-10-17_)
 - `terraform-aws-golden-path` — Merge pull request #1 from y-maeda1116/feat/secure-aws-foundation (_2026-10-18_)
-- `terraform-aws-golden-path` — fix: derive s3 bucket references from explicit app_bucket_name input (basename on ARN was broken) (_2026-10-17_)
-- `terraform-aws-golden-path` — fix: bump trivy-action pin to v0.36.0 (v0.33.0 internally references unpinned actions) (_2026-10-17_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 8 repos — working with **TypeScript**, **Go**, **CSS**, **Shell**, **JavaScript**
+Recently active in 10 repos — working with **TypeScript**, **Python**, **Go**, **HCL**, **CSS**
 <!-- /CURRENT_FOCUS -->
