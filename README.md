@@ -12,11 +12,12 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status | Open Issues | Open PRs |
 |---|---|---|---|---|
+| [toil-buster-cli](https://github.com/y-maeda1116/toil-buster-cli) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [13](https://github.com/y-maeda1116/toil-buster-cli/issues) | [11](https://github.com/y-maeda1116/toil-buster-cli/pulls) |
+| [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/ts-template-base/issues) | [0](https://github.com/y-maeda1116/ts-template-base/pulls) |
 | [bean-watcher](https://github.com/y-maeda1116/bean-watcher) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/bean-watcher/issues) | [0](https://github.com/y-maeda1116/bean-watcher/pulls) |
 | [divination-journal](https://github.com/y-maeda1116/divination-journal) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/divination-journal/issues) | [0](https://github.com/y-maeda1116/divination-journal/pulls) |
 | [tokyo-hidden-transfers](https://github.com/y-maeda1116/tokyo-hidden-transfers) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/tokyo-hidden-transfers/issues) | [0](https://github.com/y-maeda1116/tokyo-hidden-transfers/pulls) |
 | [template-go-cross](https://github.com/y-maeda1116/template-go-cross) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/template-go-cross/issues) | [0](https://github.com/y-maeda1116/template-go-cross/pulls) |
-| [toil-buster-cli](https://github.com/y-maeda1116/toil-buster-cli) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [13](https://github.com/y-maeda1116/toil-buster-cli/issues) | [12](https://github.com/y-maeda1116/toil-buster-cli/pulls) |
 | [discord-trans-helper](https://github.com/y-maeda1116/discord-trans-helper) | `N/A` | ![failing](https://img.shields.io/badge/build-failing-red) | [0](https://github.com/y-maeda1116/discord-trans-helper/issues) | [0](https://github.com/y-maeda1116/discord-trans-helper/pulls) |
 | [apple-refurb-discord-notify](https://github.com/y-maeda1116/apple-refurb-discord-notify) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/apple-refurb-discord-notify/issues) | [0](https://github.com/y-maeda1116/apple-refurb-discord-notify/pulls) |
 | [kaminarimon-lunch-map](https://github.com/y-maeda1116/kaminarimon-lunch-map) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/kaminarimon-lunch-map/issues) | [0](https://github.com/y-maeda1116/kaminarimon-lunch-map/pulls) |
@@ -33,22 +34,21 @@
 | [games](https://github.com/y-maeda1116/games) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/games/issues) | [1](https://github.com/y-maeda1116/games/pulls) |
 | [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/go-shichi-go/issues) | [5](https://github.com/y-maeda1116/go-shichi-go/pulls) |
 | [python-template-base](https://github.com/y-maeda1116/python-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/python-template-base/issues) | [0](https://github.com/y-maeda1116/python-template-base/pulls) |
-| [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/ts-template-base/issues) | [1](https://github.com/y-maeda1116/ts-template-base/pulls) |
 | [terraform-aws-golden-path](https://github.com/y-maeda1116/terraform-aws-golden-path) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [4](https://github.com/y-maeda1116/terraform-aws-golden-path/issues) | [1](https://github.com/y-maeda1116/terraform-aws-golden-path/pulls) |
-| [ops-ai-agent](https://github.com/y-maeda1116/ops-ai-agent) | `N/A` | ![skipped](https://img.shields.io/badge/build/skipped-lightgrey) | [0](https://github.com/y-maeda1116/ops-ai-agent/issues) | [1](https://github.com/y-maeda1116/ops-ai-agent/pulls) |
+| [ops-ai-agent](https://github.com/y-maeda1116/ops-ai-agent) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/ops-ai-agent/issues) | [1](https://github.com/y-maeda1116/ops-ai-agent/pulls) |
 | [security-base](https://github.com/y-maeda1116/security-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/security-base/issues) | [0](https://github.com/y-maeda1116/security-base/pulls) |
 <!-- /REPO_STATUS_TABLE -->
 
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `divination-journal` — chore: update PoE data (_2026-10-22_)
 - `til` — Create cmux-for-mba.md (_2026-10-22_)
 - `divination-journal` — chore: update PoE data (_2026-10-21_)
-- `floral-fire-5c9c` — ci: Dependabot の patch/minor 更新を自動マージする (_2026-10-21_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 15 repos — working with **TypeScript**, **JavaScript**, **Python**, **Go**, **HTML**
+Recently active in 21 repos — working with **TypeScript**, **JavaScript**, **Go**, **Python**, **HTML**
 <!-- /CURRENT_FOCUS -->
