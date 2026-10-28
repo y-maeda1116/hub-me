@@ -52,13 +52,3 @@
 ```
 
     
-
----
-
-![](./4-productive-time.svg)
-
-```
-![](https://raw.githubusercontent.com/y-maeda1116/hub-me/main/profile-summary-card-output/highcontrast/4-productive-time.svg)
-```
-
-    
