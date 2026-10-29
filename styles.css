@@ -1,0 +1,190 @@
+/*
+ * Tailwind Play CDN の置換用スタイル。
+ * index.html(静的 HTML と JS 生成の両方)で使用している utility クラスと
+ * preflight 相当の最小限の reset のみを定義している。
+ * 新しいクラスを使う場合はここに追加すること。
+ */
+
+/* --- preflight 相当の最小限の reset --- */
+*, ::before, ::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+}
+html {
+  line-height: 1.5;
+}
+body {
+  margin: 0;
+  line-height: inherit;
+}
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+svg {
+  display: block;
+  vertical-align: middle;
+}
+
+/* --- theme (旧 tailwind.config より) --- */
+/*
+ * surface-0 #0a0a0f / surface-1 #12121a / surface-2 #1a1a26 / surface-3 #22222f
+ * accent #34d399 / muted #6b7280
+ * mono: "JetBrains Mono" / sans: "DM Sans"
+ */
+
+/* --- display / flex / grid --- */
+.inline-block { display: inline-block; }
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.grid { display: grid; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-1 { flex: 1 1 0%; }
+.shrink-0 { flex-shrink: 0; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.justify-between { justify-content: space-between; }
+.select-none { user-select: none; }
+
+/* --- sizing / spacing --- */
+.min-h-screen { min-height: 100vh; }
+.max-w-2xl { max-width: 42rem; }
+.max-w-5xl { max-width: 64rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.w-2 { width: 0.5rem; }
+.h-2 { height: 0.5rem; }
+.w-2\.5 { width: 0.625rem; }
+.h-2\.5 { height: 0.625rem; }
+.w-3 { width: 0.75rem; }
+.h-3 { height: 0.75rem; }
+.w-3\.5 { width: 0.875rem; }
+.h-3\.5 { height: 0.875rem; }
+.w-5 { width: 1.25rem; }
+.h-5 { height: 1.25rem; }
+.w-6 { width: 1.5rem; }
+.h-6 { height: 1.5rem; }
+.w-16 { width: 4rem; }
+.w-20 { width: 5rem; }
+.h-px { height: 1px; }
+.h-4 { height: 1rem; }
+.w-3\/4 { width: 75%; }
+.w-2\/3 { width: 66.666667%; }
+.w-full { width: 100%; }
+.gap-1 { gap: 0.25rem; }
+.gap-1\.5 { gap: 0.375rem; }
+.gap-2 { gap: 0.5rem; }
+.gap-3 { gap: 0.75rem; }
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+.p-6 { padding: 1.5rem; }
+.px-2\.5 { padding-left: 0.625rem; padding-right: 0.625rem; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+.py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.py-10 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+.py-14 { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+.pt-2 { padding-top: 0.5rem; }
+.mt-0\.5 { margin-top: 0.125rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-auto { margin-top: auto; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-8 { margin-bottom: 2rem; }
+
+/* --- border / radius --- */
+.border { border-width: 1px; }
+.border-t { border-top-width: 1px; }
+.border-b { border-bottom-width: 1px; }
+.border-surface-3 { border-color: #22222f; }
+.border-red-900\/40 { border-color: rgba(127, 29, 29, 0.4); }
+.border-accent\/30 { border-color: rgba(52, 211, 153, 0.3); }
+.rounded-md { border-radius: 0.375rem; }
+.rounded-lg { border-radius: 0.5rem; }
+.rounded-xl { border-radius: 0.75rem; }
+.rounded-full { border-radius: 9999px; }
+
+/* --- color --- */
+.bg-surface-1 { background-color: #12121a; }
+.bg-surface-2 { background-color: #1a1a26; }
+.bg-accent { background-color: #34d399; }
+.bg-accent\/5 { background-color: rgba(52, 211, 153, 0.05); }
+.text-white { color: #ffffff; }
+.text-gray-300 { color: #d1d5db; }
+.text-gray-400 { color: #9ca3af; }
+.text-gray-500 { color: #6b7280; }
+.text-red-300\/80 { color: rgba(252, 165, 165, 0.8); }
+.text-red-400 { color: #f87171; }
+.text-muted { color: #6b7280; }
+.text-accent { color: #34d399; }
+
+/* --- typography --- */
+.font-mono {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+.font-sans {
+  font-family: "DM Sans", system-ui, sans-serif;
+}
+.text-xs { font-size: 0.75rem; line-height: 1rem; }
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.text-base { font-size: 1rem; line-height: 1.5rem; }
+.text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+.text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+.leading-relaxed { line-height: 1.625; }
+.tracking-widest { letter-spacing: 0.1em; }
+.tracking-tight { letter-spacing: -0.025em; }
+.uppercase { text-transform: uppercase; }
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.no-underline { text-decoration: none; }
+
+/* --- effects / transition --- */
+.glow-dot { box-shadow: 0 0 10px rgba(52, 211, 153, 0.5); }
+.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.scroll-smooth { scroll-behavior: smooth; }
+
+/* --- variants --- */
+.hover\:text-accent:hover { color: #34d399; }
+.hover\:bg-accent\/15:hover { background-color: rgba(52, 211, 153, 0.15); }
+
+/* プロジェクトカードのフォーカスリング(旧 focus:ring-2 ring-accent/50 ring-offset-2 ring-offset-surface-0) */
+.card-focus:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #0a0a0f, 0 0 0 4px rgba(52, 211, 153, 0.5);
+}
+
+/* プロジェクトカードのホバー時のタイトル色(旧 group-hover:text-accent) */
+.project-card:hover .card-title {
+  color: #34d399;
+}
+
+@media (min-width: 640px) {
+  .sm\:flex-row { flex-direction: row; }
+}
+
+@media (min-width: 768px) {
+  .md\:py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+  .md\:text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+  .md\:text-5xl { font-size: 3rem; line-height: 1; }
+  .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}

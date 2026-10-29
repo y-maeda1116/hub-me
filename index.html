@@ -6,35 +6,8 @@
   <title>y-maeda1116 — Portfolio</title>
   <meta name="description" content="IT Infrastructure & SRE / Automation Developer — GitHub Projects" />
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            surface: {
-              0: '#0a0a0f',
-              1: '#12121a',
-              2: '#1a1a26',
-              3: '#22222f',
-            },
-            accent: {
-              DEFAULT: '#34d399',
-              dim: '#10b981',
-              bright: '#6ee7b7',
-              glow: 'rgba(52, 211, 153, 0.15)',
-            },
-            muted: '#6b7280',
-          },
-          fontFamily: {
-            mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
-            sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
-          },
-        },
-      },
-    };
-  </script>
+  <!-- Styles (Tailwind Play CDN から手書き CSS に移行) -->
+  <link rel="stylesheet" href="styles.css" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -177,7 +150,7 @@
   <header class="border-b border-surface-3 animate-fade-up">
     <div class="max-w-5xl mx-auto px-6 py-14 md:py-20">
       <div class="flex items-center gap-3 mb-4">
-        <span class="inline-block w-2.5 h-2.5 rounded-full bg-accent shadow-[0_0_10px_rgba(52,211,153,0.5)]"></span>
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-accent glow-dot"></span>
         <span class="font-mono text-xs text-muted tracking-widest uppercase">Portfolio</span>
       </div>
       <h1 class="font-mono text-4xl md:text-5xl font-bold tracking-tight text-white cursor-blink">
@@ -362,7 +335,7 @@
         var pagesUrl = PAGES_BASE + repo.name + '/';
 
         var card = el('a', {
-          className: 'project-card rounded-xl border border-surface-3 bg-surface-1 p-6 flex flex-col gap-4 group no-underline focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 focus:ring-offset-surface-0',
+          className: 'project-card rounded-xl border border-surface-3 bg-surface-1 p-6 flex flex-col gap-4 no-underline card-focus',
           'href': repo.html_url,
           'target': '_blank',
           'rel': 'noopener noreferrer',
@@ -371,7 +344,7 @@
         // Header row: repo name + website link
         var headerRow = el('div', { className: 'flex items-start justify-between gap-2' });
         headerRow.appendChild(el('h3', {
-          className: 'font-mono text-base font-semibold text-white group-hover:text-accent transition-colors truncate',
+          className: 'font-mono text-base font-semibold text-white card-title transition-colors truncate',
           textContent: repo.name,
         }));
         if (hasPages) {
