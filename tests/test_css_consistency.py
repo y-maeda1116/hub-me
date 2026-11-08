@@ -18,7 +18,6 @@ TOKEN_RE = re.compile(r"^[a-zA-Z][a-zA-Z0-9./:-]*$")
 SELECTOR_RE = re.compile(r"\.([a-zA-Z][a-zA-Z0-9-]*(?:\\[:/.][a-zA-Z0-9./-]+)*)")
 
 COMMENT_RE = re.compile(r"/\*.*?\*/", re.S)
-STYLE_RE = re.compile(r"<style>(.*?)</style>", re.S)
 
 
 def read(path):
@@ -50,18 +49,18 @@ class TestTailwindCdnRemoved(unittest.TestCase):
         html = read("index.html")
         self.assertNotIn("cdn.tailwindcss.com", html, "Tailwind CDN が残っている")
         self.assertNotIn("tailwind.config", html, "tailwind.config が残っている")
+        self.assertNotIn("<style>", html, "インライン <style> が残っている(styles.css に統合)")
+        self.assertNotIn("<script>\n", html, "インライン <script> が残っている(app.js に外部化)")
         self.assertIn('href="styles.css"', html, "styles.css が読み込まれていない")
+        self.assertIn('src="app.js"', html, "app.js が読み込まれていない")
 
 
 class TestCssCoverage(unittest.TestCase):
     def setUp(self):
-        html = read("index.html")
-        self.used = used_tokens(html)
-        # styles.css に加えて index.html 内 <style> のカスタムクラスも定義扱いにする
+        # JS を app.js に外部化したため、使用クラスは index.html と app.js の両方から収集する
+        self.used = used_tokens(read("index.html") + "\n" + read("app.js"))
         self.defined_in_css = defined_tokens(read("styles.css"))
         self.defined = set(self.defined_in_css)
-        for m in STYLE_RE.finditer(html):
-            self.defined |= defined_tokens(m.group(1))
 
     def test_tokens_collected(self):
         self.assertGreater(len(self.used), 40, "クラスの収集に失敗した可能性")
@@ -71,7 +70,6 @@ class TestCssCoverage(unittest.TestCase):
         self.assertEqual(missing, [], f"定義がないクラス: {missing}")
 
     def test_no_unused_definitions_in_styles_css(self):
-        # index.html 内 <style> の予備クラス(delay-100 など)は対象外
         unused = sorted(self.defined_in_css - self.used)
         self.assertEqual(unused, [], f"styles.css に使用されていない定義: {unused}")
 
