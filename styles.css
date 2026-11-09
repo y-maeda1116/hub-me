@@ -1,7 +1,7 @@
 /*
  * Tailwind Play CDN の置換用スタイル。
- * index.html(静的 HTML と JS 生成の両方)で使用している utility クラスと
- * preflight 相当の最小限の reset のみを定義している。
+ * index.html / app.js(静的 HTML と JS 生成の両方)で使用している utility クラスと
+ * preflight 相当の最小限の reset、およびカスタムエフェクトを定義している。
  * 新しいクラスを使う場合はここに追加すること。
  */
 
@@ -17,6 +17,11 @@ html {
 body {
   margin: 0;
   line-height: inherit;
+  background-color: #0a0a0f;
+  color: #e5e7eb;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
@@ -187,4 +192,116 @@ svg {
 
 @media (min-width: 1024px) {
   .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* --- カスタムエフェクト(index.html のインライン <style> から移設) --- */
+
+/* Scan-line texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.008) 2px,
+    rgba(255, 255, 255, 0.008) 4px
+  );
+}
+
+/* Skeleton shimmer */
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #1a1a26 25%, #22222f 37%, #1a1a26 63%);
+  background-size: 800px 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+  border-radius: 6px;
+}
+
+/* Fade-in on load */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up { opacity: 0; animation: fadeUp 0.6s ease-out forwards; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-600 { animation-delay: 0.6s; }
+
+/* Card glow on hover */
+.project-card {
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, transparent 40%, rgba(52, 211, 153, 0.25));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(52, 211, 153, 0.08);
+}
+
+.project-card:hover::before { opacity: 1; }
+
+/* Tech badge hover */
+.tech-badge {
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.tech-badge:hover {
+  background-color: rgba(52, 211, 153, 0.15);
+  color: #34d399;
+  transform: translateY(-1px);
+}
+
+/* Cursor blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink::after {
+  content: '\2588';
+  animation: blink 1s step-end infinite;
+  color: #34d399;
+  margin-left: 2px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a0f; }
+::-webkit-scrollbar-thumb { background: #22222f; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #2a2a3a; }
+
+/* Star pulse */
+@keyframes starPulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+.star-icon { animation: starPulse 2s ease-in-out infinite; }
+
+/* Line-clamp fallback */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
