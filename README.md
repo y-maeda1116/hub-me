@@ -45,13 +45,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `divination-journal` — chore: update PoE data (_2026-11-14_)
 - `til` — Merge pull request #2 from y-maeda1116/y-maeda1116-patch-1 (_2026-11-13_)
 - `til` — Update weekly-task-board-概要-公開用.md (_2026-11-13_)
-- `til` — Merge pull request #1 from y-maeda1116/y-maeda1116-2026-11-13-01 (_2026-11-13_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 13 repos — working with **TypeScript**, **JavaScript**, **Python**, **CSS**, **HTML**
+Recently active in 11 repos — working with **TypeScript**, **JavaScript**, **CSS**, **HTML**, **Go**
 <!-- /CURRENT_FOCUS -->
