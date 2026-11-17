@@ -12,10 +12,10 @@
 <!-- REPO_STATUS_TABLE -->
 | Repository | Latest Release | Build Status | Open Issues | Open PRs |
 |---|---|---|---|---|
-| [divination-journal](https://github.com/y-maeda1116/divination-journal) | `N/A` | ![skipped](https://img.shields.io/badge/build/skipped-lightgrey) | [0](https://github.com/y-maeda1116/divination-journal/issues) | [2](https://github.com/y-maeda1116/divination-journal/pulls) |
+| [divination-journal](https://github.com/y-maeda1116/divination-journal) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/divination-journal/issues) | [0](https://github.com/y-maeda1116/divination-journal/pulls) |
 | [nihon-no-shiro](https://github.com/y-maeda1116/nihon-no-shiro) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/nihon-no-shiro/issues) | [0](https://github.com/y-maeda1116/nihon-no-shiro/pulls) |
 | [jre-green-trip](https://github.com/y-maeda1116/jre-green-trip) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/jre-green-trip/issues) | [0](https://github.com/y-maeda1116/jre-green-trip/pulls) |
-| [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![skipped](https://img.shields.io/badge/build/skipped-lightgrey) | [0](https://github.com/y-maeda1116/ts-template-base/issues) | [1](https://github.com/y-maeda1116/ts-template-base/pulls) |
+| [ts-template-base](https://github.com/y-maeda1116/ts-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/ts-template-base/issues) | [1](https://github.com/y-maeda1116/ts-template-base/pulls) |
 | [bean-watcher](https://github.com/y-maeda1116/bean-watcher) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/bean-watcher/issues) | [0](https://github.com/y-maeda1116/bean-watcher/pulls) |
 | [go-shichi-go](https://github.com/y-maeda1116/go-shichi-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/go-shichi-go/issues) | [1](https://github.com/y-maeda1116/go-shichi-go/pulls) |
 | [tokyo-hidden-transfers](https://github.com/y-maeda1116/tokyo-hidden-transfers) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/tokyo-hidden-transfers/issues) | [0](https://github.com/y-maeda1116/tokyo-hidden-transfers/pulls) |
@@ -25,7 +25,7 @@
 | [habit-tracker-pwa](https://github.com/y-maeda1116/habit-tracker-pwa) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/habit-tracker-pwa/issues) | [0](https://github.com/y-maeda1116/habit-tracker-pwa/pulls) |
 | [cam-cheat-sheet](https://github.com/y-maeda1116/cam-cheat-sheet) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [1](https://github.com/y-maeda1116/cam-cheat-sheet/issues) | [1](https://github.com/y-maeda1116/cam-cheat-sheet/pulls) |
 | [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/sumida-stream-coffee/issues) | [0](https://github.com/y-maeda1116/sumida-stream-coffee/pulls) |
-| [Playful-Learning-Hub](https://github.com/y-maeda1116/Playful-Learning-Hub) | `N/A` | ![skipped](https://img.shields.io/badge/build/skipped-lightgrey) | [2](https://github.com/y-maeda1116/Playful-Learning-Hub/issues) | [1](https://github.com/y-maeda1116/Playful-Learning-Hub/pulls) |
+| [Playful-Learning-Hub](https://github.com/y-maeda1116/Playful-Learning-Hub) | `N/A` | ![skipped](https://img.shields.io/badge/build/skipped-lightgrey) | [3](https://github.com/y-maeda1116/Playful-Learning-Hub/issues) | [1](https://github.com/y-maeda1116/Playful-Learning-Hub/pulls) |
 | [terraform-aws-golden-path](https://github.com/y-maeda1116/terraform-aws-golden-path) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/terraform-aws-golden-path/issues) | [0](https://github.com/y-maeda1116/terraform-aws-golden-path/pulls) |
 | [tenki-fuku-bot](https://github.com/y-maeda1116/tenki-fuku-bot) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/tenki-fuku-bot/issues) | [0](https://github.com/y-maeda1116/tenki-fuku-bot/pulls) |
 | [discord-trans-helper](https://github.com/y-maeda1116/discord-trans-helper) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/discord-trans-helper/issues) | [0](https://github.com/y-maeda1116/discord-trans-helper/pulls) |
@@ -35,7 +35,7 @@
 | [math-training-kids](https://github.com/y-maeda1116/math-training-kids) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/math-training-kids/issues) | [0](https://github.com/y-maeda1116/math-training-kids/pulls) |
 | [games](https://github.com/y-maeda1116/games) | `N/A` | ![skipped](https://img.shields.io/badge/build/skipped-lightgrey) | [0](https://github.com/y-maeda1116/games/issues) | [1](https://github.com/y-maeda1116/games/pulls) |
 | [kuku19-master](https://github.com/y-maeda1116/kuku19-master) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/kuku19-master/issues) | [0](https://github.com/y-maeda1116/kuku19-master/pulls) |
-| [python-template-base](https://github.com/y-maeda1116/python-template-base) | `N/A` | ![skipped](https://img.shields.io/badge/build/skipped-lightgrey) | [0](https://github.com/y-maeda1116/python-template-base/issues) | [1](https://github.com/y-maeda1116/python-template-base/pulls) |
+| [python-template-base](https://github.com/y-maeda1116/python-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/python-template-base/issues) | [1](https://github.com/y-maeda1116/python-template-base/pulls) |
 | [kaminarimon-lunch-map](https://github.com/y-maeda1116/kaminarimon-lunch-map) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/kaminarimon-lunch-map/issues) | [0](https://github.com/y-maeda1116/kaminarimon-lunch-map/pulls) |
 | [29cm-less-than-30](https://github.com/y-maeda1116/29cm-less-than-30) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/29cm-less-than-30/issues) | [0](https://github.com/y-maeda1116/29cm-less-than-30/pulls) |
 | [til](https://github.com/y-maeda1116/til) | `N/A` | ![skipped](https://img.shields.io/badge/build/skipped-lightgrey) | [0](https://github.com/y-maeda1116/til/issues) | [0](https://github.com/y-maeda1116/til/pulls) |
@@ -45,13 +45,13 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `template-go-cross` — chore: 未使用のmockとpy/ts用reusable workflowを削除 (#29) (_2026-11-16_)
-- `games` — fix: shogi 後手の成り判定に残存するデッドコード(|| true)を除去 (#31) (_2026-11-16_)
-- `security-base` — fix: tighten errcheck/gosec exclusions in shared golangci config (#99) (_2026-11-16_)
+- `divination-journal` — feat: URL hash ベースのルーティングで deep link とブラウザバックに対応 (#32) (_2026-11-17_)
+- `divination-journal` — feat: Stats ページにプレイアクティビティ ヒートマップを追加 (#33) (_2026-11-17_)
+- `divination-journal` — chore: update PoE data (_2026-11-17_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 6 repos — working with **JavaScript**, **TypeScript**, **Go**, **CSS**, **HTML**
+Recently active in 5 repos — working with **JavaScript**, **Go**, **TypeScript**, **CSS**, **HTML**
 <!-- /CURRENT_FOCUS -->
