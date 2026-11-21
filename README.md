@@ -23,7 +23,7 @@
 | [toil-buster-cli](https://github.com/y-maeda1116/toil-buster-cli) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/toil-buster-cli/issues) | [0](https://github.com/y-maeda1116/toil-buster-cli/pulls) |
 | [pack-and-go](https://github.com/y-maeda1116/pack-and-go) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/pack-and-go/issues) | [0](https://github.com/y-maeda1116/pack-and-go/pulls) |
 | [habit-tracker-pwa](https://github.com/y-maeda1116/habit-tracker-pwa) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/habit-tracker-pwa/issues) | [0](https://github.com/y-maeda1116/habit-tracker-pwa/pulls) |
-| [cam-cheat-sheet](https://github.com/y-maeda1116/cam-cheat-sheet) | `N/A` | ![skipped](https://img.shields.io/badge/build/skipped-lightgrey) | [0](https://github.com/y-maeda1116/cam-cheat-sheet/issues) | [3](https://github.com/y-maeda1116/cam-cheat-sheet/pulls) |
+| [cam-cheat-sheet](https://github.com/y-maeda1116/cam-cheat-sheet) | `N/A` | ![skipped](https://img.shields.io/badge/build/skipped-lightgrey) | [0](https://github.com/y-maeda1116/cam-cheat-sheet/issues) | [2](https://github.com/y-maeda1116/cam-cheat-sheet/pulls) |
 | [sumida-stream-coffee](https://github.com/y-maeda1116/sumida-stream-coffee) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/sumida-stream-coffee/issues) | [0](https://github.com/y-maeda1116/sumida-stream-coffee/pulls) |
 | [Playful-Learning-Hub](https://github.com/y-maeda1116/Playful-Learning-Hub) | `N/A` | ![skipped](https://img.shields.io/badge/build/skipped-lightgrey) | [3](https://github.com/y-maeda1116/Playful-Learning-Hub/issues) | [1](https://github.com/y-maeda1116/Playful-Learning-Hub/pulls) |
 | [terraform-aws-golden-path](https://github.com/y-maeda1116/terraform-aws-golden-path) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/terraform-aws-golden-path/issues) | [0](https://github.com/y-maeda1116/terraform-aws-golden-path/pulls) |
@@ -45,9 +45,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `cam-cheat-sheet` — Merge pull request #12 from y-maeda1116/test/component-tests (_2026-11-20_)
-- `divination-journal` — chore: update PoE data (_2026-11-20_)
-- `divination-journal` — chore: update PoE data (_2026-11-19_)
+- `cam-cheat-sheet` — Merge pull request #27 from y-maeda1116/fix/dep-drift (_2026-11-21_)
+- `divination-journal` — chore: update PoE data (_2026-11-21_)
+- `cam-cheat-sheet` — build(deps): pin TS6/TS7 npm alias to exact versions to stop lock drift (_2026-11-20_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
