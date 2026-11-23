@@ -55,3 +55,7 @@
 <!-- CURRENT_FOCUS -->
 Recently active in 5 repos — working with **TypeScript**, **JavaScript**, **CSS**, **Go**, **HTML**
 <!-- /CURRENT_FOCUS -->
+
+## Language Versions
+
+各リポジトリで利用している言語のバージョン一覧 → [docs/LANGUAGE-VERSIONS.md](docs/LANGUAGE-VERSIONS.md)
