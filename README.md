@@ -45,9 +45,9 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `hub-me` — refactor: index.html のインラインCSS/JS外部化 + 言語バージョン一覧ドキュメント追加 (#15) (_2026-11-23_)
 - `nihon-no-shiro` — Merge pull request #26 from y-maeda1116/dependabot/npm_and_yarn/typescript-eslint-8.73.0 (_2026-11-22_)
 - `nihon-no-shiro` — fix(deps): pin @typescript/native to 7.1.0-beta for typescript-eslint 8.73 peer (_2026-11-22_)
-- `cam-cheat-sheet` — Merge pull request #39 from y-maeda1116/feat/alpha-tips (_2026-11-22_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
