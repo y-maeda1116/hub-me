@@ -45,15 +45,15 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `divination-journal` — chore: update PoE data (_2026-11-24_)
 - `ts-template-base` — chore: npm 依存を最新に更新 (eslint 10.15, vitest 5.1.1, prettier 3.10.1, typescript-eslint 8.73.0 ほか) (#89) (_2026-11-23_)
 - `python-template-base` — chore: 依存を最新化し CI の Python を 3.15 へ更新 (mypy 2.4.1 ほか) (#39) (_2026-11-23_)
-- `python-template-base` — chore: sync security-base security-base@351cfe6 (#37) (_2026-11-23_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 8 repos — working with **TypeScript**, **JavaScript**, **CSS**, **Python**, **Go**
+Recently active in 7 repos — working with **TypeScript**, **JavaScript**, **CSS**, **Python**, **HTML**
 <!-- /CURRENT_FOCUS -->
 
 ## Language Versions
