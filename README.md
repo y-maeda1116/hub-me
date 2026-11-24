@@ -31,11 +31,11 @@
 | [discord-trans-helper](https://github.com/y-maeda1116/discord-trans-helper) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/discord-trans-helper/issues) | [0](https://github.com/y-maeda1116/discord-trans-helper/pulls) |
 | [Weekly-Task-Board](https://github.com/y-maeda1116/Weekly-Task-Board) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/Weekly-Task-Board/issues) | [0](https://github.com/y-maeda1116/Weekly-Task-Board/pulls) |
 | [ops-ai-agent](https://github.com/y-maeda1116/ops-ai-agent) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/ops-ai-agent/issues) | [0](https://github.com/y-maeda1116/ops-ai-agent/pulls) |
-| [template-go-cross](https://github.com/y-maeda1116/template-go-cross) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/template-go-cross/issues) | [1](https://github.com/y-maeda1116/template-go-cross/pulls) |
+| [template-go-cross](https://github.com/y-maeda1116/template-go-cross) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/template-go-cross/issues) | [2](https://github.com/y-maeda1116/template-go-cross/pulls) |
 | [math-training-kids](https://github.com/y-maeda1116/math-training-kids) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/math-training-kids/issues) | [0](https://github.com/y-maeda1116/math-training-kids/pulls) |
 | [games](https://github.com/y-maeda1116/games) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/games/issues) | [0](https://github.com/y-maeda1116/games/pulls) |
 | [kuku19-master](https://github.com/y-maeda1116/kuku19-master) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/kuku19-master/issues) | [0](https://github.com/y-maeda1116/kuku19-master/pulls) |
-| [python-template-base](https://github.com/y-maeda1116/python-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/python-template-base/issues) | [1](https://github.com/y-maeda1116/python-template-base/pulls) |
+| [python-template-base](https://github.com/y-maeda1116/python-template-base) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/python-template-base/issues) | [0](https://github.com/y-maeda1116/python-template-base/pulls) |
 | [kaminarimon-lunch-map](https://github.com/y-maeda1116/kaminarimon-lunch-map) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/kaminarimon-lunch-map/issues) | [0](https://github.com/y-maeda1116/kaminarimon-lunch-map/pulls) |
 | [29cm-less-than-30](https://github.com/y-maeda1116/29cm-less-than-30) | `N/A` | ![passing](https://img.shields.io/badge/build-passing-brightgreen) | [0](https://github.com/y-maeda1116/29cm-less-than-30/issues) | [0](https://github.com/y-maeda1116/29cm-less-than-30/pulls) |
 | [til](https://github.com/y-maeda1116/til) | `N/A` | ![skipped](https://img.shields.io/badge/build/skipped-lightgrey) | [0](https://github.com/y-maeda1116/til/issues) | [0](https://github.com/y-maeda1116/til/pulls) |
@@ -45,15 +45,15 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
-- `hub-me` — refactor: index.html のインラインCSS/JS外部化 + 言語バージョン一覧ドキュメント追加 (#15) (_2026-11-23_)
-- `nihon-no-shiro` — Merge pull request #26 from y-maeda1116/dependabot/npm_and_yarn/typescript-eslint-8.73.0 (_2026-11-22_)
-- `nihon-no-shiro` — fix(deps): pin @typescript/native to 7.1.0-beta for typescript-eslint 8.73 peer (_2026-11-22_)
+- `ts-template-base` — chore: npm 依存を最新に更新 (eslint 10.15, vitest 5.1.1, prettier 3.10.1, typescript-eslint 8.73.0 ほか) (#89) (_2026-11-23_)
+- `python-template-base` — chore: 依存を最新化し CI の Python を 3.15 へ更新 (mypy 2.4.1 ほか) (#39) (_2026-11-23_)
+- `python-template-base` — chore: sync security-base security-base@351cfe6 (#37) (_2026-11-23_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 5 repos — working with **TypeScript**, **JavaScript**, **CSS**, **Go**, **HTML**
+Recently active in 8 repos — working with **TypeScript**, **JavaScript**, **CSS**, **Python**, **Go**
 <!-- /CURRENT_FOCUS -->
 
 ## Language Versions
