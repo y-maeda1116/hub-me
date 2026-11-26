@@ -45,15 +45,15 @@
 ## Recent Activity
 
 <!-- RECENT_COMMITS -->
+- `divination-journal` — chore: update PoE data (_2026-11-26_)
 - `divination-journal` — chore: update PoE data (_2026-11-25_)
 - `Playful-Learning-Hub` — Merge pull request #39 from y-maeda1116/refactor/37-root-structure (_2026-11-25_)
-- `divination-journal` — chore: update PoE data (_2026-11-24_)
 <!-- /RECENT_COMMITS -->
 
 ## Current Focus
 
 <!-- CURRENT_FOCUS -->
-Recently active in 6 repos — working with **TypeScript**, **Python**, **CSS**, **JavaScript**, **Shell**
+Recently active in 5 repos — working with **TypeScript**, **Python**, **JavaScript**, **CSS**, **Shell**
 <!-- /CURRENT_FOCUS -->
 
 ## Language Versions
